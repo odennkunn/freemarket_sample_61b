@@ -16,7 +16,6 @@
 ### association
   - has_many :comments
   - has_many :items
-  - has_many :user_items
   - has_many :credit_cards
   - has_many :residence, through: :user_residences
   - has_many :user_residences
