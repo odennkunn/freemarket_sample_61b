@@ -3,7 +3,7 @@
 ## usersテーブル
 |Column|Type|Options|
 |------|----|-------|
-|nickname|string|null: false|
+|nickname|string|null: false, unique: true|
 |email|string|null: false|
 |password|string|null: false|
 |family_name|string|null: false|
@@ -26,8 +26,8 @@
 |Column|Type|Options|
 |------|----|-------|
 |text|text|null: false|
-|user_id|integer|foreign_key true|
-|items_id|integer|foreign_key true|
+|user_id|references|foreign_key true|
+|items_id|references|foreign_key true|
 
 ### association
   - belongs_to :item
@@ -44,8 +44,8 @@
 |status|string|null: false|
 |delivery_fee|integer|null: false|
 |delivery_area|string|null: false|
-|user_id|integer|foreign_key true|
-|category_id|integer|foreign_key true|
+|user_id|references|foreign_key true|
+|category_id|references|foreign_key true|
 
 ### association
   - has_many :comments
@@ -65,7 +65,7 @@
 ## imagesテーブル
 |Column|Type|Options|
 |------|----|-------|
-|item_id|integer|foreign_key true|
+|item_id|references|foreign_key true|
 |image|string|null: false|
 
 ### association
@@ -74,8 +74,8 @@
 ## user_itemsテーブル
 |Column|Type|Options|
 |------|----|-------|
-|user_id|integer|foreign_key :true|
-|items_id|integer|foreign_key :true|
+|user_id|references|foreign_key :true|
+|items_id|references|foreign_key :true|
 
 ### association
   - belongs_to item
@@ -87,7 +87,7 @@
 |card_number|integer|null: false|
 |expiration_date|integer|null: false|
 |security_number|integer|null: false|
-|user_id|integer|foreign_key :true|
+|user_id|references|foreign_key :true|
 
 ### association
   - belongs_to user
