@@ -60,7 +60,7 @@
 |name|string|null: false|
 
 ### association
-  - has_many items
+  - has_many :items
 
 ## imagesテーブル
 |Column|Type|Options|
@@ -69,7 +69,7 @@
 |image|string|null: false|
 
 ### association
-  - belongs_to item
+  - belongs_to :item
 
 ## user_itemsテーブル
 |Column|Type|Options|
@@ -78,8 +78,8 @@
 |items_id|references|foreign_key :true|
 
 ### association
-  - belongs_to item
-  - belongs_to user
+  - belongs_to :item
+  - belongs_to :user
 
 ## credit_cardsテーブル
 |Column|Type|Options|
@@ -90,7 +90,7 @@
 |user_id|references|foreign_key :true|
 
 ### association
-  - belongs_to user
+  - belongs_to :user
 
 ## blandsテーブル
 |Column|Type|Options|
