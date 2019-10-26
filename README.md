@@ -14,11 +14,11 @@
 |phone_number|string|
 
 ### association
-  - has_many :comments
-  - has_many :items
-  - has_many :credit_cards
-  - has_many :residence, through: :user_residences
-  - has_many :user_residences
+  - has_many :comments, dependent: :destroy
+  - has_many :items, dependent: :destroy
+  - has_many :credit_cards, dependent: :destroy
+  - has_many :residence, through: :user_residences, dependent: :destroy
+  - has_many :user_residences, dependent: :destroy
 
 
 ## commentsテーブル
@@ -46,8 +46,8 @@
 |category_id|references|foreign_key: true|
 
 ### association
-  - has_many :comments
-  - has_many :image
+  - has_many :comments, dependent: :destroy
+  - has_many :image, dependent: :destroy
   - belongs_to :category
   - belongs_to :bland
   - belongs_to :user
