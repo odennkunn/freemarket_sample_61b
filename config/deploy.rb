@@ -2,7 +2,7 @@
 lock "~> 3.11.2"
 
 set :application, "freemarket_sample_61b"
-set :repo_url, "git@example.com:odennkunn/freemarket_sample_61b.git"
+set :repo_url, "git@github.com:odennkunn/freemarket_sample_61b.git"
 
 # Default branch is :master
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
@@ -46,7 +46,8 @@ set :rbenv_ruby, '2.5.1' #カリキュラム通りに進めた場合、2.5.1か2
 
 # どの公開鍵を利用してデプロイするか
 set :ssh_options, auth_methods: ['publickey'],
-                  keys: ['~/.ssh/mercari.pem']  ※例：~/.ssh/key_pem.pem
+                  keys: ['~/.ssh/mercari.pem']  
+                  # ※例：~/.ssh/key_pem.pem
 
 # プロセス番号を記載したファイルの場所
 set :unicorn_pid, -> { "#{shared_path}/tmp/pids/unicorn.pid" }
