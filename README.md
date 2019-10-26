@@ -10,7 +10,7 @@
 |last_name|string|null: false|
 |kana_family_name|string|null: false|
 |kana_last_name|string|null: false|
-|birthday|string|null: false|
+|birthday|date|null: false|
 |prefecture|string|null: false|
 |municipal|string|null: false|
 |address|string|null: false|
