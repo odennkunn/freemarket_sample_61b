@@ -98,7 +98,7 @@
 |name|string|null: false|
 
 ### association
-has_many :items
+  - has_many :items
 
 
 
