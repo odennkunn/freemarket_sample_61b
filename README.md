@@ -40,7 +40,6 @@
 |explanation|text|null: false|
 |price|integer|null: false|
 |size|integer|null: false|
-|bland|string|null: false|
 |status|string|null: false|
 |delivery_fee|integer|null: false|
 |delivery_area|string|null: false|
@@ -53,6 +52,7 @@
   - has_many :users, through: :user_items
   - has_many :user_items
   - belongs_to :category
+  - belongs_to :bland
 
 ## categorysテーブル
 |Column|Type|Options|
@@ -81,7 +81,7 @@
   - belongs_to item
   - belongs_to user
 
-## credit_cardテーブル
+## credit_cardsテーブル
 |Column|Type|Options|
 |------|----|-------|
 |card_number|integer|null: false|
@@ -91,6 +91,14 @@
 
 ### association
   - belongs_to user
+
+## blandsテーブル
+|Column|Type|Options|
+|------|----|-------|
+|name|string|null: false|
+
+### association
+has_many :items
 
 
 
