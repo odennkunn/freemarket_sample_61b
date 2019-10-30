@@ -1,6 +1,5 @@
 # DB設計
-テスト
-テスト２
+
 ## usersテーブル
 |Column|Type|Options|
 |------|----|-------|
@@ -20,7 +19,6 @@
   - has_many :credit_cards, dependent: :destroy
   - has_many :residence, through: :user_residences, dependent: :destroy
   - has_many :user_residences, dependent: :destroy
-
 
 ## commentsテーブル
 |Column|Type|Options|
