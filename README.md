@@ -10,17 +10,15 @@
 |last_name|string|null: false|
 |kana_family_name|string|null: false|
 |kana_last_name|string|null: false|
-|prefecture|string|null: false|
-|municipal|string|null: false|
-|address|string|null: false|
-|building|string|null: false|
-|phone_number|string|null: false|
+|birthday|date|null: false|
+|phone_number|string|
 
 ### association
-  - has_many :comments
-  - has_many :items, through: :user_items
-  - has_many :user_items
-  - has_many :credit_cards
+  - has_many :comments, dependent: :destroy
+  - has_many :items, dependent: :destroy
+  - has_many :credit_cards, dependent: :destroy
+  - has_many :residence, through: :user_residences, dependent: :destroy
+  - has_many :user_residences, dependent: :destroy
 
 ## commentsテーブル
 |Column|Type|Options|
@@ -47,12 +45,11 @@
 |category_id|references|foreign_key: true|
 
 ### association
-  - has_many :comments
-  - has_many :image
-  - has_many :users, through: :user_items
-  - has_many :user_items
+  - has_many :comments, dependent: :destroy
+  - has_many :image, dependent: :destroy
   - belongs_to :category
   - belongs_to :bland
+  - belongs_to :user
 
 ## categorysテーブル
 |Column|Type|Options|
@@ -70,16 +67,6 @@
 
 ### association
   - belongs_to :item
-
-## user_itemsテーブル
-|Column|Type|Options|
-|------|----|-------|
-|user_id|references|foreign_key: true|
-|items_id|references|foreign_key: true|
-
-### association
-  - belongs_to :item
-  - belongs_to :user
 
 ## credit_cardsテーブル
 |Column|Type|Options|
@@ -100,5 +87,26 @@
 ### association
   - has_many :items
 
+## residencesテーブル
+|Column|Type|Options|
+|------|----|-------|
+|user_id|references|foreign_key: true|
+|address_number|integer|null: false|
+|prefecture|string|null: false|
+|municipal|string|null: false|
+|address|string|null: false|
+|building|string|
 
+### association
+  - has_many :users, through: :user_residences
+  - has_many :user_residences
 
+## user_residencesテーブル
+|Column|Type|Options|
+|------|----|-------|
+|user_id|references|foreign_key: true|
+|residence_id|references|foreign_key: true|
+
+### association
+  - belongs_to :user
+  - belongs_to :residence

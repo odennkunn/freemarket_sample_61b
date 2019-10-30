@@ -1,0 +1,250 @@
+%header.header
+  .header__inner
+    .header__inner__top
+      =link_to "https://www.mercari.com/jp/" do
+        =image_tag "//www-mercari-jp.akamaized.net/assets/img/common/common/logo.svg?863303983" ,alt: "mercari", height: "36", width: "134"
+      %form.header-form{action: "https://www.mercari.com/jp/search/"}
+        %input.input-default{name: "keyword", placeholder: "何かお探しですか？", type: "search", value: ""}/
+        = fa_icon 'search'
+    .header__inner__bottom.clearfix
+      .header__inner__bottom--left
+        =link_to "https://www.mercari.com/jp/category/" ,class:"header__category" do
+          = fa_icon 'list-ul', class: "left"
+          %span カテゴリーから探す
+        =link_to "https://www.mercari.com/jp/brand/" , class:"header__brand" do 
+          = fa_icon 'tag', class: "left"
+          %span ブランドから探す
+      .header__inner__bottom--right
+        =link_to "新規会員登録" , "https://www.mercari.com/jp/signup/" ,class:"header-btn-red"
+        =link_to "ログイン", "https://www.mercari.com/jp/login/?login_callback=https%3A%2F%2Fwww.mercari.com%2Fjp%2F" ,class:"header-btn-login"
+
+.header-img
+  %img{alt: "index_01", src: "assets/index_01",}
+
+.main-content
+  .pickup-container
+    .pickup-header
+      %h2.pickup-header__name
+        人気のカテゴリ
+      .pickup-header__categoly
+        %ul
+          %li
+            シャネル
+          %li
+            ルイヴィトン
+          %li
+            シュプリーム
+  .content  
+    .content__title シャネル新着アイテム
+    .view-all もっとみる>
+    .content__box 
+      .item 
+        =link_to root_path do
+          .item__image
+          = image_tag "https://static.mercdn.net/item/detail/orig/photos/m40999492323_1.jpg?1572230260", alt: "", height: "188", width: "188"
+          .item__text
+            .item__text__name キテレツ大百科
+            .item__text__num  
+              .item__text__num--price ¥7,000
+      .item 
+        =link_to root_path do
+          .item__image
+          = image_tag "https://static.mercdn.net/item/detail/orig/photos/m40999492323_1.jpg?1572230260", alt: "", height: "188", width: "188"
+          .item__text
+            .item__text__name パーマン
+            .item__text__num  
+              .item__text__num--price ¥7,000
+      .item 
+        =link_to root_path do
+          .item__image
+          = image_tag "https://static.mercdn.net/item/detail/orig/photos/m40999492323_1.jpg?1572230260", alt: "", height: "188", width: "188"
+          .item__text
+            .item__text__name モジャ公
+            .item__text__num  
+              .item__text__num--price ¥7,000
+      .item 
+        =link_to root_path do
+          .item__image
+          = image_tag "https://static.mercdn.net/item/detail/orig/photos/m40999492323_1.jpg?1572230260", alt: "", height: "188", width: "188"
+          .item__text
+            .item__text__name お化けのQ太郎
+            .item__text__num  
+              .item__text__num--price ¥7,000
+      .item 
+        =link_to root_path do
+          .item__image
+          = image_tag "https://static.mercdn.net/item/detail/orig/photos/m40999492323_1.jpg?1572230260", alt: "", height: "188", width: "188"
+          .item__text
+            .item__text__name パラソルへんベェ
+            .item__text__num  
+              .item__text__num--price ¥7,000
+  .content  
+    .content__title ルイヴィトン新着アイテム
+    .view-all もっとみる>
+    .content__box 
+      .item 
+        =link_to root_path do
+          .item__image
+          = image_tag "https://static.mercdn.net/item/detail/orig/photos/m40999492323_1.jpg?1572230260", alt: "", height: "188", width: "188"
+          .item__text
+            .item__text__name ドラえもん
+            .item__text__num  
+              .item__text__num--price ¥7,000
+      .item 
+        =link_to root_path do
+          .item__image
+          = image_tag "https://static.mercdn.net/item/detail/orig/photos/m40999492323_1.jpg?1572230260", alt: "", height: "188", width: "188"
+          .item__text
+            .item__text__name のび太
+            .item__text__num  
+              .item__text__num--price ¥7,000
+      .item 
+        =link_to root_path do
+          .item__image
+          = image_tag "https://static.mercdn.net/item/detail/orig/photos/m40999492323_1.jpg?1572230260", alt: "", height: "188", width: "188"
+          .item__text
+            .item__text__name スネ夫
+            .item__text__num  
+              .item__text__num--price ¥7,000
+      .item 
+        =link_to root_path do
+          .item__image
+          = image_tag "https://static.mercdn.net/item/detail/orig/photos/m40999492323_1.jpg?1572230260", alt: "", height: "188", width: "188"
+          .item__text
+            .item__text__name ジャイアン
+            .item__text__num  
+              .item__text__num--price ¥7,000
+      .item 
+        =link_to root_path do
+          .item__image
+          = image_tag "https://static.mercdn.net/item/detail/orig/photos/m40999492323_1.jpg?1572230260", alt: "", height: "188", width: "188"
+          .item__text
+            .item__text__name しずか
+            .item__text__num  
+              .item__text__num--price ¥7,000
+  .content  
+    .content__title シュプリーム新着アイテム
+    .view-all もっとみる>
+    .content__box 
+      .item 
+        =link_to root_path do
+          .item__image
+          = image_tag "https://static.mercdn.net/item/detail/orig/photos/m40999492323_1.jpg?1572230260", alt: "", height: "188", width: "188"
+          .item__text
+            .item__text__name 野比のび太
+            .item__text__num  
+              .item__text__num--price ¥7,000
+      .item 
+        =link_to root_path do
+          .item__image
+          = image_tag "https://static.mercdn.net/item/detail/orig/photos/m40999492323_1.jpg?1572230260", alt: "", height: "188", width: "188"
+          .item__text
+            .item__text__name 骨川スネ夫
+            .item__text__num  
+              .item__text__num--price ¥7,000
+      .item 
+        =link_to root_path do
+          .item__image
+          = image_tag "https://static.mercdn.net/item/detail/orig/photos/m40999492323_1.jpg?1572230260", alt: "", height: "188", width: "188"
+          .item__text
+            .item__text__name 剛田武
+            .item__text__num  
+              .item__text__num--price ¥7,000
+      .item 
+        =link_to root_path do
+          .item__image
+          = image_tag "https://static.mercdn.net/item/detail/orig/photos/m40999492323_1.jpg?1572230260", alt: "", height: "188", width: "188"
+          .item__text
+            .item__text__name 源静香
+            .item__text__num  
+              .item__text__num--price ¥7,000
+      .item 
+        =link_to root_path do
+          .item__image
+          = image_tag "https://static.mercdn.net/item/detail/orig/photos/m40999492323_1.jpg?1572230260", alt: "", height: "188", width: "188"
+          .item__text
+            .item__text__name ドラミちゃん
+            .item__text__num  
+              .item__text__num--price ¥7,000
+
+.footer-img
+  %img{alt: "index_02", src: "assets/index_02",}
+
+.footer
+  %nav.clearfix
+    .footer__cell
+      %h2.footer__cell--head メルカリについて
+      %ul
+        %li
+          %a 会社概要（運営会社）
+        %li
+          %a 採用情報
+        %li
+          %a プレスリリース
+        %li
+          %a 公式ブログ
+        %li
+          %a メルカリロゴ利用ガイドライン
+        %li.footer__cell--head--sns
+          =link_to "https://twitter.com/mercari_jp" ,class:"_blank" do
+            = fa_icon 'twitter', class: "sns"
+          =link_to "https://www.facebook.com/mercarijp" ,class:"_blank" do
+            = fa_icon 'facebook-square', class: "sns"
+    .footer__cell
+      %h2.footer__cell--head ヘルプ＆ガイド
+      %ul
+        %li
+          %a メルカリガイド
+        %li
+          %a らくらくメルカリ便
+        %li
+          %a ゆうゆうメルカリ便
+        %li
+          %a 大型メルカリ便
+        %li
+          %a 車体取引ガイド
+        %li
+          %a メルカリあんしん・あんぜん宣言！
+        %li
+          %a 偽ブランド品撲滅への取り組み
+        %li
+          %a メルカリボックス
+    .footer__cell
+      %h2.footer__cell--head プライバシーと利用規約
+      .footer__cell--list
+        .footer__cell--inner
+          %ul
+            %li
+              %a プライバシーポリシー
+            %li
+              %a メルカリ利用規約
+            %li
+              %a あんしんスマホサポート制度に関する利用特約
+            %li
+              %a コンプライアンスポリシー
+        .footer__cell--inner
+          %ul
+            %li
+              %a 個人データの安全管理に係る基本方針
+            %li
+              %a 特定商取引に関する表記
+            %li
+              %a 資金決済法に基づく表示
+            %li
+              %a 法令順守と犯罪抑止のために
+    .footer__cell.footer-nav-lang
+      %h2.footer__cell--head 国
+      %ul
+        %li
+          %a.active 日本
+        %li
+          %a United States
+  .footer__bottom
+    =link_to "https://www.mercari.com/jp/" ,class: "footer__bottom--logo" do
+      = image_tag "//www-mercari-jp.akamaized.net/assets/img/common/common/logo-white.svg?863303983", alt: "mercari", height: "33", width: "124"
+    %span.footer__bottom--copyright
+      © 2019 Mercari
+.footer-self-btn
+  出品
+  %br
+  = fa_icon 'camera',class:"camera"
