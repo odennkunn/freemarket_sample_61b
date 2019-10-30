@@ -176,75 +176,75 @@
       %h2.footer__cell--head メルカリについて
       %ul
         %li
-          %a{href: "https://about.mercari.com/"} 会社概要（運営会社）
+          %a 会社概要（運営会社）
         %li
-          %a{href: "https://www.mercari.com/jp/jobs/"} 採用情報
+          %a 採用情報
         %li
-          %a{href: "https://about.mercari.com/press/news/"} プレスリリース
+          %a プレスリリース
         %li
-          %a{href: "https://jp-news.mercari.com/", target: "_blank"} 公式ブログ
+          %a 公式ブログ
         %li
-          %a{href: "https://www.mercari.com/jp/logo-guidelines/"} メルカリロゴ利用ガイドライン
+          %a メルカリロゴ利用ガイドライン
         %li.footer__cell--head--sns
-          %a{href: "https://twitter.com/mercari_jp", target: "_blank"}
-            = fa_icon 'twitter',class:"sns"
-          %a{href: "https://www.facebook.com/mercarijp", target: "_blank"}
-            = fa_icon 'facebook-square',class:"sns"
+          =link_to "https://twitter.com/mercari_jp" ,class:"_blank" do
+            = fa_icon 'twitter', class: "sns"
+          =link_to "https://www.facebook.com/mercarijp" ,class:"_blank" do
+            = fa_icon 'facebook-square', class: "sns"
     .footer__cell
       %h2.footer__cell--head ヘルプ＆ガイド
       %ul
         %li
-          %a{href: "https://www.mercari.com/jp/help_center/"} メルカリガイド
+          %a メルカリガイド
         %li
-          %a{href: "https://www.mercari.com/jp/rakuraku-mercari/"} らくらくメルカリ便
+          %a らくらくメルカリ便
         %li
-          %a{href: "https://www.mercari.com/jp/yuyu-mercari/"} ゆうゆうメルカリ便
+          %a ゆうゆうメルカリ便
         %li
-          %a{href: "https://www.mercari.com/jp/rakuraku-ogata/"} 大型メルカリ便
+          %a 大型メルカリ便
         %li
-          %a{href: "https://www.mercari.com/jp/guide/car/"} 車体取引ガイド
+          %a 車体取引ガイド
         %li
-          %a{href: "https://www.mercari.com/jp/safe/description/", target: "_blank"} メルカリあんしん・あんぜん宣言！
+          %a メルカリあんしん・あんぜん宣言！
         %li
-          %a{href: "https://www.mercari.com/jp/authenticity/"} 偽ブランド品撲滅への取り組み
+          %a 偽ブランド品撲滅への取り組み
         %li
-          %a{href: "https://www.mercari.com/jp/box/"} メルカリボックス
+          %a メルカリボックス
     .footer__cell
       %h2.footer__cell--head プライバシーと利用規約
       .footer__cell--list
         .footer__cell--inner
           %ul
             %li
-              %a{href: "https://www.mercari.com/jp/privacy/"} プライバシーポリシー
+              %a プライバシーポリシー
             %li
-              %a{href: "https://www.mercari.com/jp/tos/"} メルカリ利用規約
+              %a メルカリ利用規約
             %li
-              %a{href: "https://www.mercari.com/jp/tos_smartphone_support/"} あんしんスマホサポート制度に関する利用特約
+              %a あんしんスマホサポート制度に関する利用特約
             %li
-              %a{href: "https://www.mercari.com/jp/compliance/"} コンプライアンスポリシー
+              %a コンプライアンスポリシー
         .footer__cell--inner
           %ul
             %li
-              %a{href: "https://www.mercari.com/jp/data_security/"} 個人データの安全管理に係る基本方針
+              %a 個人データの安全管理に係る基本方針
             %li
-              %a{href: "https://www.mercari.com/jp/tokutei/"} 特定商取引に関する表記
+              %a 特定商取引に関する表記
             %li
-              %a{href: "https://www.mercari.com/jp/shikin_kessai/"} 資金決済法に基づく表示
+              %a 資金決済法に基づく表示
             %li
-              %a{href: "https://about.mercari.com/csr/safety/"} 法令順守と犯罪抑止のために
+              %a 法令順守と犯罪抑止のために
     .footer__cell.footer-nav-lang
       %h2.footer__cell--head 国
       %ul
         %li
-          %a.active{href: "https://www.mercari.com/jp/"} 日本
+          %a.active 日本
         %li
-          %a{href: "https://www.mercari.com/"} United States
+          %a United States
   .footer__bottom
     =link_to "https://www.mercari.com/jp/" ,class: "footer__bottom--logo" do
       = image_tag "//www-mercari-jp.akamaized.net/assets/img/common/common/logo-white.svg?863303983", alt: "mercari", height: "33", width: "124"
     %span.footer__bottom--copyright
       © 2019 Mercari
-.footer-self-btn{href: "https://www.mercari.com/jp/self/"}
+.footer-self-btn
   出品
   %br
   = fa_icon 'camera',class:"camera"
