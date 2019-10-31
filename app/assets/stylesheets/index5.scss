@@ -1,0 +1,56 @@
+@mixin main-btn {
+  display: block;
+  width: 100%;
+  line-height: 48px;
+  font-size: 14px;
+  cursor: pointer;
+}
+.sns__btn {
+  border-radius: 4px;
+}
+.km-mail__btn {
+  @include main-btn;
+  border: 1px solid transparent;
+  background-color: #ea352d;
+  color: white;
+  position: relative;
+  .btn__icon {
+    position: absolute;
+    top: 14px;
+    left: 16px;
+    font-size: 20px;
+    float: left;
+    color: white;
+  }
+}
+.km-facebook__btn {
+  margin-top: 16px; 
+  @include main-btn;
+  border: 1px solid transparent;
+  background-color: #385185;
+  color: white;
+  position: relative;
+  .btn__icon {
+    position: absolute;
+    top: 12px;
+    left: 16px;
+    font-size: 26px;
+    float: left;
+    color: white;
+  }
+}
+.km-google__btn {
+  margin-top: 16px; 
+  @include main-btn;
+  border: 1px solid black;
+  background-color: #fff;
+  position: relative;
+  .btn__icon {
+    position: absolute;
+    top: 14px;
+    left: 16px;
+    float: left;
+    height: 25px;
+    color: white;
+  }
+}

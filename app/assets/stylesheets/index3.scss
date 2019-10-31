@@ -1,0 +1,52 @@
+.km-form__images {
+  margin-top: 8px;
+  .card__image {
+    height: 20px;
+    width: 34px;
+  }
+}
+.km-limit-select__container {
+  display: flex;
+  .km-select__info-text {
+    line-height: 60px;
+    margin: 0 15px;
+    font-size: 14px;
+  }
+  .select-wrap{
+    position: relative;
+    display: inline-block;
+    margin-top: 8px;
+    &:after {
+      content: '';
+      width: 8px;
+      height: 8px;
+      border: 0px;
+      border-bottom: solid 2px #888;
+      border-right: solid 2px #888;
+      -ms-transform: rotate(45deg);
+      -webkit-transform: rotate(45deg);
+      transform: rotate(45deg);
+      position: absolute;
+      top: 40%;
+      right: 10px;
+      margin-top: -4px;
+    }
+    .select {
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      appearance: none;
+      width: 120px;
+      height: 46px;
+      background: transparent;
+      position: relative;
+      z-index: 1;
+      padding: 0 40px 0 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      font-size: 12px;
+    }
+    &:-ms-expand {
+      display: none;
+    }
+  }
+}
