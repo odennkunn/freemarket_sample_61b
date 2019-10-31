@@ -1,0 +1,40 @@
+.km-header
+  = render 'shared/km-header'
+  .km-sign-up__bar
+    %ol.progress-bar.clearfix
+      %li.progress-text
+        会員情報
+        .progress-status.active
+          .progress-status-bar.active
+      %li.progress-text
+        電話番号認証
+        .progress-status.active
+          .progress-status-bar-step2.active
+      %li.progress-text
+        お届け先住所入力
+        .progress-status.active
+          .progress-status-bar-step3.active
+      %li.progress-text
+        支払い方法
+        .progress-status.active
+          .progress-status-bar-step4.active
+      %li.progress-text.active
+        完了
+        .progress-status.active
+.km-main
+  .km-main__container
+    .km-head__title
+      会員登録完了
+    .km-ragistration-form__inner
+      .km-form__wrapper
+        .km-form__container
+          .km-form__info-text-complete
+            ありがとうございます。
+          .km-form__info-text-complete
+            会員登録が完了しました。
+        .km-form__container
+          %button.km-submit-next__btn.btn-red
+            メルカリをはじめる
+        .km-form__container
+    = image_tag src="signup_app.png",class: "km-signup_app__image"
+= render 'shared/km-footer'

@@ -1,0 +1,62 @@
+.km-header
+  = render 'shared/km-header'
+  .km-sign-up__bar
+    %ol.progress-bar.clearfix
+      %li.progress-text
+        会員情報
+        .progress-status.active
+          .progress-status-bar.active
+      %li.progress-text.active
+        電話番号認証
+        .progress-status.active
+          .progress-status-bar-step2
+      %li.progress-text
+        お届け先住所入力
+        .progress-status
+          .progress-status-bar-step3
+      %li.progress-text
+        支払い方法
+        .progress-status
+          .progress-status-bar-step4
+      %li.progress-text
+        完了
+        .progress-status
+.km-main
+  .km-main__container
+    .km-head__title
+      電話番号認証
+    .km-ragistration-form__inner
+      .km-form__wrapper
+        .km-form__container
+          %label{class: "km-label"}
+            認証番号
+          %input{class: "km-form", placeholder: "認証番号を入力"}
+          .km-form__info-text-step2
+            SMSで届いた番号を入力してください
+        .km-form__container
+          %button.km-submit-next__btn.btn-red
+            認証して完了
+    .km-ragistration-form__inner
+      .km-form__wrapper
+        .km-form__container
+          .km-label
+            30秒たっても認証番号が届かない方へ
+          .km-form__info-text-step2
+            電話で認証番号を聞くこともできます。
+        .km-form__container
+          %button.km-submit-next__btn.btn-red
+            電話で認証番号を聞く（通話無料）
+    .km-ragistration-form__inner
+      .km-form__wrapper
+        .km-form__container
+          .km-label
+            認証番号を再送することもできます。もう一度電話番号を入力して下さい。
+          .km-form__info-text-step2
+            = link_to "" do
+              電話番号を再度入力する
+          .km-form__info-text-step2
+            ※SMSが届かない場合は
+            = link_to "" do
+              SMS受信設定
+            を確認して、もう一度電話番号を入力してください。
+= render 'shared/km-footer'

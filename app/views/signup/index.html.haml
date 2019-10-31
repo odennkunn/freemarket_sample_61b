@@ -1,0 +1,20 @@
+.km-header
+  = render 'shared/km-header'
+.km-main
+  .km-main__container
+    .km-head__title
+      新規会員登録
+    .km-ragistration-form__inner
+      .km-form__wrapper
+        .km-form__container
+          %button.km-mail__btn.sns__btn
+            = fa_icon 'envelope inverse', class: "btn__icon"
+            メールアドレスで登録する
+          %button.km-facebook__btn.sns__btn
+            = fa_icon 'facebook-square', class: "btn__icon"
+            facebookで登録する
+          %button.km-google__btn.sns__btn
+            .btn__wrapper
+            = image_tag src="google.png",class: "btn__icon"
+            Googleで登録する
+= render 'shared/km-footer'
