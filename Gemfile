@@ -87,3 +87,14 @@ end
 gem 'carrierwave'
 gem 'mini_magick'
 gem 'fog-aws'
+
+gem 'devise'
+gem 'pry-rails'
+gem 'kaminari'
+gem 'jquery-rails'
+
+group :development, :test do
+gem 'rspec-rails'
+gem 'factory_bot_rails'
+gem 'faker'
+end
