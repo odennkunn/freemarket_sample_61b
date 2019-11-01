@@ -11,5 +11,8 @@ class UsersController < ApplicationController
   
   def card
   end
+
+  def confirm
+  end
   
 end
