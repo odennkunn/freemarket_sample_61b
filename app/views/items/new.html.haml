@@ -36,7 +36,7 @@
           %span.tnguide カテゴリー
           .tnhissu 必須
         .tnmain__contents__form__detail__category
-          %select{name: 'item-category'}
+          %select{name: 'item-category', class: 'tncategory'}
             %option{value: ''}--
             %option{value: 'レディース'}レディース
             %option{value: 'メンズ'}メンズ
@@ -55,7 +55,7 @@
           %span.tnguide 商品の状態
           .tnhissu 必須
         .tnmain__contents__form__detail__category2
-          %select{name: 'item-category'}
+          %select{name: 'item-category', class: 'tncategory'}
             %option{value: ''}--
             %option{value: '新品,未使用'}新品、未使用
             %option{value: '未使用に近い'}未使用に近い
@@ -71,7 +71,7 @@
           %span.tnguide 配送料の負担
           .tnhissu 必須
         .tnmain__contents__form__delivery__fee
-          %select{name: 'delivery-fee'}
+          %select{name: 'delivery-fee', class: 'tndelivery'}
             %option{value: ''}--
             %option{value: '送料込み(出品者負担)'}送料込み(出品者負担)
             %option{value: '着払い(購入者負担)'}着払い(購入者負担)
@@ -79,12 +79,12 @@
           %span.tnguide 発送元の地域
           .tnhissu 必須
         .tnmain__contents__form__detail__category2
-          = f.collection_select :prefecture_id, Prefecture.all, :id, :name, {prompt: '--'}, class: 'prefecture'
+          = f.collection_select :prefecture_id, Prefecture.all, :id, :name, {prompt: '--'}, class: 'tndelivery'
         .tnmain__contents__form__delivery__guidebox3
           %span.tnguide 発送までの日数
           .tnhissu 必須
         .tnmain__contents__form__delivery__day
-          %select{name: 'delivery-day'}
+          %select{name: 'delivery-day', class: 'tndelivery'}
             %option{value: ''}--
             %option{value: '1~2日で発送'}1~2日で発送
             %option{value: '2~3日で発送'}2~3日で発送
