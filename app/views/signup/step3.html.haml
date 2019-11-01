@@ -34,8 +34,6 @@
           .km-form__info-text-step2
             SMSで届いた番号を入力してください
         .km-form__container
-          -# %button.km-submit-next__btn.btn-red
-          -#   認証して完了
           = link_to step4_signup_index_path, class: "km-submit-next__btn btn-red" do
             認証して完了
     .km-ragistration-form__inner
@@ -46,8 +44,6 @@
           .km-form__info-text-step2
             電話で認証番号を聞くこともできます。
         .km-form__container
-          -# %button.km-submit-next__btn.btn-red
-          -#   電話で認証番号を聞く（通話無料）
           = link_to "", class: "km-submit-next__btn btn-red" do
             電話で認証番号を聞く（通話無料）
     .km-ragistration-form__inner
