@@ -1,0 +1,69 @@
+.tncontents {
+  height: 1800px;
+  width: 100vw;
+  background-color: $tngray;
+  position: relative;
+  &__edit {
+    width: 750px;
+    height: 700px;
+    background-color: white;
+    position: absolute;
+    top: 40px;
+    right: 200px;
+    &__title {
+      height: 70px;
+      text-align: center;
+      line-height: 70px;
+      span {
+        font-weight: bold;
+        font-size: 27px;
+      }
+    }
+    &__image {
+      height: 160px;
+      position: relative;
+      background-image: url('https://cdn.pixabay.com/photo/2017/02/16/19/47/bokeh-2072271_1280.jpg');
+      background-repeat: no-repeat;
+      background-size: 100% 100%;
+      &--avatar {
+        width: 60px;
+        padding-top: 60px;
+        padding-left: 200px;
+        .tnperson {
+          border-radius: 50%;
+        }
+      }
+      input {
+        width: 200px;
+        height: 40px;
+        position: absolute;
+        top: 70px;
+        left: 280px;
+        border-radius: 3px;
+        border: 1px solid #ccc;
+        font-size: 15px;
+        padding-left: 10px;
+      }
+    }
+    &__textbox {
+      height: 400px;
+      textarea {
+        margin-top: 40px;
+        margin-left: 20px;
+      }
+      a {
+        text-decoration: none;
+        color: white;
+      }
+      &--btn {
+        background-color: red;
+        width: 690px;
+        height: 40px;
+        margin-left: 20px;
+        margin-top: 20px;
+        text-align: center;
+        line-height: 40px;
+      }
+    }
+  }
+}
