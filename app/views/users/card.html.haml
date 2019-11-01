@@ -1,0 +1,25 @@
+%header.header
+  =render 'shared/top-header'
+.tncontents
+  %nav.tnmypage-nav
+    = render 'shared/tn-sidebar'
+  .tncontents__pay
+    .tncontents__pay__title
+      %span 支払い方法
+    .tncontents__pay__card
+      %span クレジットカード一覧
+      =link_to 'http://google.co.jp', class: 'tncardbtn' do
+        .tncontents__pay__card__box
+          =fa_icon 'credit-card', class: 'tni-card'
+          クレジットカードを登録する
+    =link_to 'http://google.co.jp', class: 'tnmethod' do
+      .tncontents__pay__footer
+        支払い方法について
+        =fa_icon 'chevron-right'
+=render 'shared/top-footerimg'
+.footer
+  =render 'shared/top-footer'
+.footer-self-btn
+  出品
+  %br
+  = fa_icon 'camera',class:"camera"

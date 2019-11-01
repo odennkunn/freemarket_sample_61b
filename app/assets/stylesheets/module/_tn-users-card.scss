@@ -1,0 +1,67 @@
+.tncontents {
+  height: 1800px;
+  width: 100vw;
+  background-color: #EEEEEE;
+  position: relative;
+  &__pay {
+    height: 400px;
+    width: 700px;
+    position: absolute;
+    top: 40px;
+    right: 250px;
+    background-color: white;
+    &__title {
+      height: 70px;
+      border-bottom: solid;
+      border-width: 1px;
+      border-color: #EEEEEE;
+      text-align: center;
+      line-height: 70px;
+      span {
+        font-weight: bold;
+        font-size: 30px;
+      }
+    }
+    &__card {
+      height: 190px;
+      width: 550px;
+      border-bottom: solid;
+      border-width: 1px;
+      border-color: #EEEEEE;
+      margin: 0 auto;
+      position: relative;
+      span {
+        font-weight: bold;
+        padding-left: 80px;
+        line-height: 120px;
+      }
+      .tncardbtn {
+        text-decoration: none;
+        color: white;
+      }
+      &__box {
+        background-color: red;
+        height: 60px;
+        width: 350px;
+        position: absolute;
+        top: 90px;
+        left: 80px;
+        line-height: 60px;
+        text-align: center;
+        .tni-card {
+          font-size: 20px;
+          padding-right: 20px;
+        }
+      }
+    }
+    .tnmethod {
+      text-decoration: none;
+      color: #0099e8;
+      
+    }
+    &__footer {
+      padding-top: 60px;
+      padding-left: 450px;
+    }
+  }
+} 

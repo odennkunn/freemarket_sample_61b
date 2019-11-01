@@ -12,6 +12,7 @@ Rails.application.routes.draw do
     collection do
       get 'edit'
       get 'logout'
+      get 'card'
     end
   end
 
