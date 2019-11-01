@@ -92,6 +92,7 @@ gem 'devise'
 gem 'pry-rails'
 gem 'kaminari'
 gem 'jquery-rails'
+gem 'active_hash'
 
 group :development, :test do
 gem 'rspec-rails'
