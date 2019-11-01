@@ -13,6 +13,7 @@ Rails.application.routes.draw do
       get 'edit'
       get 'logout'
       get 'card'
+      get 'confirm'
     end
   end
 

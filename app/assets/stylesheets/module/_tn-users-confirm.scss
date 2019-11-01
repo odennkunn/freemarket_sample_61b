@@ -1,0 +1,153 @@
+.tncontents {
+  height: 1800px;
+  width: 100vw;
+  background-color: #EEEEEE;
+  position: relative;
+  &__form {
+    width: 700px;
+    height: 1300px;
+    background-color: white;
+    position: absolute;
+    top: 40px;
+    right: 250px;
+    &__register {
+      height: 60px;
+      border-bottom: solid;
+      border-width: 2px;
+      border-color: #EEEEEE;
+      text-align: center;
+      line-height: 60px;
+      &--title {
+        font-weight: bold;
+        font-size: 25px;
+      }
+    }
+    &__confirm {
+      height: 100px;
+      margin-top: 30px;
+      .tntext {
+        font-size: 14px;
+        padding-top: 20px;
+        padding-left: 50px;
+      }
+      .tnconfirm-btn {
+        text-decoration: none;
+        color: #0099e8;
+      }
+      &__link {
+        font-size: 14px;
+        padding-top: 10px;
+        padding-left: 440px;
+      }
+    }
+    &__personal {
+      height: 60px;
+      margin-top: 30px;
+      label {
+        font-weight: bold;
+        font-size: 14px;
+        padding-left: 50px;
+      }
+      .tnusername {
+        font-size: 14px;
+        padding-left: 50px;
+        padding-top: 5px;
+      }
+    }
+    &__box {
+      height: 100px;
+      margin-top: 30px;
+      position: relative;
+      label {
+        font-weight: bold;
+        font-size: 14px;
+        padding-left: 50px;
+      }
+      &--note {
+        display: inline-block;
+        height: 22px;
+        width: 40px;
+        border: solid;
+        border-radius: 5px;
+        font-size: 14px;
+        background-color: #DDDDDD;
+        color: white;
+        text-align: center;
+        line-height: 22px;
+      }
+      &--select {
+        width: 100%;
+        position: relative;
+        display: inline-block;
+      }
+      &--select::after {
+        content: '';
+        width: 6px;
+        height: 6px;
+        border: 0px;
+        border-bottom: solid 2px #b4b3b3;
+        border-right: solid 2px #b4b3b3;
+        -ms-transform: rotate(45deg);
+        -webkit-transform: rotate(45deg);
+        transform: rotate(45deg);
+        position: absolute;
+        top: 35px;
+        right: 50px;
+        margin-top: -4px;
+      }
+      .tnselect {
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+        width: 610px;
+        height: 40px;
+        margin: 10px 50px;
+        background: transparent;
+        position: relative;
+        z-index: 1;
+        padding: 0 40px 0 10px;
+        border: 1px solid #b4b3b3;
+        border-radius: 2px;
+      }
+      .tnselect::-ms-expand {
+        display: none;
+    }
+      input {
+        width: 600px;
+        height: 40px;
+        position: absolute;
+        top: 40px;
+        left: 50px;
+        border-radius: 3px;
+        border: 1px solid #ccc;
+        font-size: 15px;
+        padding-left: 10px;
+      }
+    }
+    .tnregister-btn {
+      text-decoration: none;
+      color: white;
+    }
+    &__btn {
+      background-color: red;
+      width: 600px;
+      height: 50px;
+      line-height: 50px;
+      text-align: center;
+      margin-top: 20px;
+      margin-left: 50px;
+    }
+    &__info {
+      margin-top: 50px;
+      height: 50px;
+      &--jump {
+        padding-left: 480px;
+      }
+    }
+    .tnregister-info {
+      text-decoration: none;
+      color: #0099e8;
+      font-size: 14px;
+    }
+  }
+}
