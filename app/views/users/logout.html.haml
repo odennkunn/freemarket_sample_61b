@@ -1,0 +1,16 @@
+%header.header
+  =render 'shared/top-header'
+.tncontents
+  %nav.tnmypage-nav
+    = render 'shared/tn-sidebar'
+  .tncontents__logout
+    =link_to 'http://google.co.jp', class: 'tnlogoutbtn' do
+      .tncontents__logout__btn
+        %span ログアウト
+=render 'shared/top-footerimg'
+.footer
+  =render 'shared/top-footer'
+.footer-self-btn
+  出品
+  %br
+  = fa_icon 'camera',class:"camera"
