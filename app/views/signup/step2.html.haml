@@ -1,0 +1,48 @@
+.km-header
+  = render 'shared/km-header'
+  .km-sign-up__bar
+    %ol.progress-bar.clearfix
+      %li.progress-text
+        会員情報
+        .progress-status.active
+          .progress-status-bar.active
+      %li.progress-text.active
+        電話番号認証
+        .progress-status.active
+          .progress-status-bar-step2
+      %li.progress-text
+        お届け先住所入力
+        .progress-status
+          .progress-status-bar-step3
+      %li.progress-text
+        支払い方法
+        .progress-status
+          .progress-status-bar-step4
+      %li.progress-text
+        完了
+        .progress-status
+.km-main
+  .km-main__container
+    .km-head__title
+      電話番号の確認
+    .km-ragistration-form__inner
+      .km-form__wrapper
+        .km-form__container
+          %label{class: "km-label"}
+            携帯電話の番号
+          %input{class: "km-form", placeholder: "携帯電話の番号を入力"}
+          .km-form__info-text-step2
+            本人確認のため、携帯電話のSMS(ショートメッセージサービス)
+            を利用して認証を行います。
+        .km-form__container
+          = link_to step3_signup_index_path, class: "km-submit-next__btn btn-red" do
+            SMSを発信する
+          .km-form__info-text-step2
+            ※電話番号は本人確認や不正利用防止のために利用します。
+            他のユーザーに公開されることはありません。
+        .km-form__container
+          .km-form__info-text-right
+            = link_to "" do
+              電話番号の確認が必要な理由
+              = fa_icon 'chevron-right'
+= render 'shared/km-footer'

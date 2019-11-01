@@ -1,0 +1,127 @@
+.km-header
+  = render 'shared/km-header'
+  .km-sign-up__bar
+    %ol.progress-bar.clearfix
+      %li.progress-text.active
+        会員情報
+        .progress-status.active
+          .progress-status-bar
+      %li.progress-text
+        電話番号認証
+        .progress-status
+          .progress-status-bar-step2
+      %li.progress-text
+        お届け先住所入力
+        .progress-status
+          .progress-status-bar-step3
+      %li.progress-text
+        支払い方法
+        .progress-status
+          .progress-status-bar-step4
+      %li.progress-text
+        完了
+        .progress-status
+.km-main
+  .km-main__container
+    .km-head__title
+      会員情報入力
+    .km-ragistration-form__inner
+      .km-form__wrapper
+        .km-form__container
+          %label{class: "km-label"}
+            ニックネーム
+          .km-form-require
+            必須
+          %input{class: "km-form", placeholder: "例) メルカリ太郎"}
+        .km-form__container
+          %label{class: "km-label"}
+            メールアドレス
+          .km-form-require
+            必須
+          %input{class: "km-form", placeholder: "PC・携帯どちらでも可"}
+        .km-form__container
+          %label{class: "km-label"}
+            パスワード
+          .km-form-require
+            必須
+          %input{class: "km-form", placeholder: "7文字以上"}
+        .km-form__container
+          %label{class: "km-label"}
+            パスワード(確認)
+          .km-form-require
+            必須
+          %input{class: "km-form", placeholder: "7文字以上"}
+        .km-form__container
+          .km-form__info-title
+            本人確認
+          .km-form__info-text
+            安心・安全にご利用いただくために、お客さまの本人情報の登録にご協力ください。他のお客さまに公開されることはありません。
+        .km-form__container
+          %label{class: "km-label"}
+            お名前(全角)
+          .km-form-require
+            必須
+          .km-form__container-half
+            %input{class: "km-form-half", placeholder: "例) 山田"}
+            %input{class: "km-form-half", placeholder: "例) 彩"}
+        .km-form__container
+          %label{class: "km-label"}
+            お名前カナ(全角)
+          .km-form-require
+            必須
+          .km-form__container-half
+            %input{class: "km-form-half", placeholder: "例) ヤマダ"}
+            %input{class: "km-form-half", placeholder: "例) アヤ"}
+        .km-form__container
+          %label{class: "km-label"}
+            生年月日
+          .km-form-require
+            必須
+          .km-birthday-select__container
+            .select-wrap
+              = fa_icon 'chevron-down', class: "km-select-arrow"
+              %select.select{id: "", name: ""}
+                %option{value: ""} --
+                %option{value: ""} 002
+                %option{value: ""} 003
+            .km-select__info-text
+              年
+            .select-wrap
+              = fa_icon 'chevron-down', class: "km-select-arrow"
+              %select.select{id: "", name: ""}
+                %option{value: ""} --
+                %option{value: ""} 002
+                %option{value: ""} 003
+            .km-select__info-text
+              月
+            .select-wrap
+              = fa_icon 'chevron-down', class: "km-select-arrow"
+              %select.select{id: "", name: ""}
+                %option{value: ""} --
+                %option{value: ""} 002
+                %option{value: ""} 003
+            .km-select__info-text
+              日
+          .km-form__info-text
+            ※ 本人情報は正しく入力してください。会員登録後、修正するにはお時間を頂く場合があります。
+        .km-form__container
+          .g-recaptcha.signup-recaptcha{"data-sitekey": ""}
+            %div{style: "width: 304px; height: 78px;"}
+              %div
+                %iframe{frameborder: "0", height: "78", name: "a-nk7ir99j50hm", role: "presentation", sandbox: "allow-forms allow-popups allow-same-origin allow-scripts allow-top-navigation allow-modals allow-popups-to-escape-sandbox", scrolling: "no", src: "https://www.google.com/recaptcha/api2/anchor?ar=1&k=6LfZGCYTAAAAAHoK-s7Lg5OdYg5Fq4susvALmZoc&co=aHR0cHM6Ly93d3cubWVyY2FyaS5jb206NDQz&hl=ja&v=5fbZx3NV5xhaMoMLrZV3TkN4&size=normal&cb=644ogxojtulz", width: "304"}
+              %textarea#g-recaptcha-response.g-recaptcha-response{name: "g-recaptcha-response", style: "width: 250px; height: 40px; border: 1px solid rgb(193, 193, 193); margin: 10px 25px; padding: 0px; resize: none; display: none;"}
+        .km-form__container
+          .km-form__info-text              
+            「次へ進む」のボタンを押すことにより、
+            = link_to "" do
+              利用規約
+            に同意したものとみなします  
+        .km-form__container
+          = link_to step2_signup_index_path, class: "km-submit-next__btn btn-red" do
+            次へ進む
+        .km-form__container
+          .km-form__info-text-right
+            = link_to "" do
+              本人情報の登録について
+              = fa_icon 'chevron-right'
+= render 'shared/km-footer'
