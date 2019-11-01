@@ -1,0 +1,24 @@
+%header.header
+  =render 'shared/top-header'
+.tncontents
+  %nav.tnmypage-nav
+    = render 'shared/tn-sidebar'
+  .tncontents__edit
+    .tncontents__edit__title
+      %span プロフィール
+    .tncontents__edit__image
+      .tncontents__edit__image--avatar
+        = image_tag "//static.mercdn.net/images/member_photo_noimage_thumb.png", size: '60x60', alt: '', class: 'tnperson'
+      %input{name: 'name', placeholder: 'noname', type: 'text'}
+    .tncontents__edit__textbox
+      %textarea{name: 'introduction', rows: '10', cols: '75', placeholder: '例）こんにちは☆ ご覧いただきありがとうございます！かわいいものやきれいめオフィスカジュアル中心に出品しています。服のサイズは主に9号です。気持ちよくお取引できるよう心がけていますので、商品や発送方法などご質問がありましたらお気軽にどうぞ♪'}
+      =link_to 'http://google.co.jp', class: 'edit-btn' do
+        .tncontents__edit__textbox--btn
+          %span 変更する
+=render 'shared/top-footerimg'
+.footer
+  =render 'shared/top-footer'
+.footer-self-btn
+  出品
+  %br
+  = fa_icon 'camera',class:"camera"
