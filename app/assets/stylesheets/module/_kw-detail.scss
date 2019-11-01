@@ -14,7 +14,7 @@ html {
   }
   &__main {
     margin-top: 16px;
-    
+    position: relative;
     &--photo{
       float: left;
     }
@@ -24,8 +24,10 @@ html {
         }    
     &--info {
       position: absolute;
-      top: 109px;
-      left: 850px;
+      // top: 109px;
+      // left: 850px;
+      top: 0px;
+      left: 350px;
     th {
       background-color: rgb(250, 250, 250);
       padding: 8px;
