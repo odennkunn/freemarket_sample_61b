@@ -1,5 +1,8 @@
 class SignupController < ApplicationController
 
+  def login
+  end
+
   def index
   end
 

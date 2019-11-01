@@ -1,8 +1,9 @@
 Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   # root to: 'top#index'
-  root to: 'signup#index'
+  root to: 'signup#login'
   get "signup", to:"signup#index"
+  get "signup", to:"signup#login"
   resources :signup do
     collection do
       get 'step1'
