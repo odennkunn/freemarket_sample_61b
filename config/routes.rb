@@ -6,6 +6,7 @@ Rails.application.routes.draw do
       get 'pay'
     end
   end
+
   get "signup", to:"signup#index"
   get "signup", to:"signup#login"
   resources :signup do
@@ -18,4 +19,7 @@ Rails.application.routes.draw do
       get 'complete_signup'
     end
   end
+
+  resources :users
+
 end

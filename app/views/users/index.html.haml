@@ -1,0 +1,86 @@
+%header.header
+  =render 'shared/top-header'
+.tncontents
+  %nav.tnmypage-nav
+    = render 'shared/tn-sidebar'
+  .tncontents__right
+    .tncontents__right__user
+      .tncontents__right__user--avatar
+        = image_tag "//static.mercdn.net/images/member_photo_noimage_thumb.png", size: '60x60', alt: '', class: 'tnperson'
+      %h1.tncontets__right__user--name
+        name
+      .tncontents__right__user__number
+        .tncontents__right__user__number--review
+          評価
+          %span 1
+        .tncontents__right__user__number--item
+          出品数
+          %span 1
+    .tncontents__right__info
+      %ul.tncontents__right__info__lists
+        %li.tncontents__right__info__lists--left
+          =link_to 'http://google.co.jp', class: 'tninfo' do
+            お知らせ
+        %li.tncontents__right__info__lists--right
+          =link_to 'http://google.co.jp', class: 'tninfo' do
+            やることリスト
+      %ul.tncontents__right__info__index
+        %li.tncontents__right__info__index__message
+          =link_to 'http://google.co.jp', class: 'tnmessage' do
+            .tncontents__right__info__index__message--icon
+              = image_tag "//static.mercdn.net/images/mercari_profile.png", size:'60x60', alt: ''
+            .tncontents__right__info__index__message--text
+              事務局からの個別メッセージ
+            =fa_icon 'chevron-right', class: 'icon'
+            .tncontents__right__info__index__message--time
+              =fa_icon 'clock', class: 'i-clock'
+              %span 1日前
+        
+        %li.tncontents__right__info__index__message
+          =link_to 'http://google.co.jp', class: 'tnmessage' do
+            .tncontents__right__info__index__message--icon
+              = image_tag "//static.mercdn.net/images/mercari_profile.png", size:'60x60', alt: ''
+            .tncontents__right__info__index__message--text
+              事務局からの個別メッセージ
+            =fa_icon 'chevron-right', class: 'icon'
+            .tncontents__right__info__index__message--time
+              =fa_icon 'clock', class: 'i-clock'
+              %span 1日前
+        
+        %li.tncontents__right__info__index__message
+          =link_to 'http://google.co.jp', class: 'tnmessage' do
+            .tncontents__right__info__index__message--icon
+              = image_tag "//static.mercdn.net/images/mercari_profile.png", size:'60x60', alt: ''
+            .tncontents__right__info__index__message--text
+              事務局からの個別メッセージ
+            =fa_icon 'chevron-right', class: 'icon'
+            .tncontents__right__info__index__message--time
+              =fa_icon 'clock', class: 'i-clock'
+              %span 1日前
+        
+        %li.tncontents__right__info__index__message
+          =link_to 'http://google.co.jp', class: 'tnmessage' do
+            .tncontents__right__info__index__message--jump
+              %span 一覧を見る
+
+    .tncontents__right__trade
+      .tncontents__right__trade__title
+        %span 購入した商品
+      %ul.tncontents__right__info__lists
+        %li.tncontents__right__info__lists--left
+          =link_to 'http://google.co.jp', class: 'tntrade' do
+            取引中
+        %li.tncontents__right__info__lists--right
+          =link_to 'http://google.co.jp', class: 'tntrade' do
+            過去の取引
+      %ul.tncontents__right__trade__past
+        %list.tncontents__right__trade__past--sentence
+          過去の取引はありません
+.footer-img
+  %img{alt: "index_02", src: "assets/index_02",}
+.footer
+  =render 'shared/top-footer'
+.footer-self-btn
+  出品
+  %br
+  = fa_icon 'camera',class:"camera"
