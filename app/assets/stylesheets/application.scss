@@ -1,9 +1,11 @@
 @import "./reset";
 @import "font-awesome";
 @import "./top";
-@import "module/tnitempost";
-@import "module/kw-detail";
+@import"tn-config/tn-color";
+@import "module/tn-new";
+@import "module/kw-show";
 @import "module/tw-pay";
+@import "module/tn-users-index";
 @import "km-mixins/km-mixins";
 @import "km-config/km-color";
 @import "km-modules/km-body";
