@@ -79,6 +79,7 @@
             必須
           .km-birthday-select__container
             .select-wrap
+              = fa_icon 'chevron-down', class: "km-select-arrow"
               %select.select{id: "", name: ""}
                 %option{value: ""} --
                 %option{value: ""} 002
@@ -86,6 +87,7 @@
             .km-select__info-text
               年
             .select-wrap
+              = fa_icon 'chevron-down', class: "km-select-arrow"
               %select.select{id: "", name: ""}
                 %option{value: ""} --
                 %option{value: ""} 002
@@ -93,6 +95,7 @@
             .km-select__info-text
               月
             .select-wrap
+              = fa_icon 'chevron-down', class: "km-select-arrow"
               %select.select{id: "", name: ""}
                 %option{value: ""} --
                 %option{value: ""} 002
@@ -114,7 +117,9 @@
               利用規約
             に同意したものとみなします  
         .km-form__container
-          %button.km-submit-next__btn.btn-red
+          -# %button.km-submit-next__btn.btn-red
+          -#   次へ進む
+          = link_to step2_signup_index_path, class: "km-submit-next__btn btn-red" do
             次へ進む
         .km-form__container
           .km-form__info-text-right

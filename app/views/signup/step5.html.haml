@@ -48,6 +48,7 @@
             必須
           .km-limit-select__container
             .select-wrap
+              = fa_icon 'chevron-down', class: "km-select-arrow"
               %select.select{id: "", name: ""}
                 %option{value: ""} 01
                 %option{value: ""} 002
@@ -55,6 +56,7 @@
             .km-select__info-text
               月
             .select-wrap
+              = fa_icon 'chevron-down', class: "km-select-arrow"
               %select.select{id: "", name: ""}
                 %option{value: ""} 19
                 %option{value: ""} 002
@@ -73,6 +75,6 @@
               = fa_icon 'question-circle'
               カード背面の番号とは？
         .km-form__container
-          %button.km-submit-next__btn.btn-red
+          = link_to complete_signup_signup_index_path, class: "km-submit-next__btn btn-red" do
             次へ進む
 = render 'shared/km-footer'

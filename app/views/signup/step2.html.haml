@@ -35,7 +35,9 @@
             本人確認のため、携帯電話のSMS(ショートメッセージサービス)
             を利用して認証を行います。
         .km-form__container
-          %button.km-submit-next__btn.btn-red
+          -# %button.km-submit-next__btn.btn-red
+          -#   SMSを発信する
+          = link_to step3_signup_index_path, class: "km-submit-next__btn btn-red" do
             SMSを発信する
           .km-form__info-text-step2
             ※電話番号は本人確認や不正利用防止のために利用します。
