@@ -1,7 +1,11 @@
 Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-  # root to: 'top#index'
-  root to: 'signup#login'
+  root to: 'top#index'
+  resources :items do
+    collection do
+      get 'pay'
+    end
+  end
   get "signup", to:"signup#index"
   get "signup", to:"signup#login"
   resources :signup do

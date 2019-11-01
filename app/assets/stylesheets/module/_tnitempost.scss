@@ -1,0 +1,521 @@
+.tnheader {
+  width: 100vw;
+  height: 150px;
+  background-color: #EEEEEE;
+  text-align: center;
+  line-height: 170px;
+    .logoimage {
+      height: 49px;
+      width: 185px;
+    }
+}
+.tnmain {
+  width: 100vw;
+  height: 2200px;
+  background-color: #EEEEEE;
+  &__contents {
+    width: 700px;
+    height: 2200px;
+    background-color: white;
+    margin: 0 auto;
+    &--title {
+      height: 100px;
+      border-bottom: solid;
+      border-width: 1px;
+      border-color: #EEEEEE;
+      text-align: center;
+      line-height: 100px;
+      font-weight: bold;
+      font-size: 20px
+    }
+    &__form {
+      &__imagebox {
+        height: 300px;
+        border-bottom: solid;
+        border-width: 1px;
+        border-color: #EEEEEE;
+        &__guidebox {
+          margin-top: 40px;
+          margin-left: 40px;
+          .tnguide {
+            font-weight: bold;
+          }
+          .tnhissu {
+            display: inline-block;
+            width: 40px;
+            height: 22px;
+            margin-left: 10px;
+            font-size: 14px;
+            font-weight: bold;
+            text-align: center;
+            line-height: 22px;
+            border-radius: 3px;
+            background-color: red;
+            color: white;
+          }
+        }
+        &--note {
+          padding-left: 40px;
+          padding-top: 10px;
+          font-size: 14px;
+        }
+        &__preview {
+          height: 180px;
+          width: 620px;
+          border: dotted;
+          border-width: 2px;
+          border-color: #CCCCCC;
+          margin: 20px auto;
+          background-color: #f5f5f5;
+          &__btn {
+            margin-top: 70px;
+            font-size: 14px;
+            font-weight: bold;
+          }
+        }
+        label {
+          display: inline-block;
+          height: 100%;
+          width: 100%;
+          text-align: center;
+          
+        }
+        #postimage {
+          display: none;
+        }
+      }
+      &__itemname {
+        height: 350px;
+        border-bottom: solid;
+        border-width: 1px;
+        border-color: #EEEEEE;
+        .inputname {
+          width: 610px;
+          height: 40px;
+          margin-top: 10px;
+          margin-left: 40px;
+          padding-left: 10px;
+          border-radius: 3px;
+          border: 1px solid #ccc;
+        }
+        textarea {
+          margin-left: 40px;
+          margin-top: 10px;
+        }
+      }
+      &__detail {
+        height: 300px;
+        border-bottom: solid;
+        border-width: 1px;
+        border-color: #EEEEEE;
+        position: relative;
+        h3 {
+          font-size: 15px;
+          font-weight: bold;
+          color: #BBBBBB;
+          position: absolute;
+          top: 40px;
+          left: 40px;
+        }
+        &__guidebox {
+          position: absolute;
+          top: 37px;
+          right: 250px;
+          .tnguide {
+            font-weight: bold;
+            font-size: 15px;
+          }
+          .tnhissu {
+            display: inline-block;
+            width: 40px;
+            height: 22px;
+            margin-left: 10px;
+            font-size: 14px;
+            font-weight: bold;
+            text-align: center;
+            line-height: 22px;
+            border-radius: 3px;
+            background-color: red;
+            color: white;
+          }
+        }
+        &__category {
+          width: 100%;
+          position: relative;
+          display: inline-block;
+          position: absolute;
+          top: 70px;
+          left: 260px;
+        }
+        &__category::after {
+          content: '';
+          width: 6px;
+          height: 6px;
+          border: 0px;
+          border-bottom: solid 2px #b4b3b3;
+          border-right: solid 2px #b4b3b3;
+          -ms-transform: rotate(45deg);
+          -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
+          position: absolute;
+          top: 50%;
+          left: 360px;
+          margin-top: -4px;
+        }
+        .tncategory {
+          -webkit-appearance: none;
+          -moz-appearance: none;
+          appearance: none;
+          width: 350px;
+          height: 45px;
+          margin: 10px 50px;
+          background: transparent;
+          position: relative;
+          z-index: 1;
+          padding: 0 40px 0 10px;
+          border: 1px solid #b4b3b3;
+          border-radius: 3px;
+        }
+        .tncategory::-ms-expand {
+          display: none;
+        }
+        &__guidebox2 {
+          position: absolute;
+          top: 170px;
+          right: 250px;
+          .tnguide {
+            font-weight: bold;
+            font-size: 15px;
+          }
+          .tnhissu {
+            display: inline-block;
+            width: 40px;
+            height: 22px;
+            margin-left: 10px;
+            font-size: 14px;
+            font-weight: bold;
+            text-align: center;
+            line-height: 22px;
+            border-radius: 3px;
+            background-color: red;
+            color: white;
+          }
+        }
+        &__category2 {
+          width: 100%;
+          position: relative;
+          display: inline-block;
+          position: absolute;
+          top: 200px;
+          left: 260px;
+        }
+        &__category2::after {
+          content: '';
+          width: 6px;
+          height: 6px;
+          border: 0px;
+          border-bottom: solid 2px #b4b3b3;
+          border-right: solid 2px #b4b3b3;
+          -ms-transform: rotate(45deg);
+          -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
+          position: absolute;
+          top: 50%;
+          left: 360px;
+          margin-top: -4px;
+        }
+      }
+      &__delivery {
+        height: 400px;
+        border-bottom: solid;
+        border-width: 1px;
+        border-color: #EEEEEE;
+        position: relative;
+        h3 {
+          font-size: 15px;
+          font-weight: bold;
+          color: #BBBBBB;
+          position: absolute;
+          top: 40px;
+          left: 40px;
+        }
+        .tnquestion {
+          text-decoration: none;
+          display: inline-block;
+          width: 14px;
+          height: 14px;
+          border-radius: 50%;
+          background-color: #0099e8;
+          color: white;
+          line-height: 14px;
+          text-align: center;
+          font-size: 12px;
+          position: absolute;
+          top: 45px;
+          left: 130px;
+        }
+        &__fee {
+          width: 100%;
+          position: relative;
+          display: inline-block;
+          position: absolute;
+          top: 70px;
+          left: 260px;
+        }
+        &__fee::after {
+          content: '';
+          width: 6px;
+          height: 6px;
+          border: 0px;
+          border-bottom: solid 2px #b4b3b3;
+          border-right: solid 2px #b4b3b3;
+          -ms-transform: rotate(45deg);
+          -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
+          position: absolute;
+          top: 50%;
+          left: 360px;
+          margin-top: -4px;
+        }
+        .tndelivery {
+          -webkit-appearance: none;
+          -moz-appearance: none;
+          appearance: none;
+          width: 350px;
+          height: 45px;
+          margin: 10px 50px;
+          background: transparent;
+          position: relative;
+          z-index: 1;
+          padding: 0 40px 0 10px;
+          border: 1px solid #b4b3b3;
+          border-radius: 3px;
+        }
+        .tndelivery::-ms-expand {
+          display: none;
+        }
+        &__guidebox3 {
+          position: absolute;
+          top: 290px;
+          right: 235px;
+          .tnguide {
+            font-weight: bold;
+            font-size: 15px;
+          }
+          .tnhissu {
+            display: inline-block;
+            width: 40px;
+            height: 22px;
+            margin-left: 10px;
+            font-size: 14px;
+            font-weight: bold;
+            text-align: center;
+            line-height: 22px;
+            border-radius: 3px;
+            background-color: red;
+            color: white;
+          }
+        }
+        &__day {
+          width: 100%;
+          position: relative;
+          display: inline-block;
+          position: absolute;
+          top: 320px;
+          left: 260px;
+        }
+        &__day::after {
+          content: '';
+          width: 6px;
+          height: 6px;
+          border: 0px;
+          border-bottom: solid 2px #b4b3b3;
+          border-right: solid 2px #b4b3b3;
+          -ms-transform: rotate(45deg);
+          -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
+          position: absolute;
+          top: 50%;
+          left: 360px;
+          margin-top: -4px;
+        }
+        .tndelivery {
+          -webkit-appearance: none;
+          -moz-appearance: none;
+          appearance: none;
+          width: 350px;
+          height: 45px;
+          margin: 10px 50px;
+          background: transparent;
+          position: relative;
+          z-index: 1;
+          padding: 0 40px 0 10px;
+          border: 1px solid #b4b3b3;
+          border-radius: 3px;
+        }
+        .tndelivery::-ms-expand {
+          display: none;
+        }
+      }
+      &__price {
+        height: 300px;
+        border-bottom: solid;
+        border-width: 1px;
+        border-color: #EEEEEE;
+        position: relative;
+        h3 {
+          font-size: 13px;
+          font-weight: bold;
+          color: #BBBBBB;
+          padding-top: 40px;
+          padding-left: 40px;
+        }
+        .tnquestion {
+          text-decoration: none;
+          display: inline-block;
+          width: 14px;
+          height: 14px;
+          border-radius: 50%;
+          background-color: #0099e8;
+          color: white;
+          line-height: 14px;
+          text-align: center;
+          font-size: 12px;
+          position: absolute;
+          top: 42px;
+          left: 220px;
+        }
+        &__box {
+          height: 220px;
+          width: 400px;
+          float: right;
+          margin-right: 20px;
+          &__input {
+            height: 80px;
+            border-bottom: solid;
+            border-width: 1px;
+            border-color: #EEEEEE;
+            &__guide {
+              .guidebox {
+                float: left;
+                padding-top: 10px;
+                .tnguide {
+                  font-weight: bold;
+                  font-size: 14px;
+                }
+                .tnhissu {
+                  display: inline-block;
+                  width: 40px;
+                  height: 22px;
+                  margin-left: 5px;
+                  font-size: 14px;
+                  font-weight: bold;
+                  text-align: center;
+                  line-height: 22px;
+                  border-radius: 3px;
+                  background-color: red;
+                  color: white;
+                }
+              }
+              .inputbox {
+                float: right;
+                padding-top: 10px;
+                input {
+                  height: 48px;
+                  border-radius: 3px;
+                  border: 1px solid #ccc;
+                  text-align: right;
+                  padding-right: 20px;
+                }
+              }
+            }
+          }
+          &__fee {
+            height: 60px;
+            border-bottom: solid;
+            border-width: 1px;
+            border-color: #EEEEEE;
+            line-height: 60px;
+            font-size: 15px;
+            &--right {
+              float: right;
+            }
+          }
+          &__bottom {
+            line-height: 80px;
+            font-weight: bold;
+            &--right {
+              padding-top: 10px;
+              float: right;
+            }
+          }
+        }
+      }
+      &__note {
+        height: 300px;
+        &__text {
+          height: 84px;
+          width: 620px;
+          margin: 40px auto;
+          p {
+            font-size: 14px;
+            a {
+              text-decoration: none;
+              color: #0099e8
+            }
+          }
+        }
+        .tnsubmit {
+          text-decoration: none;
+          color: white;
+        }
+        &__btn {
+          width: 620px;
+          height: 60px;
+          background-color: red;
+          margin: 0 auto;
+          text-align: center;
+          line-height: 60px;
+        }
+        .tnreturn {
+          text-decoration: none;
+          color: white;
+        }
+        &__return {
+          width: 280px;
+          height: 60px;
+          background-color: #BBBBBB;
+          margin: 20px auto 0;
+          text-align: center;
+          line-height: 60px;
+        }
+      }
+    }
+  }
+}
+.tnfooder {
+  width: 100vw;
+  height: 300px;
+  background-color: #EEEEEE;
+  &__policy {
+    padding-top: 40px;
+    text-align: center;
+    &__privacy {
+      display: inline-block;
+      padding-left: 10px;
+      font-size: 14px;
+      .privacy {
+        text-decoration: none;
+        color: black;
+      }
+    }
+  }
+  &__logo {
+    margin-top: 40px;
+    text-align: center;
+  }
+  p {
+    font-size: 12px;
+    text-align: center;
+  }
+}
