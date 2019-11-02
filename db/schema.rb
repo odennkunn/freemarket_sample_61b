@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_31_101400) do
+ActiveRecord::Schema.define(version: 2019_11_02_111854) do
 
   create_table "prefectures", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -18,4 +18,43 @@ ActiveRecord::Schema.define(version: 2019_10_31_101400) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "residences", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "prefecture_id"
+    t.integer "address_number", null: false
+    t.string "municipal", null: false
+    t.string "address", null: false
+    t.string "building"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["prefecture_id"], name: "index_residences_on_prefecture_id"
+    t.index ["user_id"], name: "index_residences_on_user_id"
+  end
+
+  create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "nickname", null: false
+    t.string "email", null: false
+    t.string "family_name", null: false
+    t.string "last_name", null: false
+    t.string "kana_family_name", null: false
+    t.string "kana_last_name", null: false
+    t.integer "birth_year", null: false
+    t.integer "birth_month", null: false
+    t.integer "birth_day", null: false
+    t.integer "phone_number"
+    t.string "encrypted_password", default: "", null: false
+    t.string "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "residence_id"
+    t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+    t.index ["residence_id"], name: "index_users_on_residence_id"
+  end
+
+  add_foreign_key "residences", "prefectures"
+  add_foreign_key "residences", "users"
+  add_foreign_key "users", "residences"
 end

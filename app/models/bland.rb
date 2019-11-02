@@ -1,2 +1,0 @@
-class Bland < ApplicationRecord
-end
