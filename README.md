@@ -92,7 +92,7 @@
 |------|----|-------|
 |user_id|references|foreign_key: true|
 |address_number|integer|null: false|
-|prefecture|string|null: false|
+|prefecture_id|references|foreign_key: true|
 |municipal|string|null: false|
 |address|string|null: false|
 |building|string|
@@ -100,6 +100,7 @@
 ### association
   - has_many :users, through: :user_residences
   - has_many :user_residences
+  - has_many :prefectures
 
 ## user_residencesテーブル
 |Column|Type|Options|
@@ -109,4 +110,12 @@
 
 ### association
   - belongs_to :user
-  - belongs_to :residence
+  
+## prefectureテーブル
+|Column|Type|Options|
+|------|----|-------|
+|name|string|null: false|
+
+### association
+  - belongs_to :residences
+

@@ -1,0 +1,68 @@
+%header.header
+  =render 'shared/top-header'
+.tncontents
+  %nav.tnmypage-nav
+    = render 'shared/tn-sidebar'
+  .tncontents__form
+    .tncontents__form__register
+      %span.tncontents__form__register--title 本人情報の登録
+    .tncontents__form__confirm
+      %p.tntext
+        お客さまの本人情報をご登録ください。
+        %br 
+        登録されたお名前・生年月日を変更する場合、本人確認書類の提出が必要になります。
+      =link_to 'http://google.co.jp', class: 'tnconfirm-btn' do
+        .tncontents__form__confirm__link
+          本人確認書類のアップロードについて
+          =fa_icon 'chevron-right'
+    .tncontents__form__personal
+      %label お名前
+      %p.tnusername noname
+    .tncontents__form__personal
+      %label お名前カナ
+      %p.tnusername ノーネーム
+    .tncontents__form__personal
+      %label 生年月日
+      %p.tnusername 0000/00/00
+    .tncontents__form__box
+      %label 郵便番号
+      .tncontents__form__box--note
+        任意
+      %input{name: 'number', placeholder: '例)  1234567', type: 'text'}
+    .tncontents__form__box
+      %label 都道府県
+      .tncontents__form__box--note
+        任意
+      .tncontents__form__box--select
+      = form_for '' do |f|
+        = f.collection_select :prefecture_id, Prefecture.all, :id, :name, {prompt: '--'}, class: 'tnselect'
+    .tncontents__form__box
+      %label 市区町村
+      .tncontents__form__box--note
+        任意
+      %input{name: 'number', placeholder: '例) 横浜市緑区', type: 'text'}
+    .tncontents__form__box
+      %label 番地
+      .tncontents__form__box--note
+        任意
+      %input{name: 'number', placeholder: '例) 青山1-1-1', type: 'text'}
+    .tncontents__form__box
+      %label 建物名
+      .tncontents__form__box--note
+        任意
+      %input{name: 'number', placeholder: '例) 柳ビル103', type: 'text'}
+    =link_to 'http://google.co.jp', class: 'tnregister-btn' do
+      .tncontents__form__btn
+        %span 登録する
+    .tncontents__form__info
+      %p.tncontents__form__info--jump
+        =link_to 'http://google.co.jp', class: 'tnregister-info' do
+          本人情報の登録について
+          =fa_icon 'chevron-right', class: 'tnicon'
+=render 'shared/top-footerimg'
+.footer
+  =render 'shared/top-footer'
+.footer-self-btn
+  出品
+  %br
+  = fa_icon 'camera',class:"camera"
