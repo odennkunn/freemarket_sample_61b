@@ -40,13 +40,14 @@
 |size|integer|null: false|
 |status|string|null: false|
 |delivery_fee|integer|null: false|
-|delivery_area|string|null: false|
+|prefecture_id|references|foreign_key: true|
 |user_id|references|foreign_key: true|
 |category_id|references|foreign_key: true|
 
 ### association
   - has_many :comments, dependent: :destroy
   - has_many :image, dependent: :destroy
+  - belongs_to :prefecture
   - belongs_to :category
   - belongs_to :bland
   - belongs_to :user
@@ -100,7 +101,7 @@
 ### association
   - has_many :users, through: :user_residences
   - has_many :user_residences
-  - has_many :prefectures
+  - belongs_to :prefectures
 
 ## user_residencesテーブル
 |Column|Type|Options|
@@ -110,12 +111,3 @@
 
 ### association
   - belongs_to :user
-  
-## prefectureテーブル
-|Column|Type|Options|
-|------|----|-------|
-|name|string|null: false|
-
-### association
-  - belongs_to :residences
-
