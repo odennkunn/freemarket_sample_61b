@@ -1,0 +1,2 @@
+class UserResidence < ApplicationRecord
+end
