@@ -4,14 +4,17 @@
 |Column|Type|Options|
 |------|----|-------|
 |nickname|string|null: false, unique: true|
-|email|string|null: false|
+|email|string|null: false, unique: true|
 |password|string|null: false|
 |family_name|string|null: false|
 |last_name|string|null: false|
 |kana_family_name|string|null: false|
 |kana_last_name|string|null: false|
-|birthday|date|null: false|
-|phone_number|string|
+|birth_year|integer|null: false|
+|birth_month|integer|null: false|
+|birth_day|integer|null: false|
+|phone_number|integer|
+|residence_id|references|foreign_key: true|
 
 ### association
   - has_many :comments, dependent: :destroy
@@ -43,6 +46,7 @@
 |prefecture_id|references|foreign_key: true|
 |user_id|references|foreign_key: true|
 |category_id|references|foreign_key: true|
+|bland_id|references|foreign_key: true|
 
 ### association
   - has_many :comments, dependent: :destroy
@@ -72,10 +76,9 @@
 ## credit_cardsテーブル
 |Column|Type|Options|
 |------|----|-------|
-|card_number|integer|null: false|
-|expiration_date|integer|null: false|
-|security_number|integer|null: false|
 |user_id|references|foreign_key: true|
+|customer_id|string|null: false|
+|card_id|string|null: false|
 
 ### association
   - belongs_to :user
