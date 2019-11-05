@@ -7,7 +7,8 @@
     %h2.tnmain__contents--title
       商品の情報を入力
     .tnmain__contents__form
-    = form_for '' do |f|
+    = form_for @item do |f|
+
       .tnmain__contents__form__imagebox
         .tnmain__contents__form__imagebox__guidebox
           %span.tnguide 出品画像
@@ -17,52 +18,40 @@
         .tnmain__contents__form__imagebox__preview
           %label{for: 'postimage'}
             .tnmain__contents__form__imagebox__preview__btn
-              %input{accept: 'iamge/*', name: 'iamge', type: 'file', id: 'postimage'}
               %span ドラッグアンドドロップ
               %br
               %span またはクリックしてファイルをアップロード
+              = f.file_field :imgae
+
       .tnmain__contents__form__itemname
         .tnmain__contents__form__imagebox__guidebox
           %span.tnguide 商品名
           .tnhissu 必須
-        %input{name: 'itemname', placeholder: '商品名  (必須40文字まで)', type: 'text', class: 'inputname'}
+        = f.text_field :name, class: 'inputname', placeholder: '商品名  (必須40文字まで'
+        
         .tnmain__contents__form__imagebox__guidebox
           %span.tnguide 商品の説明
           .tnhissu 必須
-        %textarea{name: 'itemintro', rows: '6', cols: '67', placeholder: '商品の説明 (必須1,000文字以内) (色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。'}
+        = f.text_area :explanation, rows: '6', cols: '67', placeholder: '商品の説明 (必須1,000文字以内) (色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。'
+     
       .tnmain__contents__form__detail
         %h3 商品の詳細
         .tnmain__contents__form__detail__guidebox
           %span.tnguide カテゴリー
           .tnhissu 必須
         .tnmain__contents__form__detail__category
-          %select{name: 'item-category', class: 'tncategory'}
-            %option{value: ''}--
-            %option{value: 'レディース'}レディース
-            %option{value: 'メンズ'}メンズ
-            %option{value: 'ベビー・キッズ'}ベビー・キッズ
-            %option{value: 'インテリア・住まい・小物'}インテリア・住まい・小物
-            %option{value: '本・音楽・ゲーム'}本・音楽・ゲーム
-            %option{value: 'おもちゃ・ホビー・グッズ'}おもちゃ・ホビー・グッズ
-            %option{value: 'コスメ・香水・美容'}コスメ・香水・美容
-            %option{value: '家電・スマホ・カメラ'}家電・スマホ・カメラ
-            %option{value: 'スポーツ・レジャー'}スポーツ・レジャー
-            %option{value: 'ハンドメイド'}ハンドメイド
-            %option{value: 'チケット'}チケット
-            %option{value: '自転車・オートバイ'}自転車・オートバイ
-            %option{value: 'その他'}その他
+          = f.select :category_id, [["--"], ["レディース", 1], ["メンズ", 2], ["ベビー・キッズ", 3], ["インテリア・住まい・小物", 4], ["本・音楽・ゲーム", 5], ["おもちゃ・ホビー・グッズ", 6], ["コスメ・香水・美容", 7], ["家電・スマホ・カメラ", 8], ["スポーツ・レジャー", 9], ["ハンドメイド", 10], ["チケット", 11], ["自転車・オートバイ", 12], ["その他", 13]], {}, class: "tncategory"      
+        
+        .tnmain__contents__form__detail__size
+          %span.tnguide サイズ
+          .tnhissu 必須
+        = f.text_field :size, class: 'inputname', placeholder: 'サイズ(cm)'
         .tnmain__contents__form__detail__guidebox2
           %span.tnguide 商品の状態
           .tnhissu 必須
         .tnmain__contents__form__detail__category2
-          %select{name: 'item-category', class: 'tncategory'}
-            %option{value: ''}--
-            %option{value: '新品,未使用'}新品、未使用
-            %option{value: '未使用に近い'}未使用に近い
-            %option{value: '目立った傷や汚れなし'}目立った傷や汚れなし
-            %option{value: 'やや傷や汚れあり'}やや傷や汚れあり
-            %option{value: '傷や汚れあり'}傷や汚れあり
-            %option{value: '全体的に状態が悪い'}全体的に状態が悪い
+          = f.select :status, [["--"], ["新品、未使用", "新品、未使用"], ["未使用に近い", "未使用に近い"], ["目立った傷や汚れなし", "目立った傷や汚れなし"], ["やや傷や汚れあり", "やや傷や汚れあり"], ["傷や汚れあり", "傷や汚れあり"], ["全体的に状態が悪い", "全体的に状態が悪い"]], {}, class: "tncategory"
+         
       .tnmain__contents__form__delivery
         %h3 配送について
         =link_to 'http://google.co.jp', class: 'tnquestion' do
@@ -71,15 +60,14 @@
           %span.tnguide 配送料の負担
           .tnhissu 必須
         .tnmain__contents__form__delivery__fee
-          %select{name: 'delivery-fee', class: 'tndelivery'}
-            %option{value: ''}--
-            %option{value: '送料込み(出品者負担)'}送料込み(出品者負担)
-            %option{value: '着払い(購入者負担)'}着払い(購入者負担)
+          = f.select :delivery_fee, [["--"], ["送料込み(出品者負担)", "送料込み(出品者負担)"], ["送料込み(出品者負担)", "送料込み(出品者負担)"], ["着払い(購入者負担)", "着払い(購入者負担)"]], {}, class: "tndelivery"
+       
         .tnmain__contents__form__detail__guidebox2
           %span.tnguide 発送元の地域
           .tnhissu 必須
         .tnmain__contents__form__detail__category2
           = f.collection_select :prefecture_id, Prefecture.all, :id, :name, {prompt: '--'}, class: 'tndelivery'
+       
         .tnmain__contents__form__delivery__guidebox3
           %span.tnguide 発送までの日数
           .tnhissu 必須
@@ -101,7 +89,7 @@
                 .tnhissu 必須
               .inputbox
                 ¥
-                %input{name: 'price', placeholder: '例）300'}
+                = f.text_field :price, placeholder: "例）300"
           .tnmain__contents__form__price__box__fee
             %span 販売手数料(10%)
             .tnmain__contents__form__price__box__fee--right -
@@ -124,10 +112,11 @@
             =link_to 'http://google.co.jp' do
               加盟店規約
             に同意したことになります。
-        =link_to 'http://google.co.jp', class: 'tnsubmit' do
-          .tnmain__contents__form__note__btn
-            %span 出品する
-        =link_to 'http://google.co.jp', class: 'tnreturn' do
+        
+        .tnmain__contents__form__note__btn
+          = f.submit "出品する", class: "tnsubmit"
+        
+        =link_to "/", class: 'tnreturn' do
           .tnmain__contents__form__note__return
             %span もどる
 .tnfooder
@@ -145,3 +134,39 @@
     .tnfooder__logo
       =image_tag "//www-mercari-jp.akamaized.net/assets/img/common/common/logo-gray.svg?465897195", alt: "mercari", height: "65", width: '80'
   %p © 2019 Mercari
+
+
+
+-# %input{accept: 'iamge/*', name: 'iamge', type: 'file', id: 'postimage'}
+        -# %input{name: 'name', placeholder: '商品名  (必須40文字まで)', type: 'text', class: 'inputname'}
+        -# %textarea{name: 'explanation', rows: '6', cols: '67', placeholder: '商品の説明 (必須1,000文字以内) (色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。'}
+  -# %select{name: 'item-category', class: 'tncategory'}
+          -#   %option{value: ''}--
+          -#   %option{value: 'レディース'}レディース
+          -#   %option{value: 'メンズ'}メンズ
+          -#   %option{value: 'ベビー・キッズ'}ベビー・キッズ
+          -#   %option{value: 'インテリア・住まい・小物'}インテリア・住まい・小物
+          -#   %option{value: '本・音楽・ゲーム'}本・音楽・ゲーム
+          -#   %option{value: 'おもちゃ・ホビー・グッズ'}おもちゃ・ホビー・グッズ
+          -#   %option{value: 'コスメ・香水・美容'}コスメ・香水・美容
+          -#   %option{value: '家電・スマホ・カメラ'}家電・スマホ・カメラ
+          -#   %option{value: 'スポーツ・レジャー'}スポーツ・レジャー
+          -#   %option{value: 'ハンドメイド'}ハンドメイド
+          -#   %option{value: 'チケット'}チケット
+          -#   %option{value: '自転車・オートバイ'}自転車・オートバイ
+          -#   %option{value: 'その他'}その他
+
+           -# %select{name: 'status', class: 'tncategory'}
+          -#   %option{value: ''}--
+          -#   %option{value: '新品,未使用'}新品、未使用
+          -#   %option{value: '未使用に近い'}未使用に近い
+          -#   %option{value: '目立った傷や汚れなし'}目立った傷や汚れなし
+          -#   %option{value: 'やや傷や汚れあり'}やや傷や汚れあり
+          -#   %option{value: '傷や汚れあり'}傷や汚れあり
+          -#   %option{value: '全体的に状態が悪い'}全体的に状態が悪い
+
+             -# %select{name: 'delivery-fee', class: 'tndelivery'}
+          -#   %option{value: ''}--
+          -#   %option{value: '送料込み(出品者負担)'}送料込み(出品者負担)
+          -#   %option{value: '着払い(購入者負担)'}着払い(購入者負担)
+                -# %input{name: 'price', placeholder: '例）300'}
