@@ -20,8 +20,7 @@
   - has_many :comments, dependent: :destroy
   - has_many :items, dependent: :destroy
   - has_many :credit_cards, dependent: :destroy
-  - has_many :residence, through: :user_residences, dependent: :destroy
-  - has_many :user_residences, dependent: :destroy
+  - has_one :residence, dependent: :destroy
 
 ## commentsテーブル
 |Column|Type|Options|
@@ -47,11 +46,13 @@
 |user_id|references|foreign_key: true|
 |category_id|references|foreign_key: true|
 |bland_id|references|foreign_key: true|
+|delivery_way|string|null: false|
+|delivery_day|string|null: false|
 
 ### association
   - has_many :comments, dependent: :destroy
   - has_many :image, dependent: :destroy
-  - belongs_to :prefecture
+  - belongs_to_active_hash :prefecture
   - belongs_to :category
   - belongs_to :bland
   - belongs_to :user
@@ -102,15 +103,5 @@
 |building|string|
 
 ### association
-  - has_many :users, through: :user_residences
-  - has_many :user_residences
-  - belongs_to :prefectures
-
-## user_residencesテーブル
-|Column|Type|Options|
-|------|----|-------|
-|user_id|references|foreign_key: true|
-|residence_id|references|foreign_key: true|
-
-### association
   - belongs_to :user
+  - belongs_to_active_hash :prefectures
