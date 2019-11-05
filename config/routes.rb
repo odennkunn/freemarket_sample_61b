@@ -18,15 +18,23 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :credit_cards, only: [:create, :show, :edit] do
+    collection do
+      post 'delete', to: 'credit_card#delete'
+      post 'show'
+    end
+    member do
+      get 'confirmation'
+    end
+  end
+
   get "signup", to:"signup#index"
-  get "signup", to:"signup#login"
   resources :signup do
     collection do
       get 'step1'
-      get 'step2'
-      get 'step3'
-      get 'step4'
-      get 'step5'
+      post 'step2'
+      post 'step3'
+      post 'step4'
       get 'complete_signup'
     end
   end

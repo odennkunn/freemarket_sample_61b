@@ -1,10 +1,9 @@
 class Residence < ApplicationRecord
 
-#association
-  has_many :users, through: :user_residence
-  has_many :user_residence
+  has_many :users, through: :user_residences
+  has_many :user_residences
+  extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to_active_hash :prefecture
-
 #validation
 
   VALID_POST_CODE = /\A[0-9]{3}-[0-9]{4}\z/
