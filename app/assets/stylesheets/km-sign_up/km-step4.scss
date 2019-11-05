@@ -1,22 +1,18 @@
-.km-form-any {
-  display: inline-block;
-  font-size: 12px;
-  margin: 0 0 0 8px;
-  padding: 2px 4px;
-  border-radius: 2px;
-  color: $km-main-gray;
-  background-color: $km-line-gray;
-  vertical-align: top;
+.km-form__images {
+  margin-top: 8px;
+  .card__image {
+    height: 20px;
+    width: 34px;
+  }
 }
-.km-prefecture-select__container {
+.km-limit-select__container {
   display: flex;
   .km-select__info-text {
-    line-height: 54px;
-    margin: 0 4px;
+    line-height: 60px;
+    margin: 0 15px;
     font-size: 14px;
   }
   .select-wrap{
-    width: 100%;
     position: relative;
     display: inline-block;
     margin-top: 8px;
@@ -24,14 +20,15 @@
       -webkit-appearance: none;
       -moz-appearance: none;
       appearance: none;
-      width: 100%;
+      width: 120px;
       height: 46px;
       background: transparent;
       position: relative;
       z-index: 1;
       padding: 0 40px 0 10px;
-      border: 1px solid $km-line-gray;
+      border: 1px solid #ccc;
       border-radius: 4px;
+      font-size: 12px;
     }
     &:-ms-expand {
       display: none;
@@ -44,4 +41,3 @@
     }
   }
 }
-
