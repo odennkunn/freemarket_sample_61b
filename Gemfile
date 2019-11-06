@@ -104,6 +104,7 @@ gem 'ancestry'
 gem 'dropzonejs-rails'
 gem 'ransack'
 gem "recaptcha", require: "recaptcha/rails"
+gem 'dotenv-rails'
 
 group :development, :test do
 gem 'rspec-rails'
