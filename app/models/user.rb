@@ -17,7 +17,7 @@ class User < ApplicationRecord
  
 
 #user
-  #nickname 空ではないか、最大20文字、一意制約
+  # nickname 空ではないか、最大20文字、一意制約
   validates :nickname, presence: true, uniqueness: true, length: { maximum: 20 }
   #email 空ではないか、適切なフォーマットであるか、一意制約
   validates :email, presence: true, uniqueness: true, format: { with: VALID_EMAIL_REGEX, message: "フォーマットが不適切です"}
@@ -40,7 +40,7 @@ class User < ApplicationRecord
   #birth_day 空ではないか、数値であるか、2桁のみ
   validates :birth_day, presence: true, numericality: true, length: { is: 2 }
   #phone_number 空ではないか、フォーマットが適切であるか
-  validates :phone_number, presence: true, format: { with: /\A0[7-9]0-?\d{4}-?\d{4}\z/, message: "入力が正しくありません"}
+  # validates :phone_number, presence: true, format: { with: /\A0[7-9]0-?\d{4}-?\d{4}\z/, message: "入力が正しくありません"}
 
 
 #residence
