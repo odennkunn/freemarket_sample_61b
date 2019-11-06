@@ -42,16 +42,18 @@
         .tnmain__contents__form__detail__category
           = f.select :category_id, [["--"], ["レディース", 1], ["メンズ", 2], ["ベビー・キッズ", 3], ["インテリア・住まい・小物", 4], ["本・音楽・ゲーム", 5], ["おもちゃ・ホビー・グッズ", 6], ["コスメ・香水・美容", 7], ["家電・スマホ・カメラ", 8], ["スポーツ・レジャー", 9], ["ハンドメイド", 10], ["チケット", 11], ["自転車・オートバイ", 12], ["その他", 13]], {}, class: "tncategory"      
         
-        .tnmain__contents__form__detail__size
-          %span.tnguide サイズ
-          .tnhissu 必須
-        = f.text_field :size, class: 'inputname', placeholder: 'サイズ(cm)'
         .tnmain__contents__form__detail__guidebox2
           %span.tnguide 商品の状態
           .tnhissu 必須
         .tnmain__contents__form__detail__category2
           = f.select :status, [["--"], ["新品、未使用", "新品、未使用"], ["未使用に近い", "未使用に近い"], ["目立った傷や汚れなし", "目立った傷や汚れなし"], ["やや傷や汚れあり", "やや傷や汚れあり"], ["傷や汚れあり", "傷や汚れあり"], ["全体的に状態が悪い", "全体的に状態が悪い"]], {}, class: "tncategory"
          
+        .tnmain__contents__form__detail__guidebox3
+          %span.tnguide サイズ
+          .tnhissu 必須
+        .tnmain__contents__form__detail__category3
+          = f.text_field :size, class: 'tncategory', placeholder: 'サイズ(cm)'
+
       .tnmain__contents__form__delivery
         %h3 配送について
         =link_to 'http://google.co.jp', class: 'tnquestion' do
@@ -61,7 +63,11 @@
           .tnhissu 必須
         .tnmain__contents__form__delivery__fee
           = f.select :delivery_fee, [["--"], ["送料込み(出品者負担)", "送料込み(出品者負担)"], ["送料込み(出品者負担)", "送料込み(出品者負担)"], ["着払い(購入者負担)", "着払い(購入者負担)"]], {}, class: "tndelivery"
-       
+        
+        .tnmain__contents__form__detail__
+          %span.tnguide 配送方法
+          .tnhissu 必須
+          = f.select :delivery_way, [["--"], ["らくらくメルカリ便", "らくらくメルカリ便"], ["ゆうメール", "ゆうメール"], ["レターパック", "レターパック"], ["普通郵便", "普通郵便"]]
         .tnmain__contents__form__detail__guidebox2
           %span.tnguide 発送元の地域
           .tnhissu 必須
@@ -72,11 +78,8 @@
           %span.tnguide 発送までの日数
           .tnhissu 必須
         .tnmain__contents__form__delivery__day
-          %select{name: 'delivery-day', class: 'tndelivery'}
-            %option{value: ''}--
-            %option{value: '1~2日で発送'}1~2日で発送
-            %option{value: '2~3日で発送'}2~3日で発送
-            %option{value: '4~7日で発送'}4~7日で発送
+          = f.select :delivery_day, [["--"], ["1~2日で発送", "1~2日で発送"], ["2~3日で発送", "2~3日で発送"], ["4~7日で発送", "4~7日で発送"]], {}, class: "tndelivery"
+ 
       .tnmain__contents__form__price
         %h3 販売価格(300〜9,999,999)
         =link_to 'http://google.co.jp', class: 'tnquestion' do
@@ -170,3 +173,9 @@
           -#   %option{value: '送料込み(出品者負担)'}送料込み(出品者負担)
           -#   %option{value: '着払い(購入者負担)'}着払い(購入者負担)
                 -# %input{name: 'price', placeholder: '例）300'}
+
+                         -# %select{name: 'delivery-day', class: 'tndelivery'}
+          -#   %option{value: ''}--
+          -#   %option{value: '1~2日で発送'}1~2日で発送
+          -#   %option{value: '2~3日で発送'}2~3日で発送
+          -#   %option{value: '4~7日で発送'}4~7日で発送
