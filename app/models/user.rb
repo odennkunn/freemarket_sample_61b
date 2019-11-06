@@ -6,7 +6,8 @@ class User < ApplicationRecord
   has_many :comments, dependent: :destroy
   has_many :items, dependent: :destroy
   has_many :credit_cards, dependent: :destroy
-  has_one :residences, dependent: :destroy
+  has_one :residence, dependent: :destroy
+  accepts_nested_attributes_for :residence 
   
 #varidation
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
