@@ -10,10 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_05_084013) do
+ActiveRecord::Schema.define(version: 2019_11_07_034459) do
 
   create_table "blands", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "name", null: false
+    t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -22,6 +22,7 @@ ActiveRecord::Schema.define(version: 2019_11_05_084013) do
     t.string "name", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "ancestry"
   end
 
   create_table "comments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -54,10 +55,10 @@ ActiveRecord::Schema.define(version: 2019_11_05_084013) do
   create_table "items", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
     t.text "explanation", null: false
-    t.integer "price", null: false
-    t.integer "size", null: false
+    t.string "price", null: false
+    t.string "size", null: false
     t.string "status", null: false
-    t.integer "delivery_fee", null: false
+    t.string "delivery_fee", null: false
     t.bigint "prefecture_id"
     t.bigint "user_id"
     t.bigint "category_id"
@@ -81,7 +82,7 @@ ActiveRecord::Schema.define(version: 2019_11_05_084013) do
   create_table "residences", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "user_id"
     t.bigint "prefecture_id"
-    t.integer "address_number", null: false
+    t.string "address_number", null: false
     t.string "municipal", null: false
     t.string "address", null: false
     t.string "building"
@@ -101,7 +102,7 @@ ActiveRecord::Schema.define(version: 2019_11_05_084013) do
     t.integer "birth_year", null: false
     t.integer "birth_month", null: false
     t.integer "birth_day", null: false
-    t.integer "phone_number"
+    t.string "phone_number"
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
@@ -109,6 +110,7 @@ ActiveRecord::Schema.define(version: 2019_11_05_084013) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "residence_id"
+    t.text "introduction"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
     t.index ["residence_id"], name: "index_users_on_residence_id"
