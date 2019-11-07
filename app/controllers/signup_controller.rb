@@ -104,7 +104,7 @@ class SignupController < ApplicationController
     session[:kana_family_name] = user_params[:kana_family_name]
     session[:kana_last_name] = user_params[:kana_last_name]    
     session[:residence_attributes_step3] = user_params[:residence_attributes]
-    binding.pry
+    # binding.pry
     @user = User.new(
       nickname: session[:nickname],
       email: session[:email],
@@ -122,7 +122,7 @@ class SignupController < ApplicationController
     @user.build_residence(
       session[:residence_attributes_step3]
     )
-    # binding.pry
+    binding.pry
     render 'signup/step3' unless @user.valid?
   end
 
@@ -151,13 +151,27 @@ class SignupController < ApplicationController
 
   def create
     @user = User.new(
+      nickname: session[:nickname],
+      email: session[:email],
+      password: session[:password],
+      password_confirmation: session[:password_confirmation],
       family_name: session[:family_name],
       last_name: session[:last_name],
       kana_family_name: session[:kana_family_name],
       kana_last_name: session[:kana_last_name],
+      birth_year: session[:birth_year],
+      birth_month: session[:birth_month],
+      birth_day: session[:birth_day],
       phone_number: session[:phone_number]
     )
     @user.build_residence(session[:residence_attributes_step3])
+
+    if @user.save
+      session[:id] = @user.id
+      redirect_to complete_signup_signup_index_path
+    else
+      render '/signup/step1'
+    end
   end
 
   def complete_signup
