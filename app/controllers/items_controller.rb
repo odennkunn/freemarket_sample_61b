@@ -3,6 +3,7 @@ class ItemsController < ApplicationController
   def new
     @prefecture = Prefecture.all
     @item = Item.new
+    @item.images.build
   end
 
   def show
@@ -11,6 +12,7 @@ class ItemsController < ApplicationController
 
   def create
     @item = Item.new(item_params)
+    
     # binding.pry
     @item.save
   end
@@ -21,6 +23,6 @@ class ItemsController < ApplicationController
 
   private
   def item_params
-    params.require(:item).permit(:name, :explanation, :price, :status, :delivery_fee, :user_id, :category_id, :bland_id)
+    params.require(:item).permit(:name, :explanation, :price, :status, :delivery_fee, :user_id, :category_id, :bland_id, images_attributes: {img: []})
   end
 end
