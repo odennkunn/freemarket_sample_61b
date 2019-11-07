@@ -21,8 +21,15 @@
               %span ドラッグアンドドロップ
               %br
               %span またはクリックしてファイルをアップロード
+
               = f.fields_for :images do |i|
                 = i.file_field :image
+            .sell-dropbox-container-clearfix
+              .sell-dropbox-container-clearfix__items
+                .upload__box
+                  .post_box
+                    = f.fields_for :images do |i|
+                      = i.file_field :image_url, name: "product[images_attributes][][image_url]", class: "sell-upload-drop-box", id: "post_img_last"
 
       .tnmain__contents__form__itemname
         .tnmain__contents__form__imagebox__guidebox
