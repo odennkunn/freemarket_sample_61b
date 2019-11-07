@@ -2,6 +2,7 @@ class SignupController < ApplicationController
   before_action :save_step1, only: :step2
   before_action :save_step2, only: :step3
   before_action :save_step3, only: :step4
+  
   def index
   end
 
@@ -91,7 +92,12 @@ class SignupController < ApplicationController
     # session[:residence_attributes_after_step2] = user_params[:residence_attributes]
     # session[:residence_attributes_after_step2].merge!(session[:residence_attributes_after_step1])
     # binding.pry
-    @user = User.new
+    @user = User.new(
+      family_name: session[:family_name],
+      last_name: session[:last_name],
+      kana_family_name: session[:kana_family_name],
+      kana_last_name: session[:kana_last_name]   
+    )
     # @user.build_residence
     @user.build_residence
     # binding.pry
@@ -166,7 +172,14 @@ class SignupController < ApplicationController
     )
     @user.build_residence(session[:residence_attributes_step3])
 
-    if @user.save
+    unless @user.save
+      render '/signup/step1'
+    end
+
+    customer = Payjp::Customer.create(card: params[:payjp_token])
+    @credit_card = Credit_card.new(user: @user, customer_id: customer.id, card_id: customer.default_card)
+
+    if @credit_card.save
       session[:id] = @user.id
       redirect_to complete_signup_signup_index_path
     else
