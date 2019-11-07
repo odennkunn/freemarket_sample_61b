@@ -46,7 +46,7 @@
             = f.text_field :kana_family_name, placeholder: "例) ヤマダ", class: "km-form"
             -# %input{class: "km-form", placeholder: "例) アヤ"}
             = f.text_field :kana_last_name, placeholder: "例) アヤ", class: "km-form"
-          = f.fields_for @residence do |r|
+          = f.fields_for :residence, url: step4_signup_index_path, method: :post do |r|
             .km-form__container
               %label{class: "km-label"}
                 郵便番号
