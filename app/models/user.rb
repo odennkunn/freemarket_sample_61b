@@ -40,7 +40,7 @@ class User < ApplicationRecord
   #birth_day 空ではないか、数値であるか、2桁のみ
   validates :birth_day, presence: true, numericality: true, length: { is: 2 }
   #phone_number 空ではないか、フォーマットが適切であるか
-  validates :phone_number, presence: true, format: { with: /\A0[7-9]0-?\d{4}-?\d{4}\z/, message: "入力が正しくありません"}
+  #validates :phone_number, presence: true, format: { with: /\A0[7-9]0-?\d{4}-?\d{4}\z/, message: "入力が正しくありません"}
 
 
 #residence
