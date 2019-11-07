@@ -47,6 +47,9 @@ class SignupController < ApplicationController
     # )
     # binding.pry
     render 'signup/step1' unless @user.valid?
+    unless verify_recaptcha(model: @user)
+      'signup/step1'
+    end
   end
 
   def step2

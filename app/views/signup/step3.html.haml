@@ -37,6 +37,8 @@
             = f.text_field :family_name, placeholder: "例) 山田", class: "km-form"
             -# %input{class: "km-form", placeholder: "例) 彩"}
             = f.text_field :last_name, placeholder: "例) 彩", class: "km-form"
+            -# = render partial: 'km-error-messages', locals: {user: @user, column: "family_name"}
+            -# = render partial: 'km-error-messages', locals: {user: @user, column: "last_name"}
           .km-form__container
             %label{class: "km-label"}
               お名前カナ
@@ -46,6 +48,8 @@
             = f.text_field :kana_family_name, placeholder: "例) ヤマダ", class: "km-form"
             -# %input{class: "km-form", placeholder: "例) アヤ"}
             = f.text_field :kana_last_name, placeholder: "例) アヤ", class: "km-form"
+            = render partial: 'km-error-messages', locals: {user: @user, column: "kana_family_name"}
+            = render partial: 'km-error-messages', locals: {user: @user, column: "kana_last_name"}
           = f.fields_for :residence, url: step4_signup_index_path, method: :post do |r|
             .km-form__container
               %label{class: "km-label"}
@@ -54,6 +58,7 @@
                 必須
               -# %input{class: "km-form", placeholder: "例) 123-4567"}
               = r.text_field :address_number, placeholder: "例) 123-4567", class: "km-form"
+              -# = render partial: 'km-error-messages', locals: {user: @residence, column: "address_number"}
             .km-form__container
               %label{class: "km-label"}
                 都道府県
