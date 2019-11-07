@@ -33,7 +33,8 @@
           .km-form__info-text-complete
             会員登録が完了しました。
         .km-form__container
-          %button.km-submit-next__btn.btn-red
+          -# %button.km-submit-next__btn.btn-red
+          = link_to root_path, class: "km-submit-next__btn btn-red" do
             メルカリをはじめる
         .km-form__container
     = image_tag src="signup_app.png",class: "km-signup_app__image"
