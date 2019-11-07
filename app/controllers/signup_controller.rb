@@ -66,7 +66,6 @@ class SignupController < ApplicationController
     # session[:residence_attributes_after_step3] = user_params[:residence_attributes]
     # session[:residence_attributes_after_step3].merge!(session[:residence_attributes_after_step2])
     session[:residence_attributes_step3] = user_params[:residence_attributes]
-    binding.pry
     @user = User.new(
       family_name: session[:family_name],
       last_name: session[:last_name],
