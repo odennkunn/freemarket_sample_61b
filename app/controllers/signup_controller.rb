@@ -110,7 +110,7 @@ class SignupController < ApplicationController
     session[:kana_family_name] = user_params[:kana_family_name]
     session[:kana_last_name] = user_params[:kana_last_name]    
     session[:residence_attributes_step3] = user_params[:residence_attributes]
-    # binding.pry
+    
     @user = User.new(
       nickname: session[:nickname],
       email: session[:email],
