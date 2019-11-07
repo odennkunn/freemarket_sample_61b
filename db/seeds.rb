@@ -10,5 +10,5 @@ User.create!(
   birth_year: '1995',
   birth_month: '12',
   birth_day: '12',
-  
 )
+
