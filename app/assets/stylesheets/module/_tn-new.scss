@@ -11,11 +11,11 @@
 }
 .tnmain {
   width: 100vw;
-  height: 2200px;
+  height: 2300px;
   background-color: #EEEEEE;
   &__contents {
     width: 700px;
-    height: 2200px;
+    height: 2300px;
     background-color: white;
     margin: 0 auto;
     &--title {
@@ -104,7 +104,7 @@
         }
       }
       &__detail {
-        height: 300px;
+        height: 400px;
         border-bottom: solid;
         border-width: 1px;
         border-color: #EEEEEE;
@@ -223,6 +223,36 @@
           top: 50%;
           left: 360px;
           margin-top: -4px;
+        }
+        &__guidebox3 {
+          position: absolute;
+          top: 290px;
+          right: 250px;
+          .tnguide {
+            font-weight: bold;
+            font-size: 15px;
+          }
+          .tnhissu {
+            display: inline-block;
+            width: 40px;
+            height: 22px;
+            margin-left: 10px;
+            font-size: 14px;
+            font-weight: bold;
+            text-align: center;
+            line-height: 22px;
+            border-radius: 3px;
+            background-color: red;
+            color: white;
+          }
+        }
+        &__category3 {
+          width: 100%;
+          position: relative;
+          display: inline-block;
+          position: absolute;
+          top: 320px;
+          left: 260px;
         }
       }
       &__delivery {
@@ -467,7 +497,7 @@
         }
         .tnsubmit {
           text-decoration: none;
-          color: white;
+          // color: white;
         }
         &__btn {
           width: 620px;
@@ -518,4 +548,8 @@
     font-size: 12px;
     text-align: center;
   }
+}
+
+.kw_hidden {
+  display: none;
 }

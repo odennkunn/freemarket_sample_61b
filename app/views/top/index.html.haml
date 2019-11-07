@@ -153,7 +153,12 @@
 =render 'shared/top-footerimg'
 .footer
   =render 'shared/top-footer'
-.footer-self-btn
-  出品
-  %br
-  = fa_icon 'camera',class:"camera"
+  =link_to '出品', new_item_path, class: 'footer-self-btn' 
+  =link_to new_item_path, class: 'footer-self-btn-camera' do
+    = fa_icon 'camera'
+
+
+-# .footer-self-btn
+-#   出品
+-#   %br
+-#   = fa_icon 'camera',class:"camera"

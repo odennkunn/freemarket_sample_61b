@@ -6,6 +6,7 @@
   height: 100px;
   width: 100%;
   z-index: 1;
+  background-color: white;
   &__inner {
       margin: 0 168px;
       padding-top: 8px;
@@ -251,7 +252,11 @@ a {
   background: #ea352d;
   text-align: center;
   line-height: 65px;
-  .camera{
+  &-camera{
+    position: fixed;
+    color: white;
+    bottom: 60px;
+    right: 82px;
     font-size: 54px;
     margin-bottom: 0px;
     }

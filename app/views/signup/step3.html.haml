@@ -6,13 +6,13 @@
         会員情報
         .progress-status.active
           .progress-status-bar.active
-      %li.progress-text.active
+      %li.progress-text
         電話番号認証
         .progress-status.active
-          .progress-status-bar-step2
-      %li.progress-text
+          .progress-status-bar-step2.active
+      %li.progress-text.active
         お届け先住所入力
-        .progress-status
+        .progress-status.active
           .progress-status-bar-step3
       %li.progress-text
         支払い方法
@@ -24,39 +24,79 @@
 .km-main
   .km-main__container
     .km-head__title
-      電話番号認証
+      発送元・お届け先住所入力
     .km-ragistration-form__inner
       .km-form__wrapper
-        .km-form__container
-          %label{class: "km-label"}
-            認証番号
-          %input{class: "km-form", placeholder: "認証番号を入力"}
-          .km-form__info-text-step2
-            SMSで届いた番号を入力してください
-        .km-form__container
-          = link_to step4_signup_index_path, class: "km-submit-next__btn btn-red" do
-            認証して完了
-    .km-ragistration-form__inner
-      .km-form__wrapper
-        .km-form__container
-          .km-label
-            30秒たっても認証番号が届かない方へ
-          .km-form__info-text-step2
-            電話で認証番号を聞くこともできます。
-        .km-form__container
-          = link_to "", class: "km-submit-next__btn btn-red" do
-            電話で認証番号を聞く（通話無料）
-    .km-ragistration-form__inner
-      .km-form__wrapper
-        .km-form__container
-          .km-label
-            認証番号を再送することもできます。もう一度電話番号を入力して下さい。
-          .km-form__info-text-step2
-            = link_to "" do
-              電話番号を再度入力する
-          .km-form__info-text-step2
-            ※SMSが届かない場合は
-            = link_to "" do
-              SMS受信設定
-            を確認して、もう一度電話番号を入力してください。
+        = form_for @user, url: step4_signup_index_path, method: :post do |f|
+          .km-form__container
+            %label{class: "km-label"}
+              お名前
+            .km-form-require
+              必須
+            -# %input{class: "km-form", placeholder: "例) 山田"}
+            = f.text_field :family_name, placeholder: "例) 山田", class: "km-form"
+            -# %input{class: "km-form", placeholder: "例) 彩"}
+            = f.text_field :last_name, placeholder: "例) 彩", class: "km-form"
+          .km-form__container
+            %label{class: "km-label"}
+              お名前カナ
+            .km-form-require
+              必須
+            -# %input{class: "km-form", placeholder: "例) ヤマダ"}
+            = f.text_field :kana_family_name, placeholder: "例) ヤマダ", class: "km-form"
+            -# %input{class: "km-form", placeholder: "例) アヤ"}
+            = f.text_field :kana_last_name, placeholder: "例) アヤ", class: "km-form"
+          = f.fields_for :residence, url: step4_signup_index_path, method: :post do |r|
+            .km-form__container
+              %label{class: "km-label"}
+                郵便番号
+              .km-form-require
+                必須
+              -# %input{class: "km-form", placeholder: "例) 123-4567"}
+              = r.text_field :address_number, placeholder: "例) 123-4567", class: "km-form"
+            .km-form__container
+              %label{class: "km-label"}
+                都道府県
+              .km-form-require
+                必須
+              .km-prefecture-select__container
+                .select-wrap
+                  = fa_icon 'chevron-down', class: "km-select-arrow"
+                  -# %select.select{id: "", name: ""}
+                  -#   %option{value: ""} 北海道
+                  -#   %option{value: ""} 002
+                  -#   %option{value: ""} 003
+                  = r.collection_select :prefecture_id, Prefecture.all, :id, :name, {prompt: '--'}, class: 'select'
+            .km-form__container
+              %label{class: "km-label"}
+                市区町村
+              .km-form-require
+                必須
+              -# %input{class: "km-form", placeholder: "例) 横浜市緑区"}
+              = r.text_field :municipal, placeholder: "例) 横浜市緑区", class: "km-form"
+            .km-form__container
+              %label{class: "km-label"}
+                番地
+              .km-form-require
+                必須
+              -# %input{class: "km-form", placeholder: "例) 青山1-1-1"}
+              = r.text_field :address, placeholder: "例) 青山1-1-1", class: "km-form"
+            .km-form__container
+              %label{class: "km-label"}
+                建物名
+              .km-form-any
+                任意
+              -# %input{class: "km-form", placeholder: "例) 柳ビル103"}
+              = r.text_field :building, placeholder: "例) 柳ビル103", class: "km-form"
+          .km-form__container
+            %label{class: "km-label"}
+              電話
+            .km-form-any
+              任意
+            -# %input{class: "km-form", placeholder: "例) 09012345678"}
+            = f.text_field :phone_number, placeholder: "例) 09012345678", class: "km-form"
+          .km-form__container
+            -# = link_to step5_signup_index_path, class: "km-submit-next__btn btn-red" do
+              次へ進む
+            = f.submit '次へ進む', class: "km-submit-next__btn btn-red"
 = render 'shared/km-footer'
