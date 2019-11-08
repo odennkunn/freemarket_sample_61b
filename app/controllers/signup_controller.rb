@@ -2,7 +2,11 @@ class SignupController < ApplicationController
   before_action :save_step1, only: :step2
   before_action :save_step2, only: :step3
   before_action :save_step3, only: :step4
+  before_action :create, only: :pay
   
+  require 'payjp'
+  Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
+
   def index
   end
 
@@ -141,13 +145,15 @@ class SignupController < ApplicationController
       # address: session[:address],
       # building: session[:building]
     )
-    # binding.pry
+
+    #binding.pry
     render 'signup/step3' unless @user.valid?
   end
 
   def step4
     @user = User.new
     @user.build_residence
+    
     # session[:prefecture_id] = residence_params[:prefecture_id]
     # session[:address_number] = residence_params[:address_number]
     # session[:municipal] = residence_params[:municipal]
@@ -169,6 +175,7 @@ class SignupController < ApplicationController
   end
 
   def create
+    
     @user = User.new(
       nickname: session[:nickname],
       email: session[:email],
@@ -197,16 +204,35 @@ class SignupController < ApplicationController
       render '/signup/step1'
     end
 
-    customer = Payjp::Customer.create(card: params[:payjp_token])
-    @credit_card = Credit_card.new(user: @user, customer_id: customer.id, card_id: customer.default_card)
+    # Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
+    # customer = Payjp::Customer.create(card: params[:payjp_token])
+    # @card = CreditCard.new(user_id: session[:id], customer_id: customer.id, card_id: customer.default_card)
 
-    if @credit_card.save
-      session[:id] = @user.id
+    # if @card.save
+    #   session[:id] = @user.id
+    #   redirect_to complete_signup_signup_index_path
+    # else
+    #   render '/signup/step4'
+    # end
+  end
+
+  def pay
+    Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
+    if params['payjp-token'].blank?
       redirect_to complete_signup_signup_index_path
     else
-      render '/signup/step1'
+      customer = Payjp::Customer.create(
+      card: params['payjp-token']
+      )
+      @card = CreditCard.new(user_id: @user.id, customer_id: customer.id, card_id: customer.default_card)
+      if @card.save
+        redirect_to complete_signup_signup_index_path
+      else
+        render '/signup/step4'
+      end
     end
   end
+
 
   def complete_signup
   end
