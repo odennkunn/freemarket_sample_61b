@@ -4,3 +4,9 @@
       %ul
         - errors.each do |error|
           %li.km-error=error
+- if user.errors.any?
+  - unless user.valid?
+    - if errors = user.errors.full_messages_for(attr.to_sym)
+      %ul
+        - errors.each do |error|
+          %li.km-error=error

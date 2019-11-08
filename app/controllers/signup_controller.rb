@@ -101,7 +101,6 @@ class SignupController < ApplicationController
       kana_family_name: session[:kana_family_name],
       kana_last_name: session[:kana_last_name]   
     )
-    # @user.build_residence
     @user.build_residence
     # binding.pry
   end
@@ -113,7 +112,13 @@ class SignupController < ApplicationController
     session[:kana_family_name] = user_params[:kana_family_name]
     session[:kana_last_name] = user_params[:kana_last_name]    
     session[:residence_attributes_step3] = user_params[:residence_attributes]
-    
+
+    # session[:prefecture_id] = user_params[:residence_attributes][:prefecture_id]
+    # session[:address_number] = user_params[:residence_attributes][:address_number]
+    # session[:municipal] = user_params[:residence_attributes][:municipal]
+    # session[:address] = user_params[:residence_attributes][:address]
+    # session[:building] = user_params[:residence_attributes][:building]
+
     @user = User.new(
       nickname: session[:nickname],
       email: session[:email],
@@ -130,8 +135,13 @@ class SignupController < ApplicationController
     )
     @user.build_residence(
       session[:residence_attributes_step3]
+      # prefecture_id: session[:prefecture_id],
+      # address_number: session[:address_number],
+      # municipal: session[:municipal],
+      # address: session[:address],
+      # building: session[:building]
     )
-    binding.pry
+    # binding.pry
     render 'signup/step3' unless @user.valid?
   end
 
@@ -174,6 +184,14 @@ class SignupController < ApplicationController
       phone_number: session[:phone_number]
     )
     @user.build_residence(session[:residence_attributes_step3])
+
+    # @user.build_residence(
+    #   prefecture_id: session[:prefecture_id],
+    #   address_number: session[:address_number],
+    #   municipal: session[:municipal],
+    #   address: session[:address],
+    #   building: session[:building]
+    # )
 
     unless @user.save
       render '/signup/step1'
