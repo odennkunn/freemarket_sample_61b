@@ -34,6 +34,7 @@ Rails.application.routes.draw do
       post 'step3'
       post 'step4'
       get 'complete_signup'
+      post 'pay'
     end
   end
 
