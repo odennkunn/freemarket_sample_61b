@@ -11,11 +11,11 @@
 }
 .tnmain {
   width: 100vw;
-  height: 2300px;
+  height: 2380px;
   background-color: #EEEEEE;
   &__contents {
     width: 700px;
-    height: 2300px;
+    height: 2380px;
     background-color: white;
     margin: 0 auto;
     &--title {
@@ -181,7 +181,7 @@
         }
         &__guidebox2 {
           position: absolute;
-          top: 170px;
+          top: 260px;
           right: 250px;
           .tnguide {
             font-weight: bold;
@@ -206,7 +206,7 @@
           position: relative;
           display: inline-block;
           position: absolute;
-          top: 200px;
+          top: 280px;
           left: 260px;
         }
         &__category2::after {
@@ -256,7 +256,7 @@
         }
       }
       &__delivery {
-        height: 400px;
+        height: 500px;
         border-bottom: solid;
         border-width: 1px;
         border-color: #EEEEEE;
@@ -326,7 +326,7 @@
         }
         &__guidebox3 {
           position: absolute;
-          top: 290px;
+          top: 350px;
           right: 235px;
           .tnguide {
             font-weight: bold;
@@ -351,7 +351,7 @@
           position: relative;
           display: inline-block;
           position: absolute;
-          top: 320px;
+          top: 385px;
           left: 260px;
         }
         &__day::after {
@@ -496,7 +496,9 @@
           }
         }
         .tnsubmit {
-          text-decoration: none;
+          background-color: red;
+          border-style: none;
+          color: white;
           // color: white;
         }
         &__btn {
@@ -506,6 +508,7 @@
           margin: 0 auto;
           text-align: center;
           line-height: 60px;
+          color: white;
         }
         .tnreturn {
           text-decoration: none;
@@ -552,4 +555,147 @@
 
 .kw_hidden {
   display: none;
+}
+
+.tnmain__contents__form__detail__guidebox1{
+  width: 100%;
+  position: relative;
+  display: inline-block;
+  position: absolute;
+  top: 150px;
+  left: 305px;
+  .tnguide {
+    font-weight: bold;
+    font-size: 15px;
+  }
+  .tnhissu {
+    display: inline-block;
+    width: 40px;
+    height: 22px;
+    margin-left: 10px;
+    border-style: none;
+    font-size: 14px;
+    font-weight: bold;
+    text-align: center;
+    line-height: 22px;
+    border-radius: 3px;
+    background-color: red;
+    color: white;
+    }
+    .tncategory {
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      appearance: none;
+      width: 350px;
+      height: 45px;
+      margin: 10px 50px;
+      background: transparent;
+      position: relative;
+      z-index: 1;
+      padding: 0 40px 0 10px;
+      border: 1px solid #b4b3b3;
+      border-radius: 3px;
+    }
+    .tncategory::-ms-expand {
+      display: none;
+    }
+}
+
+.tnmain__contents__form__detail__category1{
+    width: 100%;
+    display: inline-block;
+    position: absolute;
+    top: 180px;
+    left: 260px;
+}
+
+.items__sell{
+  background-color: #ffffff;
+  width: 700px;
+  margin: 50px auto;
+  &__title{
+    text-align: center;
+    border-bottom: solid 1px #eeeeee;
+    padding: 32px;
+    &-text{
+      font-size: 22px;
+    }
+  }
+  &__form{
+    &__upload-image,  &__item__detail, &__items, &__about-delivery, &__price, 
+    &__button{
+      padding: 40px;
+      border-bottom: solid 1px #eeeeee;
+    }
+    &__require{
+      background-color: #ea352d;
+      font-size: 12px;
+      color: #fff;
+      padding: 5px;
+      border-radius: 2px;
+      &__option{
+        background-color: gray;
+        font-size: 12px;
+        color: #fff;
+        padding: 5px;
+        border-radius: 2px;
+      }
+    }
+    &__upload-image{
+      &-text{
+      font-size: 12px;
+      }
+      &-form{
+        min-height: 162px;
+        display: block;
+        text-align: center;
+        display: flex;
+        flex-wrap: wrap;
+        .image_preview{
+          width: 124px;
+          height: 164px;
+          box-sizing: border-box;
+          border: 1px solid #eeeeee;
+          .btns{
+            display: flex;
+            width: 100%;
+            height: 63px;
+            .btn{
+              color: #0099e8;
+              display: block;
+              height: 100%;
+              width: 61px;
+              line-height: 63px;
+              cursor: pointer;
+              }
+          }
+        }
+        & label{
+          cursor: pointer;
+          height: 162px;
+          border: 1px dashed #ccc;
+          background: #f5f5f5;
+          width: 100%;
+          position: relative;
+          display: none;
+          span {
+            display: inline-block;
+            padding-top: 40px;
+            font-size: 14px;
+          }
+          & input{
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            position: absolute;
+            top: 0;
+            left: 0;
+          }
+        }
+        & label[for^="item_images_attributes_0_name"]{
+          display: block;
+        }
+      }
+    }
+  }
 }
