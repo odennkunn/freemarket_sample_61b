@@ -11,11 +11,11 @@
 }
 .tnmain {
   width: 100vw;
-  height: 2380px;
+  height: 2480px;
   background-color: #EEEEEE;
   &__contents {
     width: 700px;
-    height: 2380px;
+    height: 2480px;
     background-color: white;
     margin: 0 auto;
     &--title {
@@ -104,7 +104,7 @@
         }
       }
       &__detail {
-        height: 400px;
+        height: 500px;
         border-bottom: solid;
         border-width: 1px;
         border-color: #EEEEEE;
@@ -499,7 +499,6 @@
           background-color: red;
           border-style: none;
           color: white;
-          // color: white;
         }
         &__btn {
           width: 620px;
@@ -609,6 +608,38 @@
     left: 260px;
 }
 
+.tnmain__contents__form__detail__guidebox4{
+  position: absolute;
+  top: 350px;
+  right: 270px;
+  .tnguide {
+    font-weight: bold;
+    font-size: 15px;
+  }
+  .tnhissu {
+    display: inline-block;
+    width: 40px;
+    height: 22px;
+    margin-left: 10px;
+    font-size: 14px;
+    font-weight: bold;
+    text-align: center;
+    line-height: 22px;
+    border-radius: 3px;
+    background-color: #ccc;
+    color: white;
+  }
+}
+
+.tnmain__contents__form__detail__category4{
+  width: 100%;
+  position: relative;
+  display: inline-block;
+  position: absolute;
+  top: 380px;
+  left: 260px;
+}
+
 .items__sell{
   background-color: #ffffff;
   width: 700px;
@@ -698,4 +729,101 @@
       }
     }
   }
+}
+
+.tnmain__contents__form__detail__guidebox1-1{
+          position: absolute;
+          top: 37px;
+          right: 250px;
+          .tnguide {
+            font-weight: bold;
+            font-size: 15px;
+          }
+          .tnhissu {
+            display: inline-block;
+            width: 40px;
+            height: 22px;
+            margin-left: 10px;
+            font-size: 14px;
+            font-weight: bold;
+            text-align: center;
+            line-height: 22px;
+            border-radius: 3px;
+            background-color: red;
+            color: white;
+          }
+}
+
+
+.tnmain__contents__form__detail__category1-1{
+          width: 100%;
+          position: relative;
+          display: inline-block;
+          position: absolute;
+          top: 60px;
+          left: 260px;
+}
+
+.tnmain__contents__form__detail__guidebox2-1{
+  position: absolute;
+  top: 130px;
+  right: 250px;
+  .tnguide {
+    font-weight: bold;
+    font-size: 15px;
+  }
+  .tnhissu {
+    display: inline-block;
+    width: 40px;
+    height: 22px;
+    margin-left: 10px;
+    font-size: 14px;
+    font-weight: bold;
+    text-align: center;
+    line-height: 22px;
+    border-radius: 3px;
+    background-color: red;
+    color: white;
+  }
+}
+
+.tnmain__contents__form__detail__category2-1{
+  width: 100%;
+  position: relative;
+  display: inline-block;
+  position: absolute;
+  top: 160px;
+  left: 260px;
+}
+
+.tnmain__contents__form__detail__guidebox3-1{
+  position: absolute;
+  top: 240px;
+  right: 280px;
+  .tnguide {
+    font-weight: bold;
+    font-size: 15px;
+  }
+  .tnhissu {
+    display: inline-block;
+    width: 40px;
+    height: 22px;
+    margin-left: 10px;
+    font-size: 14px;
+    font-weight: bold;
+    text-align: center;
+    line-height: 22px;
+    border-radius: 3px;
+    background-color: red;
+    color: white;
+  }
+}
+
+.tnmain__contents__form__detail__category3-1{
+  width: 100%;
+  position: relative;
+  display: inline-block;
+  position: absolute;
+  top: 270px;
+  left: 260px;
 }

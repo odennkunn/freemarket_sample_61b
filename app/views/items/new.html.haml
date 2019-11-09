@@ -39,28 +39,28 @@
      
       .tnmain__contents__form__detail
         %h3 商品の詳細
-        .tnmain__contents__form__detail__guidebox
+        .tnmain__contents__form__detail__guidebox1-1
           %span.tnguide カテゴリー
           .tnhissu 必須
-        .tnmain__contents__form__detail__category
+        .tnmain__contents__form__detail__category1-1
           = f.select :category_id, [["--"], ["レディース", "1"], ["メンズ", "2"], ["ベビー・キッズ", "3"], ["インテリア・住まい・小物", "4"], ["本・音楽・ゲーム", "5"], ["おもちゃ・ホビー・グッズ", "6"], ["コスメ・香水・美容", "7"], ["家電・スマホ・カメラ", "8"], ["スポーツ・レジャー", "9"], ["ハンドメイド", "10"], ["チケット", "11"], ["自転車・オートバイ", "12"], ["その他", "13"]], {}, class: "tncategory"      
         
-        .tnmain__contents__form__detail__guidebox2
+        .tnmain__contents__form__detail__guidebox2-1
           %span.tnguide 商品の状態
           .tnhissu 必須
-        .tnmain__contents__form__detail__category2
+        .tnmain__contents__form__detail__category2-1
           = f.select :status, [["--"], ["新品、未使用", "新品、未使用"], ["未使用に近い", "未使用に近い"], ["目立った傷や汚れなし", "目立った傷や汚れなし"], ["やや傷や汚れあり", "やや傷や汚れあり"], ["傷や汚れあり", "傷や汚れあり"], ["全体的に状態が悪い", "全体的に状態が悪い"]], {}, class: "tncategory"
          
-        .tnmain__contents__form__detail__guidebox3
+        .tnmain__contents__form__detail__guidebox3-1
           %span.tnguide サイズ
           .tnhissu 必須
-        .tnmain__contents__form__detail__category3
+        .tnmain__contents__form__detail__category3-1
           = f.text_field :size, class: 'tncategory', placeholder: 'サイズ(cm)'
 
+        .tnmain__contents__form__detail__guidebox4
+          %span.tnguide ブランド
+          .tnhissu 任意
         .tnmain__contents__form__detail__category4
-          = label '', 'ブランド'
-          %span 任意
-          %br
           = f.text_field :bland_id, class: 'tncategory'
 
       .tnmain__contents__form__delivery
@@ -103,13 +103,13 @@
                 .tnhissu 必須
               .inputbox
                 ¥
-                = f.text_field :price, placeholder: "例）300"
+                = f.text_field :price, {class: "y-input-default", id: "y-sell-input-main", value:"", placeholder: "例）300"}
           .tnmain__contents__form__price__box__fee
             %span 販売手数料(10%)
-            .tnmain__contents__form__price__box__fee--right -
+            #y-sell-fee.tnmain__contents__form__price__box__fee--right -
           .tnmain__contents__form__price__box__bottom
             %span 販売利益
-            .tnmain__contents__form__price__box__bottom--right -
+            #y-sell-profit.tnmain__contents__form__price__box__bottom--right -
       .tnmain__contents__form__note
         .tnmain__contents__form__note__text
           %p
