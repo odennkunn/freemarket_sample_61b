@@ -33,7 +33,6 @@
               ニックネーム
             .km-form-require
               必須
-            -# %input{class: "km-form", placeholder: "例) メルカリ太郎"}
             = f.text_field :nickname, placeholder: "例) メルカリ太郎", class: "km-form"
             = render partial: 'km-error-messages', locals: {user: @user, column: "nickname"}
           .km-form__container
@@ -41,7 +40,6 @@
               メールアドレス
             .km-form-require
               必須
-            -# %input{class: "km-form", placeholder: "PC・携帯どちらでも可"}
             = f.text_field :email, placeholder: "PC・携帯どちらでも可", class: "km-form"
             = render partial: 'km-error-messages', locals: {user: @user, column: "email"}
           .km-form__container
@@ -49,7 +47,6 @@
               パスワード
             .km-form-require
               必須
-            -# %input{class: "km-form", placeholder: "7文字以上"}
             = f.password_field :password, placeholder: "7文字以上", class: "km-form"
             = render partial: 'km-error-messages', locals: {user: @user, column: "password"}
           .km-form__container
@@ -57,7 +54,6 @@
               パスワード(確認)
             .km-form-require
               必須
-            -# %input{class: "km-form", placeholder: "7文字以上"}
             = f.password_field :password_confirmation, placeholder: "7文字以上", class: "km-form"
             = render partial: 'km-error-messages', locals: {user: @user, column: "password_confirmation"}
           .km-form__container
@@ -71,9 +67,7 @@
             .km-form-require
               必須
             .km-form__container-half
-              -# %input{class: "km-form-half", placeholder: "例) 山田"}
               = f.text_field :family_name, placeholder: "例) 山田", class: "km-form-half"
-              -# %input{class: "km-form-half", placeholder: "例) 彩"}
               = f.text_field :last_name, placeholder: "例) 彩", class: "km-form-half"
             = render partial: 'km-error-messages', locals: {user: @user, column: "family_name"}
             = render partial: 'km-error-messages', locals: {user: @user, column: "last_name"}
@@ -83,9 +77,7 @@
             .km-form-require
               必須
             .km-form__container-half
-              -# %input{class: "km-form-half", placeholder: "例) ヤマダ"}
               = f.text_field :kana_family_name, placeholder: "例) ヤマダ", class: "km-form-half"
-              -# %input{class: "km-form-half", placeholder: "例) アヤ"}
               = f.text_field :kana_last_name, placeholder: "例) アヤ", class: "km-form-half"
             = render partial: 'km-error-messages', locals: {user: @user, column: "kana_family_name"}
             = render partial: 'km-error-messages', locals: {user: @user, column: "kana_last_name"}
@@ -96,29 +88,14 @@
               必須
             .km-birthday-select__container
               .select-wrap
-                -# = fa_icon 'chevron-down', class: "km-select-arrow"
-                -# %select.select{id: "", name: ""}
-                -#   %option{value: ""} --
-                -#   %option{value: ""} 002
-                -#   %option{value: ""} 003
                 = f.number_field :birth_year, class:"select"              
               .km-select__info-text
                 年
               .select-wrap
-                -# = fa_icon 'chevron-down', class: "km-select-arrow"
-                -# %select.select{id: "", name: ""}
-                -#   %option{value: ""} --
-                -#   %option{value: ""} 002
-                -#   %option{value: ""} 003
                 = f.number_field :birth_month, class:"select"              
               .km-select__info-text
                 月
               .select-wrap
-                -# = fa_icon 'chevron-down', class: "km-select-arrow"
-                -# %select.select{id: "", name: ""}
-                -#   %option{value: ""} --
-                -#   %option{value: ""} 002
-                -#   %option{value: ""} 003
                 = f.number_field :birth_day, class:"select"
               .km-select__info-text
                 日
@@ -135,8 +112,6 @@
                 利用規約
               に同意したものとみなします  
           .km-form__container
-            -# = link_to step2_signup_index_path, class: "km-submit-next__btn btn-red" do
-            -#   次へ進む
             = f.submit '次へ進む', class: "km-submit-next__btn btn-red"
           .km-form__container
             .km-form__info-text-right
