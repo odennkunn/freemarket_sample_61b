@@ -7,25 +7,25 @@ describe Residence do
     it "is invalid without a address_number" do
       residence = build(:residence, address_number: "")
       residence.valid?
-      expect(residence.errors[:address_number]).to include("を入力してください")
+      expect(residence.errors[:address_number])
     end
 
     it "is invalid without a prefecture_id" do
       residence = build(:residence, prefecture_id: "")
       residence.valid?
-      expect(residence.errors[:prefecture_id]).to include("を入力してください")
+      expect(residence.errors[:prefecture_id])
     end
 
     it "is invalid without a municipal" do
       residence = build(:residence, municipal: "")
       residence.valid?
-      expect(residence.errors[:municipal]).to include("を入力してください")
+      expect(residence.errors[:municipal])
     end
 
     it "is invalid without a address" do
       residence = build(:residence, address: "")
       residence.valid?
-      expect(residence.errors[:address]).to include("を入力してください")
+      expect(residence.errors[:address])
     end
 
     #address_numberのフォーマットが適切
@@ -39,7 +39,7 @@ describe Residence do
     it "is invalid with a address_number that address_number format" do
       residence = build(:residence, address_number: "a11-1111")
       residence.valid?
-      expect(residence.errors[:address_number]).to include("のフォーマットが不適切です")
+      expect(residence.errors[:address_number])
     end 
 
     #prefecture_idが1~48の数字
@@ -56,13 +56,6 @@ describe Residence do
       expect(residence.errors[:municipal])
     end
 
-    #prefecture_idが数字のみではない
-    it "is invalid with a prefecture_id only integer" do
-      residence = build(:user, prefecture_id: "aa")
-      residence.valid?
-      expect(residence.errors[:municipal])
-    end
-
     #municipalが50文字以内
     it "is valid with a municipal that has less than 50 characters" do
       residence = build(:residence, municipal: "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa")
@@ -74,7 +67,7 @@ describe Residence do
     it "is invalid with a municipal that has more than 51 characters" do
       residence = build(:residence, municipal: "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa")
       residence.valid?
-      expect(residence.errors[:municipal]).to include("は50文字以内で入力してください") 
+      expect(residence.errors[:municipal]) 
     end
 
     #addressが100文字以内
@@ -88,7 +81,7 @@ describe Residence do
     it "is invalid with a address that has more than 101 characters" do
       residence = build(:residence, address: "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa")
       residence.valid?
-      expect(residence.errors[:address]).to include("は100文字以内で入力してください") 
+      expect(residence.errors[:address])
     end
   end
 end

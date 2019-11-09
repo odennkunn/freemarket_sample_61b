@@ -12,6 +12,5 @@ FactoryBot.define do
     birth_month           {"01"}
     birth_day             {"10"}
     phone_number          {"09012345678"}
-    residence_id          {"1"}
   end
 end
