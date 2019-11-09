@@ -1,7 +1,7 @@
-require 'rails_helper'
+# require 'rails_helper'
 
-describe Residence do
-  describe '#create' do
+# describe Residence do
+#   describe '#create' do
 
     #各項目空ではないか
     it "is invalid without a address_number" do
@@ -85,3 +85,4 @@ describe Residence do
     end
   end
 end
+

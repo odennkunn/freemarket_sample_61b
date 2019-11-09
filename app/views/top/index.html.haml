@@ -18,49 +18,21 @@
           %li
             シュプリーム
   .content  
-    .content__title シャネル新着アイテム
+    .content__title 新着アイテム
     .view-all もっとみる>
     .content__box 
+    - @items.each do |i| 
       .item 
-        =link_to root_path do
+        =link_to "" do
           .item__image
-          = image_tag "https://static.mercdn.net/item/detail/orig/photos/m40999492323_1.jpg?1572230260", alt: "", height: "188", width: "188"
+            = image_tag i.images.first.image.url, size:"200x200"
           .item__text
-            .item__text__name キテレツ大百科
+            .item__text__name 
+              = i.name
             .item__text__num  
-              .item__text__num--price ¥7,000
-      .item 
-        =link_to root_path do
-          .item__image
-          = image_tag "https://static.mercdn.net/item/detail/orig/photos/m40999492323_1.jpg?1572230260", alt: "", height: "188", width: "188"
-          .item__text
-            .item__text__name パーマン
-            .item__text__num  
-              .item__text__num--price ¥7,000
-      .item 
-        =link_to root_path do
-          .item__image
-          = image_tag "https://static.mercdn.net/item/detail/orig/photos/m40999492323_1.jpg?1572230260", alt: "", height: "188", width: "188"
-          .item__text
-            .item__text__name モジャ公
-            .item__text__num  
-              .item__text__num--price ¥7,000
-      .item 
-        =link_to root_path do
-          .item__image
-          = image_tag "https://static.mercdn.net/item/detail/orig/photos/m40999492323_1.jpg?1572230260", alt: "", height: "188", width: "188"
-          .item__text
-            .item__text__name お化けのQ太郎
-            .item__text__num  
-              .item__text__num--price ¥7,000
-      .item 
-        =link_to root_path do
-          .item__image
-          = image_tag "https://static.mercdn.net/item/detail/orig/photos/m40999492323_1.jpg?1572230260", alt: "", height: "188", width: "188"
-          .item__text
-            .item__text__name パラソルへんベェ
-            .item__text__num  
-              .item__text__num--price ¥7,000
+              .item__text__num--price
+                ¥
+                = i.price
   .content  
     .content__title ルイヴィトン新着アイテム
     .view-all もっとみる>
@@ -156,9 +128,3 @@
   =link_to '出品', new_item_path, class: 'footer-self-btn' 
   =link_to new_item_path, class: 'footer-self-btn-camera' do
     = fa_icon 'camera'
-
-
--# .footer-self-btn
--#   出品
--#   %br
--#   = fa_icon 'camera',class:"camera"
