@@ -1,0 +1,35 @@
+.km-header
+  = render 'shared/km-header'
+.km-main
+  .km-login__container
+    .km-sign_up-link__inner
+      .km-form__wrapper
+        .km-form__container
+          .km-form__info-text-log_in
+            アカウントをお持ちでない方はこちら
+          %button.km-sign_up__btn
+            新規会員登録
+    .km-login-form__inner
+      .km-form__wrapper
+        .km-form__container
+          %button.km-facebook__btn
+            = fa_icon 'facebook-square', class: "btn__icon"
+            facebookでログイン
+          %button.km-google__btn
+            .btn__wrapper
+            = image_tag src="google.png",class: "btn__icon"
+            Googleでログイン
+    .km-login-form__inner
+      = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+        .km-form__wrapper
+          .km-login-form__container
+            = f.email_field :email, autofocus: true, autocomplete: "email", class: "km-form", placeholder: "メールアドレス"
+          .km-login-form__container
+            = f.password_field :password, autocomplete: "current-password", class: "km-form", placeholder: "パスワード"
+          = recaptcha_tags
+          .km-login-form__container
+            = f.submit "ログイン", class:"km-log_in__btn btn-red"
+            .km-password__info-text
+              = link_to "" do
+                パスワードをお忘れの方
+= render 'shared/km-footer'

@@ -31,14 +31,11 @@
           .km-form__container
             %label{class: "km-label"}
               携帯電話の番号
-            -# %input{class: "km-form", placeholder: "携帯電話の番号を入力"}
             = f.text_field :phone_number, placeholder: "携帯電話の番号を入力", class: "km-form"
             .km-form__info-text-step2
               本人確認のため、携帯電話のSMS(ショートメッセージサービス)
               を利用して認証を行います。
           .km-form__container
-            -# = link_to step3_signup_index_path, class: "km-submit-next__btn btn-red" do
-              SMSを発信する
             = f.submit 'SMSを発信する', class: "km-submit-next__btn btn-red"
             .km-form__info-text-step2
               ※電話番号は本人確認や不正利用防止のために利用します。

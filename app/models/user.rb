@@ -17,7 +17,7 @@ class User < ApplicationRecord
  
 
 #user
-  # nickname 空ではないか、最大20文字、一意制約
+  #nickname 空ではないか、最大20文字、一意制約
   validates :nickname, presence: true, uniqueness: true, length: { maximum: 20 }
   #email 空ではないか、適切なフォーマットであるか、一意制約
   validates :email, presence: true, uniqueness: true, format: { with: VALID_EMAIL_REGEX, message: "フォーマットが不適切です"}
@@ -35,23 +35,9 @@ class User < ApplicationRecord
   validates :kana_last_name, presence: true, length: { maximum: 35 }, format: { with: VALID_KATAKANA_REGEX, message: "カタカナで入力してください"}
   #birth_year 空ではないか、数値であるか、４桁のみ
   validates :birth_year, presence: true, numericality: true, length: { is: 4 }
-  #birth_month 空ではないか、数値であるか、2桁のみ
-  validates :birth_month, presence: true, numericality: true, length: { is: 2 }
-  #birth_day 空ではないか、数値であるか、2桁のみ
-  validates :birth_day, presence: true, numericality: true, length: { is: 2 }
-  #phone_number 空ではないか、フォーマットが適切であるか
-  # validates :phone_number, presence: true, format: { with: /\A0[7-9]0-?\d{4}-?\d{4}\z/, message: "入力が正しくありません"}
-
-
-#residence
-
-  #address_number 空ではないか、最大8文字、フォーマットが適切か
-  #validates :address_number, presence: true, length: { maximum: 8 }, format: { with: VALID_POST_CODE, message: "フォーマットが不適切です"}
-  #prefecture_id 空ではないか、prefecture_idに存在するものか
-  #validates :prefecture_id, presence: true, numericality: { only_integer: true, less_than: 49 }
-  #munisipal 空ではないか、最大50文字
-  #validates :municipal, presence: true, length: { maximum: 50 }
-  #address 空ではないか、最大100文字
-  #validates :address, presence: true, length: { maximum: 100 }
-
+  #birth_month 空ではないか、数値であるか、1~2桁のみ
+  validates :birth_month, presence: true, numericality: true, length: { in: 1..2 }
+  #birth_day 空ではないか、数値であるか、1~2桁のみ
+  validates :birth_day, presence: true, numericality: true, length: { in: 1..2 }
+ 
 end

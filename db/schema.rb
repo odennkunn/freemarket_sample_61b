@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_07_035717) do
+ActiveRecord::Schema.define(version: 2019_11_09_055106) do
 
   create_table "blands", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name"
@@ -60,7 +60,6 @@ ActiveRecord::Schema.define(version: 2019_11_07_035717) do
     t.string "size", null: false
     t.string "status", null: false
     t.string "delivery_fee", null: false
-    t.bigint "prefecture_id"
     t.bigint "user_id"
     t.bigint "category_id"
     t.bigint "bland_id"
@@ -68,28 +67,21 @@ ActiveRecord::Schema.define(version: 2019_11_07_035717) do
     t.datetime "updated_at", null: false
     t.string "delivery_way", null: false
     t.string "delivery_day", null: false
+    t.integer "prefecture_id", null: false
     t.index ["bland_id"], name: "index_items_on_bland_id"
     t.index ["category_id"], name: "index_items_on_category_id"
-    t.index ["prefecture_id"], name: "index_items_on_prefecture_id"
     t.index ["user_id"], name: "index_items_on_user_id"
-  end
-
-  create_table "prefectures", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "name", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
   end
 
   create_table "residences", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "user_id"
-    t.bigint "prefecture_id"
     t.string "address_number", null: false
     t.string "municipal", null: false
     t.string "address", null: false
     t.string "building"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["prefecture_id"], name: "index_residences_on_prefecture_id"
+    t.integer "prefecture_id", null: false
     t.index ["user_id"], name: "index_residences_on_user_id"
   end
 
@@ -110,11 +102,9 @@ ActiveRecord::Schema.define(version: 2019_11_07_035717) do
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "residence_id"
     t.text "introduction"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
-    t.index ["residence_id"], name: "index_users_on_residence_id"
   end
 
   add_foreign_key "comments", "items"
@@ -123,9 +113,6 @@ ActiveRecord::Schema.define(version: 2019_11_07_035717) do
   add_foreign_key "images", "items"
   add_foreign_key "items", "blands"
   add_foreign_key "items", "categories"
-  add_foreign_key "items", "prefectures"
   add_foreign_key "items", "users"
-  add_foreign_key "residences", "prefectures"
   add_foreign_key "residences", "users"
-  add_foreign_key "users", "residences"
 end
