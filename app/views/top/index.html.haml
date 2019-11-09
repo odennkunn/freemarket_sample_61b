@@ -25,9 +25,7 @@
       .item 
         =link_to "" do
           .item__image
-            = image_tag i.images.first.image.url
-            -# ,size "200x200"
-          -# = image_tag "https://static.mercdn.net/item/detail/orig/photos/m40999492323_1.jpg?1572230260", alt: "", height: "188", width: "188"
+            = image_tag i.images.first.image.url, size:"200x200"
           .item__text
             .item__text__name 
               = i.name
@@ -35,42 +33,6 @@
               .item__text__num--price
                 ¥
                 = i.price
-      -# .item 
-      -#   =link_to "" do
-      -#     .item__image
-      -#     -# = image_tag "https://static.mercdn.net/item/detail/orig/photos/m40999492323_1.jpg?1572230260", alt: "", height: "188", width: "188"
-      -#     .item__text
-      -#       .item__text__name 
-      -#       .item__text__num  
-      -#         .item__text__num--price 
-      -#         -# ¥7,000
-      -# .item 
-      -#   =link_to root_path do
-      -#     .item__image
-      -#     -# = image_tag "https://static.mercdn.net/item/detail/orig/photos/m40999492323_1.jpg?1572230260", alt: "", height: "188", width: "188"
-      -#     .item__text
-      -#       .item__text__name 
-      -#       .item__text__num  
-      -#         .item__text__num--price 
-      -#         -# ¥7,000
-      -# .item 
-      -#   =link_to root_path do
-      -#     .item__image
-      -#     -# = image_tag "https://static.mercdn.net/item/detail/orig/photos/m40999492323_1.jpg?1572230260", alt: "", height: "188", width: "188"
-      -#     .item__text
-      -#       .item__text__name 
-      -#       .item__text__num  
-      -#         .item__text__num--price 
-      -#         -# ¥7,000
-      -# .item 
-      -#   =link_to root_path do
-      -#     .item__image
-      -#     -# = image_tag "https://static.mercdn.net/item/detail/orig/photos/m40999492323_1.jpg?1572230260", alt: "", height: "188", width: "188"
-      -#     .item__text
-      -#       .item__text__name 
-      -#       .item__text__num  
-      -#         .item__text__num--price 
-      -#         -# ¥7,000
   .content  
     .content__title ルイヴィトン新着アイテム
     .view-all もっとみる>
