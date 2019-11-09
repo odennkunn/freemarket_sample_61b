@@ -2,8 +2,8 @@ FactoryBot.define do
   factory :user do
     nickname              {"yamada"}
     email                 {"yamada123@gmail.com"}
-    password              {"00000000"}
-    password_confirmation {"00000000"}
+    password              {"1111aaaa"}
+    password_confirmation {"1111aaaa"}
     family_name           {"山田"}
     last_name             {"太郎"}
     kana_family_name      {"ヤマダ"}
@@ -12,13 +12,6 @@ FactoryBot.define do
     birth_month           {"01"}
     birth_day             {"10"}
     phone_number          {"09012345678"}
-    address_number        {"中央区中央町1-1"}
-    #prefecture_id         {"1"}
-    #municipal             {"名古屋市"}
-    #address               {"中央区中央町1-1"}
-    #credit_card_num       {1020304050607080}
-    #credit_card_month     {"01"}
-    #credit_card_year      {"25"}
-    #credit_card_security  {1234}
+    residence_id          {"1"}
   end
 end
