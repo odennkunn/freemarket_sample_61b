@@ -33,9 +33,7 @@
               お名前
             .km-form-require
               必須
-            -# %input{class: "km-form", placeholder: "例) 山田"}
             = f.text_field :family_name, placeholder: "例) 山田", class: "km-form"
-            -# %input{class: "km-form", placeholder: "例) 彩"}
             = f.text_field :last_name, placeholder: "例) 彩", class: "km-form"
             = render partial: 'km-error-messages', locals: {user: @user, column: "family_name"}
             = render partial: 'km-error-messages', locals: {user: @user, column: "last_name"}
@@ -44,9 +42,7 @@
               お名前カナ
             .km-form-require
               必須
-            -# %input{class: "km-form", placeholder: "例) ヤマダ"}
             = f.text_field :kana_family_name, placeholder: "例) ヤマダ", class: "km-form"
-            -# %input{class: "km-form", placeholder: "例) アヤ"}
             = f.text_field :kana_last_name, placeholder: "例) アヤ", class: "km-form"
             = render partial: 'km-error-messages', locals: {user: @user, column: "kana_family_name"}
             = render partial: 'km-error-messages', locals: {user: @user, column: "kana_last_name"}
@@ -56,7 +52,6 @@
                 郵便番号
               .km-form-require
                 必須
-              -# %input{class: "km-form", placeholder: "例) 123-4567"}
               = r.text_field :address_number, placeholder: "例) 123-4567", class: "km-form"
               = render partial: 'km-error-messages', locals: {user: @user.residence, column: "address_number"}
             .km-form__container
@@ -67,10 +62,6 @@
               .km-prefecture-select__container
                 .select-wrap
                   = fa_icon 'chevron-down', class: "km-select-arrow"
-                  -# %select.select{id: "", name: ""}
-                  -#   %option{value: ""} 北海道
-                  -#   %option{value: ""} 002
-                  -#   %option{value: ""} 003
                   = r.collection_select :prefecture_id, Prefecture.all, :id, :name, {prompt: '--'}, class: 'select'
                   = render partial: 'km-error-messages', locals: {user: @user.residence, column: "prefecture_id"}
             .km-form__container
@@ -78,7 +69,6 @@
                 市区町村
               .km-form-require
                 必須
-              -# %input{class: "km-form", placeholder: "例) 横浜市緑区"}
               = r.text_field :municipal, placeholder: "例) 横浜市緑区", class: "km-form"
               = render partial: 'km-error-messages', locals: {user: @user.residence, column: "municipal"}
             .km-form__container
@@ -86,7 +76,6 @@
                 番地
               .km-form-require
                 必須
-              -# %input{class: "km-form", placeholder: "例) 青山1-1-1"}
               = r.text_field :address, placeholder: "例) 青山1-1-1", class: "km-form"
               = render partial: 'km-error-messages', locals: {user: @user.residence, column: "address"}
             .km-form__container
@@ -94,17 +83,13 @@
                 建物名
               .km-form-any
                 任意
-              -# %input{class: "km-form", placeholder: "例) 柳ビル103"}
               = r.text_field :building, placeholder: "例) 柳ビル103", class: "km-form"
           .km-form__container
             %label{class: "km-label"}
               電話
             .km-form-any
               任意
-            -# %input{class: "km-form", placeholder: "例) 09012345678"}
             = f.text_field :phone_number, placeholder: "例) 09012345678", class: "km-form"
           .km-form__container
-            -# = link_to step5_signup_index_path, class: "km-submit-next__btn btn-red" do
-              次へ進む
             = f.submit '次へ進む', class: "km-submit-next__btn btn-red"
 = render 'shared/km-footer'
