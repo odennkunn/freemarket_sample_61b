@@ -58,7 +58,7 @@
                 必須
               -# %input{class: "km-form", placeholder: "例) 123-4567"}
               = r.text_field :address_number, placeholder: "例) 123-4567", class: "km-form"
-              = render partial: 'km-error-messages', locals: {user: @user.residence, colmn: "address_number"}
+              = render partial: 'km-error-messages', locals: {user: @user.residence, column: "address_number"}
             .km-form__container
               %label{class: "km-label"}
                 都道府県
@@ -72,6 +72,7 @@
                   -#   %option{value: ""} 002
                   -#   %option{value: ""} 003
                   = r.collection_select :prefecture_id, Prefecture.all, :id, :name, {prompt: '--'}, class: 'select'
+                  = render partial: 'km-error-messages', locals: {user: @user.residence, column: "prefecture_id"}
             .km-form__container
               %label{class: "km-label"}
                 市区町村
@@ -79,6 +80,7 @@
                 必須
               -# %input{class: "km-form", placeholder: "例) 横浜市緑区"}
               = r.text_field :municipal, placeholder: "例) 横浜市緑区", class: "km-form"
+              = render partial: 'km-error-messages', locals: {user: @user.residence, column: "municipal"}
             .km-form__container
               %label{class: "km-label"}
                 番地
@@ -86,6 +88,7 @@
                 必須
               -# %input{class: "km-form", placeholder: "例) 青山1-1-1"}
               = r.text_field :address, placeholder: "例) 青山1-1-1", class: "km-form"
+              = render partial: 'km-error-messages', locals: {user: @user.residence, column: "address"}
             .km-form__container
               %label{class: "km-label"}
                 建物名
