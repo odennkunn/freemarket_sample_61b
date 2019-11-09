@@ -1,83 +1,105 @@
-$(document).on('ready page:load',function(){
-  $(document).on('change', '#post_img,#post_img_last', function(){
-    var input_area = $('.upload__box');
-    var fileprop = $(this).prop('files')[0],
-        find_img = $(this).parent().find('img'),
-        filereader = new FileReader(),
-        view_box = $(this).parent('.view_box,.post_box'),
-        count = $('.img').length,
-        new_input = $(`<div class="post_box"><input name="product[images_attributes][][image_url]" class="sell-upload-drop-box" type="file" id="post_img_last" accept="image/*"></div>`);
+$(function(){
 
-    input_area.prepend(new_input);
-
-    $('.upload__box').children(":first").css({
-      'display':'block',
-      'display':'flex',
-    });
-    $(this).css({'display':'none'});
-    $('.upload__box').children(".post_box:last").attr('class',"view_box");
-
-      if(find_img.length){
-        find_img.nextAll().remove();
-        find_img.remove();
-      }
-      var img = '<div class="img_view"><img alt="" class="img"><p><a href="#" class="img_del">削除</a></p></div>';
-      view_box.append(img);
-      filereader.onload = function() {
-        view_box.find('img').attr('src', filereader.result);
-        img_del(view_box);      
-      }
-      filereader.readAsDataURL(fileprop);
-        if(count >= 9){
-          $('.post_box').css({
-            'display':'none',
-          });
-          alert("画像は10枚まででお願いします。");
-        }
-  });
-
-  function img_del(target){
-    target.find("a.img_del").on('click',function(){
-      var self = $(this),
-          count = $('.img').length,
-          parentBox = self.parent().parent().parent(),
-          parentBox2 = self.parent().parent().parent('.view_box');
-
-      if(window.confirm('画像を削除します。\nよろしいですか？')){
-        setTimeout(function(){
-          parentBox.find('input[type=file]').val('');
-          parentBox.find('.img_view').remove();
-          parentBox2.remove();
-        } , 0);
-        if(count <= 10){
-          $('.post_box').css({
-            'display':'',
-          });
-        }            
-      }
-      return false;
-    });
+  function buildHtml(num){
+    var html = `<div class="image_preview">
+                  <div class="image${num}" data-num="${num}">
+                    <img class="image" src="">
+                  </div>
+                  <div class="btns">
+                    <div class="btn edit">
+                      編集
+                    </div>
+                    <div class="btn delete">
+                      削除
+                    </div>
+                  </div>
+                </div>`
+      return html
   }
 
-  $(document).on("turbolinks:load", function(){ 
-    $('.input-default').on('keyup',function(){
-      $('#l-left,#l-left2').empty();
-      var Input = $('.input-default').val();
-      var Fee = Math.floor($('.input-default').val()*0.1),
-          Total = Input - Fee
+  function buildForm(num, form_width){
+    var html =  `<label for="item_images_attributes_${num}_name" style="display: block; width: ${form_width}">
+                  <span>
+                    ドラッグアンドドロップ
+                  <br>
+                    またはクリックしてファイルをアップロード
+                  </span>
+                  <input accept="image/*" type="file" name="item[images_attributes][0][name]" id="item_images_attributes_${num}_name">
+                  </label>`
+    return html
+  }
+  
+  var num = $(".image_preview").length
+  var form_width = `100%`
+  $(".items__sell__form__upload-image-form").on("change", $(`#item_images_attributes_${num}_name`), function(e){
+      $(`label[for=item_images_attributes_${num}_name`).css("display", "none")
+      if (num === 0){
+        $(".items__sell__form__upload-image-form").prepend(buildHtml(num))
+      }else{
+        $(".image_preview").last().after(buildHtml(num))
+      }
+      
+      var file = e.target.files[0],
+      reader = new FileReader(),
+      $preview = $(`.image${num}`);
+      t = this;
 
-      if(Input >= 300 && Input <= 9999999){
-        var Fee = String(Fee),
-            Total = String(Total);
-        while(Fee != (Fee = Fee.replace(/^(-?\d+)(\d{3})/, "$1,$2")));
-        while(Total != (Total = Total.replace(/^(-?\d+)(\d{3})/, "$1,$2")));
-        $('#l-left').append("¥ " + Fee);
-        $('#l-left2').append("¥ " + Total);
+      reader.onload = (function(file) {
+        return function(e) {
+          $preview.empty();
+          $preview.append($('<img>').attr({
+            src: e.target.result,
+            width: "122px",
+            height: "103px",
+                    class: "preview",
+                    title: file.name
+                }));
+              };
+      })(file);
+      
+      reader.readAsDataURL(file);
+
+      num += 1
+      if (num < 5){
+        form_width = `calc(100% - 126 * ${num}px)`
+      }else if(num > 5){
+        form_width = `calc(100% - 126 * ${num - 5}px)`
+      }else{
+        form_width = `100%`
       }
-      if( $('.input-default').val()==""){
-        $('#l-left,#l-left2').empty();    
-      }
-      return false
-    });
-  });
-});
+      $(`label[for=item_images_attributes_${num}_name`).css("width", `${form_width}`)
+      $(`label[for=item_images_attributes_${num}_name`).css("display", "block")
+  })
+
+  $(document).on("click", ".btn.delete", function(){
+    var index = $(this).parent().parent().children().first().data("num")
+
+    $(this).parent().parent().remove()
+    num = $(".image_preview").length
+    if (num < 5){
+      form_width = `calc(100% - 126 * ${num}px)`
+    }else if(num > 5){
+      form_width = `calc(100% - 126 * ${num - 5}px)`
+    }else{
+      form_width = `100%`
+    }
+
+    $(".items__sell__form__upload-image-form label").css("display", "none")
+    $(`label[for=item_images_attributes_${index}_name`).remove()
+    $(`.image_preview`).each(function(i, image){
+      $(image).children().attr("data-num", `${i}`)
+      $(image).children().first().attr("class", `image${i}`)
+    })
+
+    if (num === 0){
+      $(".items__sell__form__upload-image-form").prepend(buildForm(num, form_width))
+    }else{
+      $(`.items__sell__form__upload-image-form label:eq(${num - 1})`).after(buildForm(num, form_width))
+    }
+
+    $(".items__sell__form__upload-image-form label").children("input").each(function(i, input){
+        $(input).attr("id", `item_images_attributes_${i}_name`)
+        $(input).parent().attr("for", `item_images_attributes_${i}_name`)
+      })
+  })
+})
