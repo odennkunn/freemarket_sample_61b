@@ -1,0 +1,13 @@
+.tnbreadcrumbs {
+  width: 100vw;
+  background-color: white;
+  height: 50px;
+  border-top: solid;
+  border-width: 1px;
+  border-color: $tngray;
+  line-height: 50px;
+  .breadcrumbs-list {
+    padding-left: 160px;
+    font-size: 15px;
+  }
+}
