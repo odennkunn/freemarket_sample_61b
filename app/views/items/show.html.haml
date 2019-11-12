@@ -1,13 +1,11 @@
 .kw_item_detail
   .kw_item_detail__name
-    神速Excel
+    = @item.name
   .kw_item_detail__main
     .kw_item_detail__main--photo__top
-      =image_tag "https://static.mercdn.net/item/detail/orig/photos/m51261840710_1.jpg?1569317203", height: "300", width: "300"
-    .kw_item_detail__main--photo__bottom
-      =image_tag "https://static.mercdn.net/item/detail/orig/photos/m51261840710_1.jpg?1569317203", height: "60", widht: "60"
-      =image_tag "https://static.mercdn.net/item/detail/orig/photos/m51261840710_2.jpg?1569317203", height: "60", widht: "60"
-      =image_tag "https://static.mercdn.net/item/detail/orig/photos/m51261840710_3.jpg?1569317203", height: "60", widht: "60"
+      - @item.images.each do |image|
+        .item__content__image__top
+          = image_tag "#{image.image_url}"
     .kw_item_detail__sold
     %table.kw_item_detail__main--info
       %tr
@@ -15,7 +13,7 @@
           出品者
         %td
           .kw_item_detail__main--info--seller
-            くわ
+            = link_to @item.user.nickname
           .kw_item_detail__main--info--smile
             = fa_icon 'smile-o'
           .kw_item_detail__main--info--number
@@ -32,32 +30,29 @@
         %th
           カテゴリー
         %td
-          %a
-            本・音楽・ゲーム
-          %a
-            >本
-          %a
-            >ビジネス・経済
+          = link_to root_path do
+            = @item.category.name
       %tr
         %th
           ブランド
         %td
-          
+          = link_to "#" do
+            = @item.bland.name
       %tr
         %th
           商品の状態
         %td
-          未使用に近い
+          = @item.status
       %tr
         %th
           配送料の負担
         %td
-          送料込み(出品者負担)
+          = @item.delivery_fee
       %tr
         %th
           配送の方法
         %td
-          らくらくメルカリ便
+          = @item.delivery_way
       %tr
         %th
           配送元地域
@@ -67,10 +62,10 @@
         %th
           配送日の目安
         %td
-          2~3日で配送
+          = @item.delivery_day
   .kw_item_detail__price
     .kw_item_detail__price--yen
-      ¥1,400
+      = "¥" + @item.price
     .kw_item_detail__price--tax
       (税込)
     .kw_item_detail__price--postage
@@ -78,9 +73,7 @@
   .kw_item_detail__buy
     購入画面に進む
   .kw_item_detail__explain
-    「神速Excel」
-    中田元樹
-    定価: ￥ 1,944
+    = @item.explanation
   .kw_item_detail__button
     .kw_item_detail__button--left
       .kw_item_detail__button--left--like
