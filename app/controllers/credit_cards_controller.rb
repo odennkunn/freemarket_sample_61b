@@ -1,7 +1,7 @@
 class CreditCardsController < ApplicationController
 
   require "payjp"
-  Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
+  Payjp.api_key = Rails.application.credentials.aws[:payjp_private_key]
 
   def new
     card = CreditCard.where(user_id: current_user.id)
@@ -9,7 +9,7 @@ class CreditCardsController < ApplicationController
   end
 
   def pay
-    Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
+    Payjp.api_key = Rails.application.credentials.aws[:payjp_private_key]
     if params['payjp-token'].blank?
       redirect_to action: "new"
     else
