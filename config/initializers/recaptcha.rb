@@ -1,7 +1,7 @@
 
  Recaptcha.configure do |config|
-  config.site_key  = Rails.application.credentials.aws[:recaptcha_site_key]
-  config.secret_key = Rails.application.credentials.aws[:recaptcha_secret_key]
+  config.site_key  = Rails.application.credentials.aws[:site_key]
+  config.secret_key = Rails.application.credentials.aws[:secret_key]
 end
 
 # +ENV['RECAPTCHA_SITE_KEY']   = Rails.application.credentials.recaptcha[:site_key]
