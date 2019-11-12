@@ -5,7 +5,7 @@ class SignupController < ApplicationController
   before_action :create, only: :pay
   
   require 'payjp'
-  Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
+  Payjp.api_key = Rails.application.credentials.aws[:payjp_private_key]
 
   def index
   end
@@ -124,7 +124,7 @@ class SignupController < ApplicationController
   end
 
   def pay
-    Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
+    Payjp.api_key = Rails.application.credentials.aws[:payjp_private_key]
     if params['payjp-token'].blank?
       redirect_to complete_signup_signup_index_path
     else

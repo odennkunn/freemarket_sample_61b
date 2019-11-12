@@ -7,7 +7,7 @@ class ItemsController < ApplicationController
   end
 
   def show
-    
+    @item = Item.find(1)
   end
 
   def create
