@@ -36,6 +36,7 @@ class ItemsController < ApplicationController
                                  :bland_id,
                                  :delivery_way, 
                                  :delivery_day, 
+                                 :prefecture_id,
                                  images_attributes: [:image]).merge(user_id: 1)
   end
 end
