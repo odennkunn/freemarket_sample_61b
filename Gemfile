@@ -104,9 +104,11 @@ gem 'dropzonejs-rails'
 gem 'ransack'
 gem "recaptcha", require: "recaptcha/rails"
 gem 'dotenv-rails'
+gem 'rails-i18n'
 
 group :development, :test do
 gem 'rspec-rails'
 gem 'factory_bot_rails'
 gem 'faker'
+gem 'rails-controller-testing'
 end
