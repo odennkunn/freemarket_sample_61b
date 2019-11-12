@@ -96,7 +96,6 @@ gem 'active_hash'
 
 gem 'gretel'
 gem 'payjp'
-gem 'omniauth'
 gem "omniauth-rails_csrf_protection"
 gem 'omniauth-google-oauth2'
 gem 'omniauth-facebook'
