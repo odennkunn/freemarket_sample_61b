@@ -22,9 +22,9 @@ class User < ApplicationRecord
   #email 空ではないか、適切なフォーマットであるか、一意制約
   validates :email, presence: true, uniqueness: true, format: { with: VALID_EMAIL_REGEX, message: "フォーマットが不適切です"}
   #password 空ではないか、7文字以上128文字以下、半角英数字両方を含んでいるか
-  validates :password, presence: true, length: { in: 7..128 }, format: { with: VALID_PASSWORD_REGEX, message: "英字と数字両方を含むパスワードを設定してください"}
+  validates :password, presence: true, length: { in: 7..128 }, format: { with: VALID_PASSWORD_REGEX, message: "英字と数字両方を含むパスワードを設定してください"}, unless: -> { validation_context == :update }
   #password_confrimation 空ではないか、7文字以上128文字以下、半角英数字両方を含んでいるか
-  validates :password_confirmation, presence: true, length:{ in: 7..128 }, format: { with: VALID_PASSWORD_REGEX, message: "英字と数字両方を含むパスワードを設定してください"}
+  validates :password_confirmation, presence: true, length:{ in: 7..128 }, format: { with: VALID_PASSWORD_REGEX, message: "英字と数字両方を含むパスワードを設定してください"}, unless: -> { validation_context == :update }
   #family_name 空ではないか、最大35文字
   validates :family_name, presence: true, length: { maximum: 35 }
   #last_name 空ではないか、最大35文字
