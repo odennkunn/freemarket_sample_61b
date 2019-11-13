@@ -10,10 +10,10 @@
           = link_to step1_signup_index_path, class: "km-mail__btn sns__btn" do
             = fa_icon 'envelope', class: "btn__icon"
             メールアドレスで登録する
-          = link_to "", class: "km-facebook__btn sns__btn" do
+          = link_to user_facebook_omniauth_authorize_path, method: :post, class: "km-facebook__btn sns__btn" do
             = fa_icon 'facebook-square', class: "btn__icon"
             facebookで登録する
-          = link_to "", class: "km-google__btn sns__btn" do
+          = link_to user_google_oauth2_omniauth_authorize_path, method: :post, class: "km-google__btn sns__btn" do
             = image_tag src="google.png", class: "btn__icon"
             Googleで登録する
 = render 'shared/km-footer'
