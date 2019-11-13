@@ -23,6 +23,8 @@ class ItemsController < ApplicationController
     if @item.user_id == current_user.id
       if @item.destroy
         redirect_to root_path
+      else
+        redirect_to action: :show
       end
     else
       redirect_to action: :show
