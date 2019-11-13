@@ -12,10 +12,10 @@
     .km-login-form__inner
       .km-form__wrapper
         .km-form__container
-          %button.km-facebook__btn
+          = link_to user_facebook_omniauth_authorize_path, method: :post, class:'km-facebook__btn' do
             = fa_icon 'facebook-square', class: "btn__icon"
             facebookでログイン
-          %button.km-google__btn
+          = link_to user_google_oauth2_omniauth_authorize_path, method: :post, class: 'km-google__btn' do
             .btn__wrapper
             = image_tag src="google.png",class: "btn__icon"
             Googleでログイン
