@@ -11,7 +11,10 @@ class SignupController < ApplicationController
   end
 
   def step1
-    @user = User.new
+    @user = User.new(
+      nickname: session[:nickname],
+      email: session[:email]
+    )
   end
 
   def save_step1
@@ -117,7 +120,9 @@ class SignupController < ApplicationController
     )
     @user.build_residence(session[:residence_attributes_step3])
 
-    unless @user.save
+    if @user.save
+      session[:id] = @user.id
+    else
       render '/signup/step1'
     end
 
@@ -142,6 +147,7 @@ class SignupController < ApplicationController
 
 
   def complete_signup
+    sign_in User.find(session[:id]) unless user_signed_in?
   end
 
   private

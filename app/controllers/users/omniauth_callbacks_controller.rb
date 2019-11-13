@@ -13,6 +13,9 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
     @omniauth = request.env['omniauth.auth']
     info = User.find_oauth(@omniauth)
     @user = info[:user]
+    @sns = info[:sns]
+    session[:nickname] = @user.nickname
+    session[:email] = @user.email
     if @user.persisted? 
       sign_in_and_redirect @user, event: :authentication
       set_flash_message(:notice, :success, kind: "#{provider}".capitalize) if is_navigational_format?
