@@ -7,7 +7,7 @@ class ItemsController < ApplicationController
   end
 
   def show
-    @item = Item.find(1)
+    @item = Item.find(params[:id])
   end
 
   def create
@@ -18,6 +18,11 @@ class ItemsController < ApplicationController
       redirect_to new_item_path
     end
   end
+
+  def destroy
+    @item = Item.find(11)
+    redirect_to root_path
+  end 
   
   def pay
 
@@ -36,6 +41,7 @@ class ItemsController < ApplicationController
                                  :bland_id,
                                  :delivery_way, 
                                  :delivery_day, 
+                                 :prefecture_id,
                                  images_attributes: [:image]).merge(user_id: 1)
   end
 end

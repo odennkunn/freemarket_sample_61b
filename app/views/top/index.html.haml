@@ -21,18 +21,18 @@
     .content__title 新着アイテム
     .view-all もっとみる>
     .content__box 
-    - @items.each do |i| 
+    - @items.each do |item| 
       .item 
-        =link_to "" do
+        = link_to item_path(item.id) do
           .item__image
-            = image_tag i.images.first.image.url, size:"200x200"
+            = image_tag item.images.last.image.url, width: "188px", height: "188px"
           .item__text
             .item__text__name 
-              = i.name
+              = item.name
             .item__text__num  
               .item__text__num--price
                 ¥
-                = i.price
+                = item.price
   .content  
     .content__title ルイヴィトン新着アイテム
     .view-all もっとみる>
