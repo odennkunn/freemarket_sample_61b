@@ -57,7 +57,7 @@
         %th
           配送元地域
         %td
-          = @item.prefecture_id
+          = @item.prefecture.name
       %tr
         %th
           配送日の目安
@@ -72,6 +72,8 @@
       送料込み
   .kw_item_detail__buy
     購入画面に進む
+  .kw_item_detail__or
+    or
   = link_to "この商品を削除する", item_path(@item), method: :delete, class: "delete-btn"
   .kw_item_detail__explain
     = @item.explanation
