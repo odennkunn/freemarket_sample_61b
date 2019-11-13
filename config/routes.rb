@@ -11,7 +11,6 @@ Rails.application.routes.draw do
 
   resources :users do
     collection do
-      get 'edit'
       get 'logout'
       get 'card'
       get 'confirm'
