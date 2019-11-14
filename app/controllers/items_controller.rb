@@ -20,7 +20,8 @@ class ItemsController < ApplicationController
   end
 
   def destroy
-    @item = Item.find(11)
+    @item = Item.find(params[:id])
+    @item.destroy
     redirect_to root_path
   end 
 
@@ -37,6 +38,14 @@ class ItemsController < ApplicationController
     end
   end
   
+  # def destroy
+  #   if @item.user_id == current_user.id && @item.destroy
+  #     redirect_to root_path
+  #   else
+  #     redirect_to action: :show
+  #   end
+  # end
+
   def pay
 
   end

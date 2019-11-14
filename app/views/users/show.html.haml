@@ -10,7 +10,7 @@
       .tncontents__right__user--avatar
         = image_tag "//static.mercdn.net/images/member_photo_noimage_thumb.png", size: '60x60', alt: '', class: 'tnperson'
       %h1.tncontets__right__user--name
-        name
+        = current_user.nickname
       .tncontents__right__user__number
         .tncontents__right__user__number--review
           評価
