@@ -42,54 +42,54 @@ class User < ApplicationRecord
   #validates :birth_day, presence: true, numericality: true, length: { in: 1..2 }
 
   #sns認証
-  def self.without_sns_data(auth)
-    user = User.where(email: auth.info.email).first
+  def self.without_sns_data(auth) #snsdataがない時
+    user = User.where(email: auth.info.email).first  #userにsnsから取ってきたemailを代入して判断？
 
-      if user.present?
+      if user.present? #authで取ってきたemailのuserが存在していたら
         sns = SnsCredential.create(
-          uid: auth.uid,
-          provider: auth.provider,
-          user_id: user.id
+          uid: auth.uid,  #provider側で管理しているid
+          provider: auth.provider,  #googleとかfacebookのこと
+          user_id: user.id #これらの3つをcreateする
         )
       else
         user = User.new(
-          nickname: auth.info.name,
-          email: auth.info.email,
-          password: Devise.friendly_token.first(7)
+          nickname: auth.info.name,   #存在していなければauthからnicknameにnameを代入
+          email: auth.info.email,   #emailにsnsのemailを代入
+          password: Devise.friendly_token.first(7) #passwordはdeviseの自動生成を
         )
         sns = SnsCredential.new(
-          uid: auth.uid,
-          provider: auth.provider
+          uid: auth.uid,      #uidをnew
+          provider: auth.provider #providerをnew
         )
       end
-      return { user: user ,sns: sns}
+      return { user: user ,sns: sns}  #生成したuserをsnsをハッシュ型で返す
 
     end
 
-   def self.with_sns_data(auth, snscredential)
-    user = User.where(id: snscredential.user_id).first
-    unless user.present?
+   def self.with_sns_data(auth, snscredential) #snsdataがある時
+    user = User.where(id: snscredential.user_id).first #sns_credentialからuser_idを元に探してくる
+    unless user.present? #userが存在しなければ
       user = User.new(
         nickname: auth.info.name,
         email: auth.info.email,
-        password: Devise.friendly_token.first(7)
+        password: Devise.friendly_token.first(7) #authからnickname,emailを取ってくる。 passwordは自動生成
       )
     end
-    return {user: user}
+    return {user: user} #sns_dataはあるからuserの情報だけ
    end
 
    def self.find_oauth(auth)
-    uid = auth.uid
-    provider = auth.provider
-    snscredential = SnsCredential.where(uid: uid, provider: provider).first
-    if snscredential.present?
-      user = with_sns_data(auth, snscredential)[:user]
-      sns = snscredential
+    uid = auth.uid  #uidにauthから取得したuidを代入
+    provider = auth.provider #providerを代入
+    snscredential = SnsCredential.where(uid: uid, provider: provider).first #sns登録情報があるか
+    if snscredential.present? #snscredentialがある時
+      user = with_sns_data(auth, snscredential)[:user] #user情報をwith_sns_dataメソッドをつかって代入
+      sns = snscredential #snsに情報を代入
     else
-      user = without_sns_data(auth)[:user]
-      sns = without_sns_data(auth)[:sns]
+      user = without_sns_data(auth)[:user] #snscredentialがないため、without_sns_dataメソッドを使ってuser情報を取得
+      sns = without_sns_data(auth)[:sns] #snscredentialがないため、without_sns_dataメソッドを使ってsns情報を取得
     end
-    return { user: user ,sns: sns}
+    return { user: user ,sns: sns} #取得した情報をハッシュ型で返す
   end
 
 end

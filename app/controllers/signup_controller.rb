@@ -118,8 +118,8 @@ class SignupController < ApplicationController
       birth_day: session[:birth_day],
       phone_number: session[:phone_number]
     )
+    
     @user.build_residence(session[:residence_attributes_step3])
-
     if @user.save
       session[:id] = @user.id
     else
