@@ -4,6 +4,7 @@ class ItemsController < ApplicationController
     @prefecture = Prefecture.all
     @item = Item.new
     @item.images.build
+    @parents = Category.all.order("id ASC").limit(13)
   end
 
   def show
