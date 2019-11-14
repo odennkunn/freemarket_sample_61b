@@ -10,14 +10,14 @@ class User < ApplicationRecord
   accepts_nested_attributes_for :residence 
   has_many :sns_credentials, dependent: :destroy
   
-#varidation
+#varidation format
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   VALID_PHONE_REGEX = /\A\d{10}$|^\d{11}\z/
   VALID_KATAKANA_REGEX = /\A[\p{katakana}\p{blank}ー－]+\z/
   VALID_PASSWORD_REGEX = /\A(?=.*?[a-zA-Z])(?=.*?\d)[a-zA-Z\d]{7,128}+\z/i
  
 
-# user
+# userモデル validation
 #   nickname 空ではないか、最大20文字、一意制約
   validates :nickname, presence: true, uniqueness: true, length: { maximum: 20 }
 #   email 空ではないか、適切なフォーマットであるか、一意制約
