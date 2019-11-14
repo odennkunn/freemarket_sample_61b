@@ -23,6 +23,19 @@ class ItemsController < ApplicationController
     @item = Item.find(11)
     redirect_to root_path
   end 
+
+  def edit
+    @item = Item.find(params[:id])
+  end
+
+  def update
+    @item = Item.find(params[:id])
+    if @item.update(update_item_params)
+      redirect_to root_path
+    else
+      redirect_to edit_item_path
+    end
+  end
   
   def pay
 
@@ -43,5 +56,21 @@ class ItemsController < ApplicationController
                                  :delivery_day, 
                                  :prefecture_id,
                                  images_attributes: [:image]).merge(user_id: 1)
+  end
+
+  def update_item_params
+    params.require(:item).permit(:name, 
+                                 :explanation,
+                                 :price, 
+                                 :size, 
+                                 :status,
+                                 :delivery_fee, 
+                                 :category_id, 
+                                 :user_id,
+                                 :bland_id,
+                                 :delivery_way, 
+                                 :delivery_day, 
+                                 :prefecture_id,
+                                 [images_attributes: [:image, :_destory, :id]]).merge(user_id: 1)
   end
 end

@@ -1,0 +1,120 @@
+.tnheader
+  %h1.tnheader__logo
+    =link_to '/' do
+      = image_tag "//www-mercari-jp.akamaized.net/assets/img/common/common/logo.svg?465897195", class: 'logoimage'
+.tnmain
+  .tnmain__contents
+    %h2.tnmain__contents--title
+      商品の情報を入力
+    .tnmain__contents__form
+    = form_for @item do |f|
+      .tnmain__contents__form__imagebox
+        .tnmain__contents__form__imagebox__guidebox
+          %span.tnguide 出品画像
+          .tnhissu 必須
+        %p.tnmain__contents__form__imagebox--note
+          最大10枚までアップロードできます
+        .items__sell__form__upload-image-form
+          =f.fields_for :images do |f|
+            = f.label :name do
+              %span
+                ドラッグアンドドロップ
+                %br
+                またはクリックしてファイルをアップロード
+              = f.file_field :image, accept: "image/*"
+      .tnmain__contents__form__itemname
+        .tnmain__contents__form__imagebox__guidebox
+          %span.tnguide 商品名
+          .tnhissu 必須
+        = f.text_field :name, class: 'inputname', placeholder: '商品名  (必須40文字まで'
+        .tnmain__contents__form__imagebox__guidebox
+          %span.tnguide 商品の説明
+          .tnhissu 必須
+        = f.text_area :explanation, rows: '6', cols: '67', placeholder: '商品の説明 (必須1,000文字以内) (色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。'
+      .tnmain__contents__form__detail
+        %h3 商品の詳細
+        .tnmain__contents__form__detail__guidebox1-1
+          %span.tnguide カテゴリー
+          .tnhissu 必須
+        .tnmain__contents__form__detail__category1-1
+          = f.select :category_id, [["--"], ["レディース", "1"], ["メンズ", "2"], ["ベビー・キッズ", "3"], ["インテリア・住まい・小物", "4"], ["本・音楽・ゲーム", "5"], ["おもちゃ・ホビー・グッズ", "6"], ["コスメ・香水・美容", "7"], ["家電・スマホ・カメラ", "8"], ["スポーツ・レジャー", "9"], ["ハンドメイド", "10"], ["チケット", "11"], ["自転車・オートバイ", "12"], ["その他", "13"]], {}, class: "tncategory"      
+        
+        .tnmain__contents__form__detail__guidebox2-1
+          %span.tnguide 商品の状態
+          .tnhissu 必須
+        .tnmain__contents__form__detail__category2-1
+          = f.select :status, [["--"], ["新品、未使用", "新品、未使用"], ["未使用に近い", "未使用に近い"], ["目立った傷や汚れなし", "目立った傷や汚れなし"], ["やや傷や汚れあり", "やや傷や汚れあり"], ["傷や汚れあり", "傷や汚れあり"], ["全体的に状態が悪い", "全体的に状態が悪い"]], {}, class: "tncategory"
+         
+        .tnmain__contents__form__detail__guidebox3-1
+          %span.tnguide サイズ
+          .tnhissu 必須
+        .tnmain__contents__form__detail__category3-1
+          = f.text_field :size, class: 'tncategory', placeholder: 'サイズ(cm)'
+        .tnmain__contents__form__detail__guidebox4
+          %span.tnguide ブランド
+          .tnhissu 任意
+        .tnmain__contents__form__detail__category4
+          = f.text_field :bland_id, class: 'tncategory'
+      .tnmain__contents__form__delivery
+        %h3 配送について
+        =link_to 'http://google.co.jp', class: 'tnquestion' do
+          ?
+        .tnmain__contents__form__detail__guidebox
+          %span.tnguide 配送料の負担
+          .tnhissu 必須
+        .tnmain__contents__form__delivery__fee
+          = f.select :delivery_fee, [["--"], ["送料込み(出品者負担)", "送料込み(出品者負担)"], ["送料込み(出品者負担)", "送料込み(出品者負担)"], ["着払い(購入者負担)", "着払い(購入者負担)"]], {}, class: "tndelivery"
+        .tnmain__contents__form__detail__guidebox1
+          %span.tnguide 配送方法
+          .tnhissu 必須
+        .tnmain__contents__form__detail__category1
+          = f.select :delivery_way, [["--"], ["らくらくメルカリ便", "らくらくメルカリ便"], ["ゆうメール", "ゆうメール"], ["レターパック", "レターパック"], ["普通郵便", "普通郵便"]], {}, class: "tndelivery"
+        .tnmain__contents__form__detail__guidebox2
+          %span.tnguide 発送元の地域
+          .tnhissu 必須
+        .tnmain__contents__form__detail__category2
+          = f.collection_select :prefecture_id, Prefecture.all, :id, :name, {prompt: '--'}, class: 'tndelivery'
+        .tnmain__contents__form__delivery__guidebox3
+          %span.tnguide 発送までの日数
+          .tnhissu 必須
+        .tnmain__contents__form__delivery__day
+          = f.select :delivery_day, [["--"], ["1~2日で発送", "1~2日で発送"], ["2~3日で発送", "2~3日で発送"], ["4~7日で発送", "4~7日で発送"]], {}, class: "tndelivery"
+      .tnmain__contents__form__price
+        %h3 販売価格(300〜9,999,999)
+        =link_to 'http://google.co.jp', class: 'tnquestion' do
+          ?
+        .tnmain__contents__form__price__box
+          .tnmain__contents__form__price__box__input
+            .tnmain__contents__form__price__box__input__guide
+              .guidebox
+                %span.tnguide 価格
+                .tnhissu 必須
+              .inputbox 
+                = f.text_field :price, {class: "y-input-default", id: "y-sell-input-main", value: @item.price, placeholder: "例）300"}
+          .tnmain__contents__form__price__box__fee
+            %span 販売手数料(10%)
+            #y-sell-fee.tnmain__contents__form__price__box__fee--right -
+          .tnmain__contents__form__price__box__bottom
+            %span 販売利益
+            #y-sell-profit.tnmain__contents__form__price__box__bottom--right -
+      .tnmain__contents__form__note
+        .tnmain__contents__form__note__text
+          %p
+            =link_to 'http://google.co.jp' do
+              禁止されている出品、行為
+            を必ずご確認ください。
+          %p
+            またブランド品でシリアルナンバー等がある場合はご記載ください。
+            =link_to 'http://google.co.jp' do
+              偽ブランドの販売
+            は犯罪であり処罰される可能性があります。
+          %p
+            また、出品をもちまして
+            =link_to 'http://google.co.jp' do
+              加盟店規約
+            に同意したことになります。
+      .tnmain__contents__form__note__btn
+        = f.submit "変更する", class: "tnsubmit"
+      =link_to "/", class: 'tnreturn' do
+        .tnmain__contents__form__note__return
+          もどる

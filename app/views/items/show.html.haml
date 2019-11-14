@@ -72,6 +72,7 @@
       送料込み
   .kw_item_detail__buy
     購入画面に進む
+  = link_to "商品の編集", edit_item_path, method: :get
   = link_to "この商品を削除する", item_path(@item), method: :delete, class: "delete-btn"
   .kw_item_detail__explain
     = @item.explanation
