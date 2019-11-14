@@ -72,5 +72,6 @@ class ItemsController < ApplicationController
                                  :delivery_day, 
                                  :prefecture_id,
                                  [images_attributes: [:image, :_destory, :id]]).merge(user_id: 1)
+                                #  user_idをcurrent_userに変更する
   end
 end
