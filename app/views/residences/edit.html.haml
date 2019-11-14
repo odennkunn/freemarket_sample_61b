@@ -1,0 +1,82 @@
+%header.header
+  =render 'shared/top-header'
+- breadcrumb :user_confirm
+= render 'shared/breadcrumbs'
+.tncontents
+  %nav.tnmypage-nav
+    = render 'shared/tn-sidebar'
+  .tncontents__form
+    .tncontents__form__register
+      %span.tncontents__form__register--title 本人情報の登録
+    .tncontents__form__confirm
+      %p.tntext
+        お客さまの本人情報をご登録ください。
+        %br 
+        登録されたお名前・生年月日を変更する場合、本人確認書類の提出が必要になります。
+      =link_to 'http://google.co.jp', class: 'tnconfirm-btn' do
+        .tncontents__form__confirm__link
+          本人確認書類のアップロードについて
+          =fa_icon 'chevron-right'
+    .tncontents__form__personal
+      %label お名前
+      %p.tnusername
+        = @residence.user.family_name
+        = @residence.user.last_name
+    .tncontents__form__personal
+      %label お名前カナ
+      %p.tnusername
+        = @residence.user.kana_family_name
+        = @residence.user.kana_last_name
+    .tncontents__form__personal
+      %label 生年月日
+      %p.tnusername
+        = @residence.user.birth_year
+        %span /
+        = @residence.user.birth_month
+        %span /
+        = @residence.user.birth_day
+    = form_for @residence, method: :patch do |f|
+      .tncontents__form__box
+        %label 郵便番号
+        .tncontents__form__box--note
+          任意
+        -# %input{name: 'number', placeholder: '例)  1234567', type: 'text'}
+        = f.text_field :address_number, placeholder: "例) 123-4567"
+      .tncontents__form__box
+        %label 都道府県
+        .tncontents__form__box--note
+          任意
+        .tncontents__form__box--select
+          = f.collection_select :prefecture_id, Prefecture.all, :id, :name, {prompt: '--'}, class: 'tnselect'
+      .tncontents__form__box
+        %label 市区町村
+        .tncontents__form__box--note
+          任意
+        -# %input{name: 'number', placeholder: '例) 横浜市緑区', type: 'text'}
+        = f.text_field :municipal, placeholder: "例) 横浜市緑区"
+      .tncontents__form__box
+        %label 番地
+        .tncontents__form__box--note
+          任意
+        -# %input{name: 'number', placeholder: '例) 青山1-1-1', type: 'text'}
+        = f.text_field :address, placeholder: "例) 青山1-1-1"
+      .tncontents__form__box
+        %label 建物名
+        .tncontents__form__box--note
+          任意
+        -# %input{name: 'number', placeholder: '例) 柳ビル103', type: 'text'}
+        = f.text_field :building, placeholder: "例) 柳ビル103"
+      -# =link_to 'http://google.co.jp', class: 'tnregister-btn' do
+      = f.submit '登録する', class: 'tnregister-btn tncontents__form__btn'
+      .tncontents__form__info
+        %p.tncontents__form__info--jump
+          =link_to 'http://google.co.jp', class: 'tnregister-info' do
+            本人情報の登録について
+            =fa_icon 'chevron-right', class: 'tnicon'
+=render 'shared/top-footerimg'
+.footer
+  =render 'shared/top-footer'
+.footer-self-btn
+  出品
+  %br
+  = fa_icon 'camera',class:"camera"

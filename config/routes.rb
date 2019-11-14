@@ -14,7 +14,7 @@ Rails.application.routes.draw do
     collection do
       get 'logout'
       get 'card'
-      get 'confirm'
+      # get 'confirm'
     end
   end
 
@@ -37,5 +37,7 @@ Rails.application.routes.draw do
       post 'pay'
     end
   end
+
+  resources :residences, only: [:edit, :update]
 
 end
