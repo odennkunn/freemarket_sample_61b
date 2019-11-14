@@ -1,6 +1,6 @@
 .header__inner
   .header__inner__top
-    =link_to "https://www.mercari.com/jp/" do
+    =link_to root_path do
       =image_tag "//www-mercari-jp.akamaized.net/assets/img/common/common/logo.svg?863303983" ,alt: "mercari", height: "36", width: "134"
     %form.header-form{action: "https://www.mercari.com/jp/search/"}
       %input.input-default{name: "keyword", placeholder: "何かお探しですか？", type: "search", value: ""}/
@@ -13,6 +13,15 @@
       =link_to "https://www.mercari.com/jp/brand/" , class:"header__brand" do 
         = fa_icon 'tag', class: "left"
         %span ブランドから探す
-    .header__inner__bottom--right
-      =link_to "新規会員登録" , "https://www.mercari.com/jp/signup/" ,class:"header-btn-red"
-      =link_to "ログイン", "https://www.mercari.com/jp/login/?login_callback=https%3A%2F%2Fwww.mercari.com%2Fjp%2F" ,class:"header-btn-login"
+    - if user_signed_in?
+      -# = link_to edit_user_path(current_user), method: :get, class:"header__inner__bottom--right" do
+      = link_to user_path(current_user), method: :get, class:"header__inner__bottom--right" do
+        = image_tag "member_photo_noimage_thumb.png", class: "km-avatar__img"
+        .km-header__mypage-link-text
+          マイページ
+    - else
+      .header__inner__bottom--right
+        = link_to signup_path, method: :get, class: "header-btn-red" do
+          新規登録
+        = link_to new_user_session_path, method: :get, class: "header-btn-login" do
+          ログイン

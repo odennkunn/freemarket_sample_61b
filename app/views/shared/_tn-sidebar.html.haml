@@ -65,7 +65,8 @@
 %h3.tnmypage-nav__head
   設定
 %ul.tnmypage-nav__lists
-  =link_to 'users/edit', class: 'tnbox' do
+  -# =link_to 'users/edit', class: 'tnbox' do
+  = link_to edit_user_path(current_user), method: :get, class: 'tnbox' do
     %li.list
       プロフィール
       =fa_icon 'chevron-right', class: 'icon'
@@ -89,7 +90,7 @@
     %li.list
       電話番号の確認
       =fa_icon 'chevron-right', class: 'icon'
-  =link_to 'users/logout', class: 'tnbox' do
+  =link_to logout_users_path, class: 'tnbox' do
     %li.list
       ログアウト
       =fa_icon 'chevron-right', class: 'icon'
