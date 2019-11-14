@@ -4,10 +4,10 @@ Category.create!(
   name: "メンズ",
 )
 
-Category.create!(
-  id: "3",
-  name: "ベビー・キッズ",
-)
+# Category.create!(
+#   id: "3",
+#   name: "ベビー・キッズ",
+# )
 
 Category.create!(
   id: "4",
@@ -36,7 +36,7 @@ Category.create!(
 
 Category.create!(
   id: "9",
-  name: "スポーツ・レジャー"
+  name: "スポーツ・レジャー
 )
 
 Category.create!(
