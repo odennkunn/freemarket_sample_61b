@@ -1,0 +1,19 @@
+ja:
+  attributes:
+    nickname: ニックネーム
+    email: メールアドレス
+    password: パスワード
+    password_confirmation: パスワード(確認)
+    family_name: 姓
+    last_name: 名
+    kana_family_name: 姓(カナ)
+    kana_last_name: 名(カナ)
+    birth_year: 年
+    birth_month: 月
+    birth_day: 日
+    phone_number: 電話番号
+    address_number: 郵便番号
+    prefecture_id: 県名
+    municipal: 市区
+    address: 町名番地
+    
