@@ -6,6 +6,10 @@
       - @item.images.each do |image|
         .item__content__image__top
           = image_tag "#{image.image_url}"
+    -if @item.buyer_id.present? 
+      .kw_item_detail__main__sold
+        .kw_item_detail__main__sold__inner
+          SOLD
     .kw_item_detail__sold
     %table.kw_item_detail__main--info
       %tr
@@ -76,7 +80,8 @@
     or
     = link_to "この商品を削除する", item_path(@item), method: :delete, class: "delete-btn"
   - else
-    = link_to "この商品を購入する", "/items/pay/#{@item.id}", method: :get, class: "red-btn"
+    - unless @item.buyer_id.present? 
+      = link_to "この商品を購入する", "/items/pay/#{@item.id}", method: :get, class: "red-btn"
   .kw_item_detail__explain
     = @item.explanation
   .kw_item_detail__button

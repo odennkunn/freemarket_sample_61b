@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_12_072406) do
+ActiveRecord::Schema.define(version: 2019_11_16_070951) do
 
   create_table "blands", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name"
@@ -68,6 +68,7 @@ ActiveRecord::Schema.define(version: 2019_11_12_072406) do
     t.string "delivery_way", null: false
     t.string "delivery_day", null: false
     t.integer "prefecture_id", null: false
+    t.integer "buyer_id"
     t.index ["bland_id"], name: "index_items_on_bland_id"
     t.index ["category_id"], name: "index_items_on_category_id"
     t.index ["user_id"], name: "index_items_on_user_id"

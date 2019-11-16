@@ -20,7 +20,7 @@
   - https://github.com/tawadmasanori
 
 ## ER図
-<img width="916" alt="スクリーンショット 2019-11-16 14 19 52" src="https://user-images.githubusercontent.com/55783692/68988648-0621c780-087e-11ea-9da6-41c6449afa68.png">
+<img width="798" alt="スクリーンショット 2019-11-16 16 14 36" src="https://user-images.githubusercontent.com/55783692/68989592-60298980-088c-11ea-87e1-bfd35558da6b.png">
 
 
 ## DB設計
@@ -74,6 +74,7 @@
 |user_id|references|foreign_key: true|
 |category_id|references|foreign_key: true|
 |bland_id|references|foreign_key: true|
+|buyer_id|integer|
 
 #### association
   - has_many :comments, dependent: :destroy
