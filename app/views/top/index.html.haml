@@ -31,8 +31,12 @@
               = item.name
             .item__text__num  
               .item__text__num--price
-                ¥
+                ¥ 
                 = item.price
+        -if item.buyer_id.present? 
+          .item__sold
+            .item__sold__inner
+              SOLD
   .content  
     .content__title ルイヴィトン新着アイテム
     .view-all もっとみる>
