@@ -1,11 +1,23 @@
 # freemarket_sample_61b
 フリマアプリ「メルカリ」のクローンサイト
 
-# Description
+## Description
 フリマアプリ「メルカリ」のクローンサイト。誰でも簡単に売り買いが楽しめるフリマアプリの機能を再現したページ。 ユーザー登録、商品出品、商品購入などの機能を再現。
 
-# Features
+## Features
+  - haml/SASS記法と、命名規則BEMを使ったマークアップ
+  - ウィザード形式を用いたユーザー登録フォーム
+  - SNS認証による新規登録、ログイン
+  - pay.jpによるクレジットカード登録機能、購入処理
+  - capistranoによるAWS EC2への自動デプロイ
+  - ActiveStorageを使用しAWS S3への画像アップロード
+  - RSpecを使った単体テスト
 
+## Contributors
+  - https://github.com/odennkunn
+
+## ER図
+<img width="916" alt="スクリーンショット 2019-11-16 14 19 52" src="https://user-images.githubusercontent.com/55783692/68988648-0621c780-087e-11ea-9da6-41c6449afa68.png">
 
 
 # DB設計
