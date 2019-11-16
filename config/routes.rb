@@ -8,6 +8,7 @@ Rails.application.routes.draw do
     collection do
       get 'pay/:id' => 'items#pay'
       post 'buy/:id' => 'items#buy', as: 'buy'
+      get 'buy_success/:id' => 'items#buy_success'
     end
   end
 
@@ -15,7 +16,6 @@ Rails.application.routes.draw do
     collection do
       get 'logout'
       get 'card'
-      # get 'confirm'
     end
   end
 

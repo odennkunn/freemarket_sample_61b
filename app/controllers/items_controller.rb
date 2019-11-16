@@ -1,7 +1,7 @@
 class ItemsController < ApplicationController
 
-  before_action :set_item, only: [:show, :edit, :update, :destroy, :pay, :buy]
-  before_action :credit_cards_info, only: [:pay]
+  before_action :set_item, only: [:show, :edit, :update, :destroy, :pay, :buy, :buy_success]
+  before_action :credit_cards_info, only: [:pay, :buy_success]
   def new
     @prefecture = Prefecture.all
     @item = Item.new
@@ -51,12 +51,16 @@ class ItemsController < ApplicationController
       customer: card.customer_id,
       currency: 'jpy'
     )
-      redirect_to root_path
+      redirect_to "/items/buy_success/#{@item.id}"
     else
       flash[:purchase] = '購入エラー'
-      redirect_to user_path(current_user)
+      redirect_to "/items/pay/#{@item.id}"
     end
   end
+
+  def buy_success
+  end
+
 
 
 
