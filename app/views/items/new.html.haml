@@ -7,7 +7,7 @@
     %h2.tnmain__contents--title
       商品の情報を入力
     .tnmain__contents__form
-    = form_for @item do |f|
+    = form_for @item, html: {id:'new_item'} do |f|
       .tnmain__contents__form__imagebox
         .tnmain__contents__form__imagebox__guidebox
           %span.tnguide 出品画像
@@ -15,13 +15,19 @@
         %p.tnmain__contents__form__imagebox--note
           最大10枚までアップロードできます
         .items__sell__form__upload-image-form
-          =f.fields_for :images do |f|
-            = f.label :name do
-              %span
-                ドラッグアンドドロップ
-                %br
-                またはクリックしてファイルをアップロード
-              = f.file_field :image, accept: "image/*"
+          .km-images__preview
+            %ul.km-previews
+          .km-images__guide
+            .km-have__image--0
+              %h5 ドラッグ&ドロップ
+              %br でファイルをアップロード
+          -# =f.fields_for :images do |f|
+          -#   = f.label :name do
+          -#     %span
+          -#       ドラッグアンドドロップ
+          -#       %br
+          -#       またはクリックしてファイルをアップロード
+          -#     = f.file_field :image, accept: "image/*"
       .tnmain__contents__form__itemname
         .tnmain__contents__form__imagebox__guidebox
           %span.tnguide 商品名
@@ -115,7 +121,7 @@
               加盟店規約
             に同意したことになります。
         .tnmain__contents__form__note__btn
-          = f.submit "出品する", class: "tnsubmit"
+          = f.submit "出品する", class: "tnsubmit item__done", disable_with: "Save"
         =link_to "/", class: 'tnreturn' do
           .tnmain__contents__form__note__return
             %span もどる

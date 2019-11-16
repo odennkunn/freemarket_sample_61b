@@ -12,10 +12,33 @@ class ItemsController < ApplicationController
 
   def create
     @item = Item.new(item_params)
+    # @item.save
+    # @item.images.build
+    # binding.pry
     if @item.save
-      redirect_to root_path
-    else
-      redirect_to new_item_path
+      params[:images][:image].each do |image|
+        @item.images.create(image: image, item_id: @item.id)
+      end
+      respond_to do |format|
+        format.json
+        format.html{redirect_to signup_index_path}
+      end
+      # redirect_to signup_index_path
+      # respond_to do |format|
+      #   format.json{redirect_to root_path}
+      # end
+      # image_params[:images].each do |image|
+      #   @item.images.build
+      #   item_image = @item.images.new(image: image)
+      #   item_image.save
+      # end
+    #   respond_to do |format|
+    #     format.json
+    #   end
+    #   redirect_to root_path
+    # else
+      # @item.images.build
+      # redirect_to new_item_path
     end
   end
 
@@ -64,7 +87,7 @@ class ItemsController < ApplicationController
                                  :delivery_way, 
                                  :delivery_day, 
                                  :prefecture_id,
-                                 images_attributes: [:image]).merge(user_id: 1)
+                                 images_attributes: [:image]).merge(user_id: current_user.id)
   end
 
   def update_item_params
@@ -80,7 +103,11 @@ class ItemsController < ApplicationController
                                  :delivery_way, 
                                  :delivery_day, 
                                  :prefecture_id,
-                                 [images_attributes: [:image, :_destory, :id]]).merge(user_id: 1)
+                                 images_attributes: [:image, :_destory, :id]).merge(user_id: current_user.id)
                                 #  user_idをcurrent_userに変更する
   end
+
+  # def image_params
+  #   params.require(:images).permit({:images => []})
+  # end
 end
