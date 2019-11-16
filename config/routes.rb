@@ -11,6 +11,12 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :tops do
+    collection do
+      get 'search' => 'top#search'
+    end
+  end
+
   resources :users do
     collection do
       get 'logout'
