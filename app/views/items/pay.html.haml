@@ -27,7 +27,7 @@
                 .twbuy-price-table__right
                   = "¥" + @item.price
               = form_tag(buy_items_path, action: :buy, method: :post) do
-                %button 購入する
+                %button.tn-buy-button 購入する
         .twbuy-content__user-info
           .twbuy-content__user-info__inner
             %h3 配送先
