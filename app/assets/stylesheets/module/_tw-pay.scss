@@ -90,17 +90,16 @@
               padding: 14px;
               border: 1px solid #ccc;
               font-size: 14px;
-            }
+              display: block;
 
+            }
             .twbuy-price-table {
               display: flex;
               width: 100%;
               font-weight: bold;
               &__left {
-                padding: 24px 0 0;
                 font-size: 18px;
                 width: 50%;
-                text-align: left;
               }
               &__right {
                 padding: 16px 0;
@@ -185,3 +184,11 @@
       padding-left: 14px;
     }
  }
+.tn-buy-button {
+  color: white;
+  width: 100px;
+  height: 50px;
+  width: 310px;
+  background-color: red;
+  font-size: 18px;
+}

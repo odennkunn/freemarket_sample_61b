@@ -1,5 +1,7 @@
 class ItemsController < ApplicationController
 
+  before_action :set_item, only: [:show, :edit, :update, :destroy, :pay, :buy]
+  before_action :credit_cards_info, only: [:pay]
   def new
     @prefecture = Prefecture.all
     @item = Item.new
@@ -7,7 +9,6 @@ class ItemsController < ApplicationController
   end
 
   def show
-    @item = Item.find(params[:id])
   end
 
   def create
@@ -19,18 +20,11 @@ class ItemsController < ApplicationController
     end
   end
 
-  def destroy
-    @item = Item.find(params[:id])
-    @item.destroy
-    redirect_to root_path
-  end 
 
   def edit
-    @item = Item.find(params[:id])
   end
 
   def update
-    @item = Item.find(params[:id])
     if @item.update(update_item_params)
       redirect_to root_path
     else
@@ -38,17 +32,33 @@ class ItemsController < ApplicationController
     end
   end
   
-  # def destroy
-  #   if @item.user_id == current_user.id && @item.destroy
-  #     redirect_to root_path
-  #   else
-  #     redirect_to action: :show
-  #   end
-  # end
+  def destroy
+    if @item.user_id == current_user.id && @item.destroy
+      redirect_to root_path
+    else
+      redirect_to action: :show
+    end
+  end
 
   def pay
-
   end
+
+  def buy
+    card = CreditCard.where(user_id: current_user.id).first
+    Payjp.api_key = Rails.application.credentials.aws[:payjp_private_key]
+    if Payjp::Charge.create(
+      amount: @item.price,
+      customer: card.customer_id,
+      currency: 'jpy'
+    )
+      redirect_to root_path
+    else
+      flash[:purchase] = '購入エラー'
+      redirect_to user_path(current_user)
+    end
+  end
+
+
 
   private
   def item_params
@@ -64,7 +74,7 @@ class ItemsController < ApplicationController
                                  :delivery_way, 
                                  :delivery_day, 
                                  :prefecture_id,
-                                 images_attributes: [:image]).merge(user_id: 1)
+                                 images_attributes: [:image]).merge(user_id: current_user.id)
   end
 
   def update_item_params
@@ -80,7 +90,22 @@ class ItemsController < ApplicationController
                                  :delivery_way, 
                                  :delivery_day, 
                                  :prefecture_id,
-                                 [images_attributes: [:image, :_destory, :id]]).merge(user_id: 1)
+                                 [images_attributes: [:image, :_destory, :id]]).merge(user_id: current_user.id)
                                 #  user_idをcurrent_userに変更する
   end
+
+  def set_item
+    @item = Item.find(params[:id])
+  end
+
+  def credit_cards_info
+    @card = current_user.credit_cards
+    Payjp.api_key = Rails.application.credentials.aws[:payjp_private_key]
+    card = @card[0]
+    customer = Payjp::Customer.retrieve(card.customer_id)
+    @card = customer.cards.retrieve(card.card_id)
+    return @card
+  end
+
+
 end

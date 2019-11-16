@@ -70,12 +70,13 @@
       (税込)
     .kw_item_detail__price--postage
       送料込み
-  .kw_item_detail__buy
-    購入画面に進む
-  = link_to "商品の編集", edit_item_path, method: :get
-  .kw_item_detail__or
+  - if user_signed_in? && @item.user.id == current_user.id
+    = link_to "商品の編集", edit_item_path, method: :get, class: 'red-btn'
+    .kw_item_detail__or
     or
-  = link_to "この商品を削除する", item_path(@item), method: :delete, class: "delete-btn"
+    = link_to "この商品を削除する", item_path(@item), method: :delete, class: "delete-btn"
+  - else
+    = link_to "この商品を購入する", "/items/pay/#{@item.id}", method: :get, class: "red-btn"
   .kw_item_detail__explain
     = @item.explanation
   .kw_item_detail__button
