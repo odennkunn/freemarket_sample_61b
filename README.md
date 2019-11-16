@@ -15,19 +15,21 @@
 
 ## Contributors
   - https://github.com/odennkunn
+  - https://github.com/kuwa1
+  - https://github.com/kamiya-s-max
+  - https://github.com/tawadmasanori
 
 ## ER図
 <img width="916" alt="スクリーンショット 2019-11-16 14 19 52" src="https://user-images.githubusercontent.com/55783692/68988648-0621c780-087e-11ea-9da6-41c6449afa68.png">
 
 
-# DB設計
+## DB設計
 
-## usersテーブル
+### usersテーブル
 |Column|Type|Options|
 |------|----|-------|
 |nickname|string|null: false, unique: true|
 |email|string|null: false, unique: true|
-|password|string|null: false|
 |family_name|string|null: false|
 |last_name|string|null: false|
 |kana_family_name|string|null: false|
@@ -36,26 +38,28 @@
 |birth_month|integer|null: false|
 |birth_day|integer|null: false|
 |phone_number|integer|
-|residence_id|references|foreign_key: true|
+|introduction|text|
 
-### association
+#### association
   - has_many :comments, dependent: :destroy
   - has_many :items, dependent: :destroy
   - has_many :credit_cards, dependent: :destroy
+  - has_many :sns_credentials, dependent: :destroy
   - has_one :residence, dependent: :destroy
+  - belongs_to_active_hash :prefecture
 
-## commentsテーブル
+### commentsテーブル
 |Column|Type|Options|
 |------|----|-------|
 |text|text|null: false|
 |user_id|references|foreign_key: true|
 |items_id|references|foreign_key: true|
 
-### association
+#### association
   - belongs_to :item
   - belongs_to :user
 
-## itemsテーブル
+### itemsテーブル
 |Column|Type|Options|
 |------|----|-------|
 |name|string|null: fasle|
@@ -64,66 +68,77 @@
 |size|integer|null: false|
 |status|string|null: false|
 |delivery_fee|integer|null: false|
-|prefecture_id|references|foreign_key: true|
+|delivery_way|string|null: false|
+|delivery_day|string|null: false|
+|prefecture_id|string|null: false|
 |user_id|references|foreign_key: true|
 |category_id|references|foreign_key: true|
 |bland_id|references|foreign_key: true|
-|delivery_way|string|null: false|
-|delivery_day|string|null: false|
 
-### association
+#### association
   - has_many :comments, dependent: :destroy
   - has_many :image, dependent: :destroy
-  - belongs_to_active_hash :prefecture
   - belongs_to :category
   - belongs_to :bland
   - belongs_to :user
+  - belongs_to_active_hash :prefecture
 
-## categorysテーブル
+### categorysテーブル
 |Column|Type|Options|
 |------|----|-------|
 |name|string|null: false|
+|ancestry|string|
 
-### association
+#### association
   - has_many :items
 
-## imagesテーブル
+### imagesテーブル
 |Column|Type|Options|
 |------|----|-------|
 |item_id|references|foreign_key: true|
 |image|string|null: false|
 
-### association
+#### association
   - belongs_to :item
 
-## credit_cardsテーブル
+### credit_cardsテーブル
 |Column|Type|Options|
 |------|----|-------|
 |user_id|references|foreign_key: true|
 |customer_id|string|null: false|
 |card_id|string|null: false|
 
-### association
+#### association
   - belongs_to :user
 
-## blandsテーブル
+### blandsテーブル
 |Column|Type|Options|
 |------|----|-------|
 |name|string|null: false|
 
-### association
+#### association
   - has_many :items
 
-## residencesテーブル
+### residencesテーブル
 |Column|Type|Options|
 |------|----|-------|
 |user_id|references|foreign_key: true|
+|prefecture_id|string|null: false|
 |address_number|integer|null: false|
-|prefecture_id|references|foreign_key: true|
 |municipal|string|null: false|
 |address|string|null: false|
 |building|string|
 
-### association
+#### association
   - belongs_to :user
   - belongs_to_active_hash :prefectures
+
+### sns_credentialsテーブル
+|Column|Type|Options|
+|------|----|-------|
+|user_id|references|foreign_key: true|
+|uid|string|
+|provider|string|
+
+#### association
+  - belongs_to :user
