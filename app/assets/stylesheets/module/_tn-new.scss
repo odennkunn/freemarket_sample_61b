@@ -11,11 +11,11 @@
 }
 .tnmain {
   width: 100vw;
-  height: 2480px;
+  height: 2700px;
   background-color: #EEEEEE;
   &__contents {
     width: 700px;
-    height: 2480px;
+    height: 2700px;
     background-color: white;
     margin: 0 auto;
     &--title {
@@ -52,6 +52,21 @@
             border-radius: 3px;
             background-color: red;
             color: white;
+          }
+          .tnhissu::after {
+            content: '';
+            width: 6px;
+            height: 6px;
+            border: 0px;
+            border-bottom: solid 2px #b4b3b3;
+            border-right: solid 2px #b4b3b3;
+            -ms-transform: rotate(45deg);
+            -webkit-transform: rotate(45deg);
+            transform: rotate(45deg);
+            position: absolute;
+            top: 1085px;
+            left: 815px;
+            margin-top: -4px;
           }
         }
         &--note {
@@ -103,23 +118,75 @@
           margin-top: 10px;
         }
       }
+      &__list {
+        height: 60px;
+        h3 {
+          // 商品の詳細
+          font-size: 15px;
+          font-weight: bold;
+          color: #BBBBBB;
+          margin-top: 20px;
+          margin-left: 40px;
+          top: 15px;
+          left:40px;
+        }
+        &__category {         
+          // カテゴリー必須
+            margin-left: 320px;   
+          .tnguide {
+            font-weight: bold;
+            font-size: 15px;
+          }
+          .tnhissu {
+            display: inline-block;
+            width: 40px;
+            height: 22px;
+            margin-left: 10px;
+            font-size: 14px;
+            font-weight: bold;
+            text-align: center;
+            line-height: 22px;
+            border-radius: 3px;
+            background-color: red;
+            color: white;
+          }
+        }
+      }
+      &__input-category {
+        .listing-select {
+          .listing-select-wrapper {
+            &__box {
+              // カテゴリーボックス
+              margin-bottom: 20px;
+              .tncategory {
+                margin-left: 310px;
+                -webkit-appearance: none;
+                -moz-appearance: none;
+                appearance: none;
+                width: 350px;
+                height: 45px;
+                // margin: 10px
+                background: transparent;
+                // position: relative;
+                z-index: 1;
+                padding: 0 40px 0 10px;
+                border: 1px solid #b4b3b3;
+                border-radius: 3px;
+              }
+            }
+          }
+        }
+      }
       &__detail {
-        height: 500px;
+        height: 420px;
         border-bottom: solid;
         border-width: 1px;
         border-color: #EEEEEE;
         position: relative;
-        h3 {
-          font-size: 15px;
-          font-weight: bold;
-          color: #BBBBBB;
+        &__state{
+          // 商品状態
           position: absolute;
-          top: 40px;
-          left: 40px;
-        }
-        &__guidebox {
-          position: absolute;
-          top: 37px;
+          top: 20px;
           right: 250px;
           .tnguide {
             font-weight: bold;
@@ -139,15 +206,16 @@
             color: white;
           }
         }
-        &__category {
+        &__input-state {
+          // 商品状態
           width: 100%;
           position: relative;
           display: inline-block;
           position: absolute;
-          top: 70px;
+          top: 50px;
           left: 260px;
         }
-        &__category::after {
+        &__input-state::after {
           content: '';
           width: 6px;
           height: 6px;
@@ -160,6 +228,174 @@
           position: absolute;
           top: 50%;
           left: 360px;
+          margin-top: -4px;
+        }
+        .tncategory {
+          // 状態、サイズ、ブランドボックス
+          -webkit-appearance: none;
+          -moz-appearance: none;
+          appearance: none;
+          width: 320px;
+          height: 45px;
+          margin: 10px 50px;
+          background: transparent;
+          position: relative;
+          z-index: 1;
+          padding: 0 40px 0 10px;
+          border: 1px solid #b4b3b3;
+          border-radius: 3px;
+        }
+        .tncategory::-ms-expand {
+          display: none;
+        }
+        &__size{
+          // サイズ文字
+          position: absolute;
+          top: 130px;
+          right: 280px;
+          .tnguide {
+            font-weight: bold;
+            font-size: 15px;
+          }
+          .tnhissu {
+            display: inline-block;
+            width: 40px;
+            height: 22px;
+            margin-left: 10px;
+            font-size: 14px;
+            font-weight: bold;
+            text-align: center;
+            line-height: 22px;
+            border-radius: 3px;
+            background-color: red;
+            color: white;
+          }
+        }
+        &__input-size{
+          // サイズボックス
+          width: 100%;
+          position: relative;
+          display: inline-block;
+          position: absolute;
+          top: 170px;
+          left: 260px;
+        }
+        &__bland{
+          // ブランド文字
+          position: absolute;
+          top: 260px;
+          right: 270px;
+          .tnguide {
+            font-weight: bold;
+            font-size: 15px;
+          }
+          .tnhissu {
+            display: inline-block;
+            width: 40px;
+            height: 22px;
+            margin-left: 10px;
+            font-size: 14px;
+            font-weight: bold;
+            text-align: center;
+            line-height: 22px;
+            border-radius: 3px;
+            background-color: #ccc;
+            color: white;
+          }
+        }
+        &__input-bland{
+          // ブランドボックス
+          width: 100%;
+          position: relative;
+          display: inline-block;
+          position: absolute;
+          top: 300px;
+          left: 260px;
+        }&__input-bland::after {
+          content: '';
+          width: 6px;
+          height: 6px;
+          border: 0px;
+          border-bottom: solid 2px #b4b3b3;
+          border-right: solid 2px #b4b3b3;
+          -ms-transform: rotate(45deg);
+          -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
+          position: absolute;
+          top: 50%;
+          left: 360px;
+          margin-top: -4px;
+        }
+        &__send-fee {
+          // 発送料の負担、必須
+          position: absolute;
+          top: 40px;
+          right: 250px;
+          .tnguide {
+            font-weight: bold;
+            font-size: 15px;
+          }
+          .tnhissu {
+            display: inline-block;
+            width: 40px;
+            height: 22px;
+            margin-left: 10px;
+            font-size: 14px;
+            font-weight: bold;
+            text-align: center;
+            line-height: 22px;
+            border-radius: 3px;
+            background-color: red;
+            color: white;
+          }
+        }
+        &__way{
+          width: 100%;
+          position: relative;
+          display: inline-block;
+          position: absolute;
+          top: 150px;
+          left: 305px;
+          .tnguide {
+            font-weight: bold;
+            font-size: 15px;
+          }
+          .tnhissu {
+            display: inline-block;
+            width: 40px;
+            height: 22px;
+            margin-left: 10px;
+            border-style: none;
+            font-size: 14px;
+            font-weight: bold;
+            text-align: center;
+            line-height: 22px;
+            border-radius: 3px;
+            background-color: red;
+            color: white;
+            }
+          }
+        &__input-way {
+          width: 100%;
+          position: relative;
+          display: inline-block;
+          position: absolute;
+          top: 180px;
+          left: 260px;
+        }
+        &__way::after {
+          content: '';
+          width: 6px;
+          height: 6px;
+          border: 0px;
+          border-bottom: solid 2px #b4b3b3;
+          border-right: solid 2px #b4b3b3;
+          -ms-transform: rotate(45deg);
+          -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
+          position: absolute;
+          top: 60px;
+          left: 315px;
           margin-top: -4px;
         }
         .tncategory {
@@ -179,9 +415,24 @@
         .tncategory::-ms-expand {
           display: none;
         }
-        &__guidebox2 {
+        .tncategory-size{
+          -webkit-appearance: none;
+          -moz-appearance: none;
+          appearance: none;
+          width: 300px;
+          height: 45px;
+          margin: 10px 50px;
+          background: transparent;
+          position: relative;
+          z-index: 1;
+          padding: 0 40px 0 10px;
+          border: 1px solid #b4b3b3;
+          border-radius: 3px;
+        }
+        &__area{
+          // 発送元の地域必須
           position: absolute;
-          top: 260px;
+          top: 250px;
           right: 250px;
           .tnguide {
             font-weight: bold;
@@ -201,7 +452,8 @@
             color: white;
           }
         }
-        &__category2 {
+        &__input-area {
+          // 発送元の地域ボックス
           width: 100%;
           position: relative;
           display: inline-block;
@@ -209,7 +461,7 @@
           top: 280px;
           left: 260px;
         }
-        &__category2::after {
+        &__input-area::after {
           content: '';
           width: 6px;
           height: 6px;
@@ -225,6 +477,7 @@
           margin-top: -4px;
         }
         &__guidebox3 {
+          // 発送までの日時、必須
           position: absolute;
           top: 290px;
           right: 250px;
@@ -247,6 +500,7 @@
           }
         }
         &__category3 {
+          // 発送までの日時ボックス
           width: 100%;
           position: relative;
           display: inline-block;
@@ -324,7 +578,7 @@
         .tndelivery::-ms-expand {
           display: none;
         }
-        &__guidebox3 {
+        &__daytime {
           position: absolute;
           top: 350px;
           right: 235px;
@@ -552,94 +806,6 @@
   }
 }
 
-.kw_hidden {
-  display: none;
-}
-
-.tnmain__contents__form__detail__guidebox1{
-  width: 100%;
-  position: relative;
-  display: inline-block;
-  position: absolute;
-  top: 150px;
-  left: 305px;
-  .tnguide {
-    font-weight: bold;
-    font-size: 15px;
-  }
-  .tnhissu {
-    display: inline-block;
-    width: 40px;
-    height: 22px;
-    margin-left: 10px;
-    border-style: none;
-    font-size: 14px;
-    font-weight: bold;
-    text-align: center;
-    line-height: 22px;
-    border-radius: 3px;
-    background-color: red;
-    color: white;
-    }
-    .tncategory {
-      -webkit-appearance: none;
-      -moz-appearance: none;
-      appearance: none;
-      width: 350px;
-      height: 45px;
-      margin: 10px 50px;
-      background: transparent;
-      position: relative;
-      z-index: 1;
-      padding: 0 40px 0 10px;
-      border: 1px solid #b4b3b3;
-      border-radius: 3px;
-    }
-    .tncategory::-ms-expand {
-      display: none;
-    }
-}
-
-.tnmain__contents__form__detail__category1{
-    width: 100%;
-    display: inline-block;
-    position: absolute;
-    top: 180px;
-    left: 260px;
-}
-
-.tnmain__contents__form__detail__guidebox4{
-  position: absolute;
-  top: 350px;
-  right: 270px;
-  .tnguide {
-    font-weight: bold;
-    font-size: 15px;
-  }
-  .tnhissu {
-    display: inline-block;
-    width: 40px;
-    height: 22px;
-    margin-left: 10px;
-    font-size: 14px;
-    font-weight: bold;
-    text-align: center;
-    line-height: 22px;
-    border-radius: 3px;
-    background-color: #ccc;
-    color: white;
-  }
-}
-
-.tnmain__contents__form__detail__category4{
-  width: 100%;
-  position: relative;
-  display: inline-block;
-  position: absolute;
-  top: 380px;
-  left: 260px;
-}
-
 .items__sell{
   background-color: #ffffff;
   width: 700px;
@@ -729,101 +895,4 @@
       }
     }
   }
-}
-
-.tnmain__contents__form__detail__guidebox1-1{
-          position: absolute;
-          top: 37px;
-          right: 250px;
-          .tnguide {
-            font-weight: bold;
-            font-size: 15px;
-          }
-          .tnhissu {
-            display: inline-block;
-            width: 40px;
-            height: 22px;
-            margin-left: 10px;
-            font-size: 14px;
-            font-weight: bold;
-            text-align: center;
-            line-height: 22px;
-            border-radius: 3px;
-            background-color: red;
-            color: white;
-          }
-}
-
-
-.tnmain__contents__form__detail__category1-1{
-          width: 100%;
-          position: relative;
-          display: inline-block;
-          position: absolute;
-          top: 60px;
-          left: 260px;
-}
-
-.tnmain__contents__form__detail__guidebox2-1{
-  position: absolute;
-  top: 130px;
-  right: 250px;
-  .tnguide {
-    font-weight: bold;
-    font-size: 15px;
-  }
-  .tnhissu {
-    display: inline-block;
-    width: 40px;
-    height: 22px;
-    margin-left: 10px;
-    font-size: 14px;
-    font-weight: bold;
-    text-align: center;
-    line-height: 22px;
-    border-radius: 3px;
-    background-color: red;
-    color: white;
-  }
-}
-
-.tnmain__contents__form__detail__category2-1{
-  width: 100%;
-  position: relative;
-  display: inline-block;
-  position: absolute;
-  top: 160px;
-  left: 260px;
-}
-
-.tnmain__contents__form__detail__guidebox3-1{
-  position: absolute;
-  top: 240px;
-  right: 280px;
-  .tnguide {
-    font-weight: bold;
-    font-size: 15px;
-  }
-  .tnhissu {
-    display: inline-block;
-    width: 40px;
-    height: 22px;
-    margin-left: 10px;
-    font-size: 14px;
-    font-weight: bold;
-    text-align: center;
-    line-height: 22px;
-    border-radius: 3px;
-    background-color: red;
-    color: white;
-  }
-}
-
-.tnmain__contents__form__detail__category3-1{
-  width: 100%;
-  position: relative;
-  display: inline-block;
-  position: absolute;
-  top: 270px;
-  left: 260px;
 }
