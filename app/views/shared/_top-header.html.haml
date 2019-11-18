@@ -2,9 +2,10 @@
   .header__inner__top
     =link_to root_path do
       =image_tag "//www-mercari-jp.akamaized.net/assets/img/common/common/logo.svg?863303983" ,alt: "mercari", height: "36", width: "134"
-    %form.header-form{action: "https://www.mercari.com/jp/search/"}
-      %input.input-default{name: "keyword", placeholder: "何かお探しですか？", type: "search", value: ""}/
-      = fa_icon 'search'
+    = form_tag(search_tops_path, :method => "get", class: 'header_search') do
+      = text_field_tag :search ,"", class: "header_search_field", placeholder: "何かお探しですか？"
+      = button_tag type: 'submit', class:"header_search_botton" do
+        %i.fa.fa-search
   .header__inner__bottom.clearfix
     .header__inner__bottom--left
       =link_to "" ,class:"header__category" do
