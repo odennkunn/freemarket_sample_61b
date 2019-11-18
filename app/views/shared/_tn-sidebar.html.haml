@@ -65,7 +65,6 @@
 %h3.tnmypage-nav__head
   設定
 %ul.tnmypage-nav__lists
-  -# =link_to 'users/edit', class: 'tnbox' do
   = link_to edit_user_path(current_user), method: :get, class: 'tnbox' do
     %li.list
       プロフィール
@@ -74,7 +73,7 @@
     %li.list
       発送元・お届け先住所変更
       =fa_icon 'chevron-right', class: 'icon'
-  =link_to 'users/card', class: 'tnbox' do
+  =link_to card_users_path, class: 'tnbox' do
     %li.list
       支払い方法
       =fa_icon 'chevron-right', class: 'icon'

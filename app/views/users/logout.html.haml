@@ -6,7 +6,6 @@
   %nav.tnmypage-nav
     = render 'shared/tn-sidebar'
   .tncontents__logout
-    -# =link_to 'http://google.co.jp', class: 'tnlogoutbtn' do
     =link_to destroy_user_session_path, class: 'tnlogoutbtn', method: :delete do
       .tncontents__logout__btn
         %span ログアウト
