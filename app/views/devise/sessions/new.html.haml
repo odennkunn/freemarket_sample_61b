@@ -7,7 +7,7 @@
         .km-form__container
           .km-form__info-text-log_in
             アカウントをお持ちでない方はこちら
-          %button.km-sign_up__btn
+          = link_to signup_path, class: 'km-sign_up__btn' do
             新規会員登録
     .km-login-form__inner
       .km-form__wrapper

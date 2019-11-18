@@ -1,6 +1,6 @@
 .tnheader
   %h1.tnheader__logo
-    =link_to '/' do
+    =link_to '' do
       = image_tag "//www-mercari-jp.akamaized.net/assets/img/common/common/logo.svg?465897195", class: 'logoimage'
 .tnmain
   .tnmain__contents
@@ -57,7 +57,7 @@
           = f.text_field :bland_id, class: 'tncategory'
       .tnmain__contents__form__delivery
         %h3 配送について
-        =link_to 'http://google.co.jp', class: 'tnquestion' do
+        =link_to '', class: 'tnquestion' do
           ?
         .tnmain__contents__form__detail__guidebox
           %span.tnguide 配送料の負担
@@ -81,7 +81,7 @@
           = f.select :delivery_day, [["--"], ["1~2日で発送", "1~2日で発送"], ["2~3日で発送", "2~3日で発送"], ["4~7日で発送", "4~7日で発送"]], {}, class: "tndelivery"
       .tnmain__contents__form__price
         %h3 販売価格(300〜9,999,999)
-        =link_to 'http://google.co.jp', class: 'tnquestion' do
+        =link_to '', class: 'tnquestion' do
           ?
         .tnmain__contents__form__price__box
           .tnmain__contents__form__price__box__input
@@ -101,17 +101,17 @@
       .tnmain__contents__form__note
         .tnmain__contents__form__note__text
           %p
-            =link_to 'http://google.co.jp' do
+            =link_to '' do
               禁止されている出品、行為
             を必ずご確認ください。
           %p
             またブランド品でシリアルナンバー等がある場合はご記載ください。
-            =link_to 'http://google.co.jp' do
+            =link_to '' do
               偽ブランドの販売
             は犯罪であり処罰される可能性があります。
           %p
             また、出品をもちまして
-            =link_to 'http://google.co.jp' do
+            =link_to '' do
               加盟店規約
             に同意したことになります。
         .tnmain__contents__form__note__btn
@@ -122,15 +122,15 @@
 .tnfooder
   %ul.tnfooder__policy
     %li.tnfooder__policy__privacy
-      =link_to 'http://google.co.jp', class: 'privacy' do
+      =link_to '', class: 'privacy' do
         プライバシーポリシー
     %li.tnfooder__policy__privacy
-      =link_to 'http://google.co.jp', class: 'privacy' do
+      =link_to '', class: 'privacy' do
         メルカリ利用規約
     %li.tnfooder__policy__privacy
-      =link_to 'http://google.co.jp', class: 'privacy' do
+      =link_to '', class: 'privacy' do
         特定商取引に関する表記
-  =link_to 'http://google.co.jp', class: 'footerlogo' do
+  =link_to '', class: 'footerlogo' do
     .tnfooder__logo
       =image_tag "//www-mercari-jp.akamaized.net/assets/img/common/common/logo-gray.svg?465897195", alt: "mercari", height: "65", width: '80'
   %p © 2019 Mercari

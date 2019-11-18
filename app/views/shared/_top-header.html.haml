@@ -7,14 +7,13 @@
       = fa_icon 'search'
   .header__inner__bottom.clearfix
     .header__inner__bottom--left
-      =link_to "https://www.mercari.com/jp/category/" ,class:"header__category" do
+      =link_to "" ,class:"header__category" do
         = fa_icon 'list-ul', class: "left"
         %span カテゴリーから探す
-      =link_to "https://www.mercari.com/jp/brand/" , class:"header__brand" do 
+      =link_to "" , class:"header__brand" do 
         = fa_icon 'tag', class: "left"
         %span ブランドから探す
     - if user_signed_in?
-      -# = link_to edit_user_path(current_user), method: :get, class:"header__inner__bottom--right" do
       = link_to user_path(current_user), method: :get, class:"header__inner__bottom--right" do
         = image_tag "member_photo_noimage_thumb.png", class: "km-avatar__img"
         .km-header__mypage-link-text
