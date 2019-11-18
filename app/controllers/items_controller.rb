@@ -12,8 +12,7 @@ class ItemsController < ApplicationController
 
   def create
     @item = Item.new(item_params)
-    # @item.save
-    # @item.images.build
+    # @item.valid?
     # binding.pry
     if @item.save
       params[:images][:image].each do |image|
@@ -21,24 +20,7 @@ class ItemsController < ApplicationController
       end
       respond_to do |format|
         format.json
-        format.html{redirect_to signup_index_path}
       end
-      # redirect_to signup_index_path
-      # respond_to do |format|
-      #   format.json{redirect_to root_path}
-      # end
-      # image_params[:images].each do |image|
-      #   @item.images.build
-      #   item_image = @item.images.new(image: image)
-      #   item_image.save
-      # end
-    #   respond_to do |format|
-    #     format.json
-    #   end
-    #   redirect_to root_path
-    # else
-      # @item.images.build
-      # redirect_to new_item_path
     end
   end
 
@@ -106,8 +88,4 @@ class ItemsController < ApplicationController
                                  images_attributes: [:image, :_destory, :id]).merge(user_id: current_user.id)
                                 #  user_idをcurrent_userに変更する
   end
-
-  # def image_params
-  #   params.require(:images).permit({:images => []})
-  # end
 end

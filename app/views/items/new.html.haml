@@ -13,21 +13,13 @@
           %span.tnguide 出品画像
           .tnhissu 必須
         %p.tnmain__contents__form__imagebox--note
-          最大10枚までアップロードできます
+          最大5枚までアップロードできます
         .items__sell__form__upload-image-form
           .km-images__preview
             %ul.km-previews
           .km-images__guide
             .km-have__image--0
-              %h5 ドラッグ&ドロップ
-              %br でファイルをアップロード
-          -# =f.fields_for :images do |f|
-          -#   = f.label :name do
-          -#     %span
-          -#       ドラッグアンドドロップ
-          -#       %br
-          -#       またはクリックしてファイルをアップロード
-          -#     = f.file_field :image, accept: "image/*"
+              %h5 ドラッグ&ドロップでファイルをアップロード
       .tnmain__contents__form__itemname
         .tnmain__contents__form__imagebox__guidebox
           %span.tnguide 商品名
