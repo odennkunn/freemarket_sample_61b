@@ -131,7 +131,7 @@ class SignupController < ApplicationController
   def pay
     Payjp.api_key = Rails.application.credentials.aws[:payjp_private_key]
     if params['payjp-token'].blank?
-      redirect_to complete_signup_signup_index_path
+      redirect_to step4_signup_index_path
     else
       customer = Payjp::Customer.create(
       card: params['payjp-token']

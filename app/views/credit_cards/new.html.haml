@@ -2,18 +2,19 @@
   =render 'shared/top-header'
 .tncontents
   %nav.tnmypage-nav
-    = render 'shared/tn-sidebar'
+    = render 'users/tn-sidebar'
   .tncontents__registercard
     .tncontents__registercard__header
       %p クレジットカード情報入力
     .km-ragistration-form__inner
+      = form_tag(pay_credit_cards_path, method: :post, action: "create", id: 'charge-form',  name: "inputForm", class: "chapter__container__inner")
       .km-form__wrapper
         .km-form__container
           %label{class: "km-label"}
             カード番号
           .km-form-require
             必須
-          %input{class: "km-form", placeholder: "半角数字のみ"}
+          %input{class: "km-form", placeholder: "半角数字のみ", id: 'card_number'}
           .km-form__images
             = image_tag "visad.jpg", class: "card__image"
             = image_tag "ms.png", class: "card__image"
@@ -30,7 +31,7 @@
           .km-limit-select__container
             .select-wrap
               = fa_icon 'chevron-down', class: "km-select-arrow"
-              %select#exp_month.select{name: "exp_month", type: "text"}
+              %select{name: "exp_month", type: "text", id: 'exp_month', class: 'select'}
                 %option{value: ""} --
                 %option{value: "1"}01
                 %option{value: "2"}02
@@ -48,7 +49,7 @@
               月
             .select-wrap
               = fa_icon 'chevron-down', class: "km-select-arrow"
-              %select#exp_year.select{name: "", type: "text"}
+              %select{name: "exp_year", type: "text", id: 'exp_year', class: 'select'}
                 %option{value: ""} --
                 %option{value: "2019"}19
                 %option{value: "2020"}20
@@ -68,15 +69,85 @@
             セキュリティコード
           .km-form-require
             必須
-          %input{class: "km-form", placeholder: "カード背面4桁もしくは3桁の番号"}
+          %input{class: "km-form", placeholder: "カード背面4桁もしくは3桁の番号", id: 'cvc', name: 'cvc'}
         .km-form__container
           .km-form__info-text-right
             = link_to "" do
               = fa_icon 'question-circle'
               カード背面の番号とは？
-        .km-form__container
-          = link_to '', class: "km-submit-next__btn btn-red" do
-            次へ進む
+        .km-form__container#card_token
+          = submit_tag "登録する", class: "km-submit-next__btn btn-red", id: 'token_submit' 
+
+      -# = form_tag(pay_credit_cards_path, method: :post, id: 'charge-form',  name: "inputForm", class: "chapter__container__inner") do
+      -#   .km-form__wrapper
+      -#     .km-form__container
+      -#       %label{class: "km-label"}
+      -#         カード番号
+      -#       .km-form-require
+      -#         必須
+      -#       %input{class: "km-form", placeholder: "半角数字のみ", id: 'card_number'}
+      -#       .km-form__images
+      -#         = image_tag "visad.jpg", class: "card__image"
+      -#         = image_tag "ms.png", class: "card__image"
+      -#         = image_tag "sai.gif", class: "card__image"
+      -#         = image_tag "jcb.gif", class: "card__image"
+      -#         = image_tag "ame.gif", class: "card__image"
+      -#         = image_tag "din.gif", class: "card__image"
+      -#         = image_tag "dis.gif", class: "card__image"
+      -#     .km-form__container
+      -#       %label{class: "km-label"}
+      -#         有効期限
+      -#       .km-form-require
+      -#         必須
+      -#       .km-limit-select__container
+      -#         .select-wrap
+      -#           = fa_icon 'chevron-down', class: "km-select-arrow"
+      -#           %select{name: "exp_month", type: "text", id: 'exp_month', class: 'select'}
+      -#             %option{value: ""} --
+      -#             %option{value: "1"}01
+      -#             %option{value: "2"}02
+      -#             %option{value: "3"}03
+      -#             %option{value: "4"}04
+      -#             %option{value: "5"}05
+      -#             %option{value: "6"}06
+      -#             %option{value: "7"}07
+      -#             %option{value: "8"}08
+      -#             %option{value: "9"}09
+      -#             %option{value: "10"}10
+      -#             %option{value: "11"}11
+      -#             %option{value: "12"}12
+      -#         .km-select__info-text
+      -#           月
+      -#         .select-wrap
+      -#           = fa_icon 'chevron-down', class: "km-select-arrow"
+      -#           %select{name: "exp_year", type: "text", id: 'exp_year', class: 'select'}
+      -#             %option{value: ""} --
+      -#             %option{value: "2019"}19
+      -#             %option{value: "2020"}20
+      -#             %option{value: "2021"}21
+      -#             %option{value: "2022"}22
+      -#             %option{value: "2023"}23
+      -#             %option{value: "2024"}24
+      -#             %option{value: "2025"}25
+      -#             %option{value: "2026"}26
+      -#             %option{value: "2027"}27
+      -#             %option{value: "2028"}28
+      -#             %option{value: "2029"}29
+      -#         .km-select__info-text
+      -#           年
+      -#     .km-form__container
+      -#       %label{class: "km-label"}
+      -#         セキュリティコード
+      -#       .km-form-require
+      -#         必須
+      -#       %input{class: "km-form", placeholder: "カード背面4桁もしくは3桁の番号", id: 'cvc', name: 'cvc'}
+      -#     .km-form__container
+      -#       .km-form__info-text-right
+      -#         = link_to "" do
+      -#           = fa_icon 'question-circle'
+      -#           カード背面の番号とは？
+      -#     .km-form__container#card_token
+      -#       = submit_tag "追加する", class: "km-submit-next__btn btn-red", id: 'token_submit'
 
 =render 'shared/top-footerimg'
 .footer

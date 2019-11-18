@@ -54,7 +54,6 @@ class ItemsController < ApplicationController
     @item.update(buyer_id: current_user.id)
       redirect_to "/items/buy_success/#{@item.id}"
     else
-      flash[:purchase] = '購入エラー'
       redirect_to "/items/pay/#{@item.id}"
     end
   end
