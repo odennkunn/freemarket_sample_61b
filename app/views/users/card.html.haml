@@ -4,13 +4,13 @@
 = render 'shared/breadcrumbs'
 .tncontents
   %nav.tnmypage-nav
-    = render 'shared/tn-sidebar'
+    = render 'tn-sidebar'
   .tncontents__pay
     .tncontents__pay__title
       %span 支払い方法
     .tncontents__pay__card
       %span クレジットカード一覧
-      =link_to '', class: 'tncardbtn' do
+      =link_to new_credit_card_path, class: 'tncardbtn' do
         .tncontents__pay__card__box
           =fa_icon 'credit-card', class: 'tni-card'
           クレジットカードを登録する

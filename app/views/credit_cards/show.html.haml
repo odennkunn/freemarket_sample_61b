@@ -2,7 +2,8 @@
   =render 'shared/top-header'
 .tncontents
   %nav.tnmypage-nav
-    = render 'shared/tn-sidebar'
+    = render 'users/tn-sidebar'
+
   .tncontents__cardindex
     .tncontents__cardindex__header
       %p 支払い方法
@@ -10,13 +11,16 @@
       .tncontents__cardindex__lists__index
         %p クレジットカード一覧
       .tncontents__cardindex__lists__payment
-        %form.tncontents__cardindex__lists__payment__form
+        .tncontents__cardindex__lists__payment__form
           .tncontents__cardindex__lists__payment__form__image
             = image_tag '//www-mercari-jp.akamaized.net/assets/img/card/visa.svg?2317089198', width: '49', height: '15'
           .tncontents__cardindex__lists__payment__form__number
-            %p ************1111
+            **** **** ****
+            = @card.last4
           .tncontents__cardindex__lists__payment__form__date
-            %p 12/12
+            = @card.exp_month < 10 ? "0#{@card.exp_month.to_s}" : @card.exp_month
+            \/
+            = @card.exp_year % 100
           = form_tag(delete_credit_cards_path, method: :post, id: 'delete-card',  name: "inputForm") do
             %input{ type: "hidden", name: "card_id", value: "" }
             %button.delete__button 削除する
@@ -24,7 +28,6 @@
       .tncontents__cardindex__link
         %span 支払い方法について
         =fa_icon 'chevron-right'
-
 
 =render 'shared/top-footerimg'
 .footer
