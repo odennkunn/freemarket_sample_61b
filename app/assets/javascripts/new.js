@@ -1,4 +1,4 @@
-$(function(){
+$(document).on('turbolinks:load', function(){
 
   function buildHtml(num){
     var html = `<div class="image_preview">
