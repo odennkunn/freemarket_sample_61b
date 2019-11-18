@@ -1,5 +1,5 @@
 class ItemsController < ApplicationController
-
+  before_action :authenticate_user!, except: [:show]
   before_action :set_item, only: [:show, :edit, :update, :destroy, :pay, :buy, :buy_success]
   before_action :credit_cards_info, only: [:pay, :buy_success]
   def new
@@ -111,6 +111,5 @@ class ItemsController < ApplicationController
     @card = customer.cards.retrieve(card.card_id)
     return @card
   end
-
 
 end
