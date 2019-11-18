@@ -15,6 +15,25 @@ html {
   &__main {
     margin-top: 16px;
     position: relative;
+    &__sold {
+      width: 0;
+      height: 0;
+      border-top: 80px solid #ea352d ;
+      border-right: 80px solid transparent;
+      border-bottom: 80px solid transparent;
+      border-left: 80px solid #ea352d ; 
+      position: absolute;
+      top: 0px;
+      z-index:100;
+      &__inner{
+        transform: rotate(-45deg);
+        font-size: 25px;
+        margin:-35px 0px 0px -55px;
+        color: #fff;
+        letter-spacing: 2px;
+        font-weight: 600;
+      }
+    }
     &--photo{
       float: left;
     }
@@ -89,6 +108,19 @@ html {
     font-size: 25px;
     font-weight: bold;
     margin-top: 20px;
+  }
+  .red-btn {
+    text-align: center;
+    font-size: 22px;
+    margin: 25px 0;
+    background: rgb(239, 1, 1);
+    color: white;
+    height: 60px;
+    line-height: 60px;
+    font-size: 25px;
+    font-weight: bold;
+    margin-top: 20px;
+    display: block;
   }
   .kw_item_detail__explain {
     margin: 20px 0;  

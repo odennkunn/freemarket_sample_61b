@@ -37,16 +37,35 @@
     margin: 0 auto;
     .twbuy-content {
       display: block;
-
+      &__success {
+        height: 150px;
+        background-color: #FFFF99;
+        text-align: center;
+        .icon {
+          color: red;
+          font-size: 40px;
+          padding-top: 20px;
+        }
+        &__text1 {
+          display: inline-block;
+          color: red;
+          font-size: 30px;
+        }
+        &__text2 {
+          font-size: 18px;
+          padding-top: 20px;
+        }
+      }
       &__header {
         padding: 16px;
         font-size: 22px;
         text-align: center;
         font-weight: bold;
+        border-bottom: 1px solid #f5f5f5;
       }
       &__product {
         padding: 24px 12.5% 0;
-        border-top: 1px solid #f5f5f5;
+       
         text-align: center;
 
         &__inner {
@@ -90,17 +109,16 @@
               padding: 14px;
               border: 1px solid #ccc;
               font-size: 14px;
-            }
+              display: block;
 
+            }
             .twbuy-price-table {
               display: flex;
               width: 100%;
               font-weight: bold;
               &__left {
-                padding: 24px 0 0;
                 font-size: 18px;
                 width: 50%;
-                text-align: left;
               }
               &__right {
                 padding: 16px 0;
@@ -165,6 +183,16 @@
       &__user-info:last-of-type {
         padding: 24px 12.5% 40px;
       }
+      &__return {
+        height: 80px;
+        border-top: 1px solid #f5f5f5;
+        text-align: center;
+        line-height: 80px;
+        &__button {
+          font-size: 20px;
+          color: #0099e8;
+        }
+      }
     }
   }
 }
@@ -185,3 +213,11 @@
       padding-left: 14px;
     }
  }
+.tn-buy-button {
+  color: white;
+  width: 100px;
+  height: 50px;
+  width: 310px;
+  background-color: red;
+  font-size: 18px;
+}

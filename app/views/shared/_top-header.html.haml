@@ -2,19 +2,19 @@
   .header__inner__top
     =link_to root_path do
       =image_tag "//www-mercari-jp.akamaized.net/assets/img/common/common/logo.svg?863303983" ,alt: "mercari", height: "36", width: "134"
-    %form.header-form{action: "https://www.mercari.com/jp/search/"}
-      %input.input-default{name: "keyword", placeholder: "何かお探しですか？", type: "search", value: ""}/
-      = fa_icon 'search'
+    = form_tag(search_tops_path, :method => "get", class: 'header_search') do
+      = text_field_tag :search ,"", class: "header_search_field", placeholder: "何かお探しですか？"
+      = button_tag type: 'submit', class:"header_search_botton" do
+        %i.fa.fa-search
   .header__inner__bottom.clearfix
     .header__inner__bottom--left
-      =link_to "https://www.mercari.com/jp/category/" ,class:"header__category" do
+      =link_to "" ,class:"header__category" do
         = fa_icon 'list-ul', class: "left"
         %span カテゴリーから探す
-      =link_to "https://www.mercari.com/jp/brand/" , class:"header__brand" do 
+      =link_to "" , class:"header__brand" do 
         = fa_icon 'tag', class: "left"
         %span ブランドから探す
     - if user_signed_in?
-      -# = link_to edit_user_path(current_user), method: :get, class:"header__inner__bottom--right" do
       = link_to user_path(current_user), method: :get, class:"header__inner__bottom--right" do
         = image_tag "member_photo_noimage_thumb.png", class: "km-avatar__img"
         .km-header__mypage-link-text

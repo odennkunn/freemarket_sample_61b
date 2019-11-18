@@ -12,14 +12,9 @@
       .tncontents__edit__image
         .tncontents__edit__image--avatar
           = image_tag "//static.mercdn.net/images/member_photo_noimage_thumb.png", size: '60x60', alt: '', class: 'tnperson'
-        -# %input{name: 'name', placeholder: 'noname', type: 'text'}
         = f.text_field :nickname, placeholder: 'noname', autofocus: true
       .tncontents__edit__textbox
-        -# %textarea{name: 'introduction', rows: '10', cols: '75', placeholder: '例）こんにちは☆ ご覧いただきありがとうございます！かわいいものやきれいめオフィスカジュアル中心に出品しています。服のサイズは主に9号です。気持ちよくお取引できるよう心がけていますので、商品や発送方法などご質問がありましたらお気軽にどうぞ♪'}
         = f.text_area :introduction, size: "75x10", placeholder: '例）こんにちは☆ ご覧いただきありがとうございます！かわいいものやきれいめオフィスカジュアル中心に出品しています。服のサイズは主に9号です。気持ちよくお取引できるよう心がけていますので、商品や発送方法などご質問がありましたらお気軽にどうぞ♪'
-        -# =link_to 'http://google.co.jp', class: 'edit-btn' do
-        -#   .tncontents__edit__textbox--btn
-        -#     %span 変更する
         = f.submit "変更する", class: 'edit-btn tncontents__edit__textbox--btn'
 =render 'shared/top-footerimg'
 .footer

@@ -8,7 +8,15 @@ Rails.application.routes.draw do
     collection do
       get 'get_category_children', defaults: { format: 'json' }
       get 'get_category_grandchildren', defaults: { format: 'json' }
-      get 'pay'
+      get 'pay/:id' => 'items#pay'
+      post 'buy/:id' => 'items#buy', as: 'buy'
+      get 'buy_success/:id' => 'items#buy_success'
+    end
+  end
+
+  resources :tops do
+    collection do
+      get 'search' => 'top#search'
     end
   end
 
@@ -16,7 +24,6 @@ Rails.application.routes.draw do
     collection do
       get 'logout'
       get 'card'
-      get 'confirm'
     end
   end
 
@@ -39,5 +46,7 @@ Rails.application.routes.draw do
       post 'pay'
     end
   end
+
+  resources :residences, only: [:edit, :update]
 
 end

@@ -1,12 +1,17 @@
 .twconfirm____container
   .twconfirm__simple__header__logo
     = link_to root_path do
-      = image_tag "//www-mercari-jp.akamaized.net/assets/img/common/common/logo.svg?3791839826"      
+      = image_tag "//www-mercari-jp.akamaized.net/assets/img/common/common/logo.svg?3791839826"
+
   .twbuy-main
     .twbuy-main__box
       .twbuy-content
-        %h2.twbuy-content__header
-          購入内容の確認
+        .twbuy-content__success
+          =fa_icon 'history', class: 'icon'
+          %p.twbuy-content__success__text1 発想をお待ちください
+          %p.twbuy-content__success__text2 出品者からの発送通知をお待ちください
+        .twbuy-content__header
+          購入完了
         .twbuy-content__product
           .twbuy-content__product__inner
             .twbuy-product-main
@@ -19,15 +24,6 @@
               %p.twbuy-price
                 = "¥" + @item.price
                 %span 送料込み
-              .twbuy-have-point
-                ポイントはありません
-              .twbuy-price-table
-                .buy-price-table__left
-                  支払金額 
-                .twbuy-price-table__right
-                  = "¥" + @item.price
-              = form_tag(buy_items_path, action: :buy, method: :post) do
-                %button.tn-buy-button 購入する
         .twbuy-content__user-info
           .twbuy-content__user-info__inner
             %h3 配送先
@@ -41,30 +37,10 @@
               %br
               = @item.user.family_name
               = @item.user.last_name
+        .twbuy-content__return
+          = link_to root_path, class: 'twbuy-content__return__button' do
+            トップページに戻る
 
-            .twuser-info-fix
-              = link_to "/residences/#{current_user.id}/edit" do
-                変更する
-                %span 
-                %i.fa.fa-chevron-right
-        .twbuy-content__user-info
-          .twbuy-content__user-info__inner
-            %h3 支払方法
-
-            .twuser-info-text
-              **** **** ****
-              = @card.last4
-              %br
-              = @card.exp_month < 10 ? "0#{@card.exp_month.to_s}" : @card.exp_month
-              \/
-              = @card.exp_year % 100
-              %br
-              = image_tag "https://www-mercari-jp.akamaized.net/assets/img/card/jcb.svg?465897195", width: "26px", height: "20px"
-            .twuser-info-fix
-              = link_to "#" do
-                変更する
-                %span
-                %i.fa.fa-chevron-right
 
   .twsignup__footer
     .twsignup__footer__detail
