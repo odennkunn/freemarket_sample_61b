@@ -53,21 +53,6 @@
             background-color: red;
             color: white;
           }
-          .tnhissu::after {
-            content: '';
-            width: 6px;
-            height: 6px;
-            border: 0px;
-            border-bottom: solid 2px #b4b3b3;
-            border-right: solid 2px #b4b3b3;
-            -ms-transform: rotate(45deg);
-            -webkit-transform: rotate(45deg);
-            transform: rotate(45deg);
-            position: absolute;
-            top: 1085px;
-            left: 815px;
-            margin-top: -4px;
-          }
         }
         &--note {
           padding-left: 40px;
@@ -279,6 +264,21 @@
           position: absolute;
           top: 170px;
           left: 260px;
+        }
+        &__input-size::after {
+          content: '';
+          width: 6px;
+          height: 6px;
+          border: 0px;
+          border-bottom: solid 2px #b4b3b3;
+          border-right: solid 2px #b4b3b3;
+          -ms-transform: rotate(45deg);
+          -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
+          position: absolute;
+          top: -213px;
+          left: 360px;
+          margin-top: -4px;
         }
         &__bland{
           // ブランド文字
