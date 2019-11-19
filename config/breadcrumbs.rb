@@ -27,6 +27,11 @@ crumb :user_confirm do
   parent :mypage
 end
 
+crumb :item_detail do 
+  link '商品詳細'
+  parent :root
+end
+
 
 # crumb :projects do
 #   link "Projects", projects_path
