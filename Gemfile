@@ -105,7 +105,7 @@ gem 'ransack'
 gem "recaptcha", require: "recaptcha/rails"
 gem 'dotenv-rails'
 gem 'rails-i18n'
-
+gem 'google-analytics-rails'
 group :development, :test do
 gem 'rspec-rails'
 gem 'factory_bot_rails'
