@@ -507,6 +507,10 @@
             border-style: none;
             color: white;
           }
+          .tnsubmit[disabled] {
+            background-color: gray;
+            cursor: not-allowed;
+          }
           .km-greyout {
             background-color: gray;
           }

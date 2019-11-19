@@ -12,16 +12,21 @@ class ItemsController < ApplicationController
 
   def create
     @item = Item.new(item_params)
-    # @item.valid?
+    
     # binding.pry
-    if @item.save
-      params[:images][:image].each do |image|
-        @item.images.create(image: image, item_id: @item.id)
-      end
-      respond_to do |format|
+    respond_to do |format|
+      format.json{render '/items/new' unless @item.valid?}
+      if @item.save
+        params[:images][:image].each do |image|
+          @item.images.create(image: image, item_id: @item.id)
+        end
         format.json
       end
     end
+      # redirect_to root_path
+    # else
+    #   render action: :new
+    # end
   end
 
   def destroy

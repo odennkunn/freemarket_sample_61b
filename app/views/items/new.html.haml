@@ -24,30 +24,31 @@
         .tnmain__contents__form__imagebox__guidebox
           %span.tnguide 商品名
           .tnhissu 必須
-        = f.text_field :name, class: 'inputname', placeholder: '商品名  (必須40文字まで'
+        = f.text_field :name, class: 'inputname', placeholder: '商品名  (必須40文字まで', required: true
+        = render partial: 'error_messages', locals: {item: @item, column: "name"}
         .tnmain__contents__form__imagebox__guidebox
           %span.tnguide 商品の説明
           .tnhissu 必須
-        = f.text_area :explanation, rows: '6', cols: '67', placeholder: '商品の説明 (必須1,000文字以内) (色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。'
+        = f.text_area :explanation, rows: '6', cols: '67', placeholder: '商品の説明 (必須1,000文字以内) (色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。', required: true
       .tnmain__contents__form__detail
         %h3 商品の詳細
         .tnmain__contents__form__detail__guidebox1-1
           %span.tnguide カテゴリー
           .tnhissu 必須
         .tnmain__contents__form__detail__category1-1
-          = f.select :category_id, [["--"], ["レディース", "1"], ["メンズ", "2"], ["ベビー・キッズ", "3"], ["インテリア・住まい・小物", "4"], ["本・音楽・ゲーム", "5"], ["おもちゃ・ホビー・グッズ", "6"], ["コスメ・香水・美容", "7"], ["家電・スマホ・カメラ", "8"], ["スポーツ・レジャー", "9"], ["ハンドメイド", "10"], ["チケット", "11"], ["自転車・オートバイ", "12"], ["その他", "13"]], {}, class: "tncategory"      
+          = f.select :category_id, [["レディース", "1"], ["メンズ", "2"], ["ベビー・キッズ", "3"], ["インテリア・住まい・小物", "4"], ["本・音楽・ゲーム", "5"], ["おもちゃ・ホビー・グッズ", "6"], ["コスメ・香水・美容", "7"], ["家電・スマホ・カメラ", "8"], ["スポーツ・レジャー", "9"], ["ハンドメイド", "10"], ["チケット", "11"], ["自転車・オートバイ", "12"], ["その他", "13"]], { include_blank: "--", selected:"" }, class: "tncategory", required: true
         
         .tnmain__contents__form__detail__guidebox2-1
           %span.tnguide 商品の状態
           .tnhissu 必須
         .tnmain__contents__form__detail__category2-1
-          = f.select :status, [["--"], ["新品、未使用", "新品、未使用"], ["未使用に近い", "未使用に近い"], ["目立った傷や汚れなし", "目立った傷や汚れなし"], ["やや傷や汚れあり", "やや傷や汚れあり"], ["傷や汚れあり", "傷や汚れあり"], ["全体的に状態が悪い", "全体的に状態が悪い"]], {}, class: "tncategory"
+          = f.select :status, [["--"], ["新品、未使用", "新品、未使用"], ["未使用に近い", "未使用に近い"], ["目立った傷や汚れなし", "目立った傷や汚れなし"], ["やや傷や汚れあり", "やや傷や汚れあり"], ["傷や汚れあり", "傷や汚れあり"], ["全体的に状態が悪い", "全体的に状態が悪い"]], {}, class: "tncategory", required: true
          
         .tnmain__contents__form__detail__guidebox3-1
           %span.tnguide サイズ
           .tnhissu 必須
         .tnmain__contents__form__detail__category3-1
-          = f.text_field :size, class: 'tncategory', placeholder: 'サイズ(cm)'
+          = f.text_field :size, class: 'tncategory', placeholder: 'サイズ(cm)', required: true
         .tnmain__contents__form__detail__guidebox4
           %span.tnguide ブランド
           .tnhissu 任意
@@ -61,22 +62,22 @@
           %span.tnguide 配送料の負担
           .tnhissu 必須
         .tnmain__contents__form__delivery__fee
-          = f.select :delivery_fee, [["--"], ["送料込み(出品者負担)", "送料込み(出品者負担)"], ["送料込み(出品者負担)", "送料込み(出品者負担)"], ["着払い(購入者負担)", "着払い(購入者負担)"]], {}, class: "tndelivery"
+          = f.select :delivery_fee, [["--"], ["送料込み(出品者負担)", "送料込み(出品者負担)"], ["送料込み(出品者負担)", "送料込み(出品者負担)"], ["着払い(購入者負担)", "着払い(購入者負担)"]], {}, class: "tndelivery", required: true
         .tnmain__contents__form__detail__guidebox1
           %span.tnguide 配送方法
           .tnhissu 必須
         .tnmain__contents__form__detail__category1
-          = f.select :delivery_way, [["--"], ["らくらくメルカリ便", "らくらくメルカリ便"], ["ゆうメール", "ゆうメール"], ["レターパック", "レターパック"], ["普通郵便", "普通郵便"]], {}, class: "tndelivery"
+          = f.select :delivery_way, [["--"], ["らくらくメルカリ便", "らくらくメルカリ便"], ["ゆうメール", "ゆうメール"], ["レターパック", "レターパック"], ["普通郵便", "普通郵便"]], {}, class: "tndelivery", required: true
         .tnmain__contents__form__detail__guidebox2
           %span.tnguide 発送元の地域
           .tnhissu 必須
         .tnmain__contents__form__detail__category2
-          = f.collection_select :prefecture_id, Prefecture.all, :id, :name, {prompt: '--'}, class: 'tndelivery'
+          = f.collection_select :prefecture_id, Prefecture.all, :id, :name, {prompt: '--'}, class: 'tndelivery', required: true
         .tnmain__contents__form__delivery__guidebox3
           %span.tnguide 発送までの日数
           .tnhissu 必須
         .tnmain__contents__form__delivery__day
-          = f.select :delivery_day, [["--"], ["1~2日で発送", "1~2日で発送"], ["2~3日で発送", "2~3日で発送"], ["4~7日で発送", "4~7日で発送"]], {}, class: "tndelivery"
+          = f.select :delivery_day, [["--"], ["1~2日で発送", "1~2日で発送"], ["2~3日で発送", "2~3日で発送"], ["4~7日で発送", "4~7日で発送"]], {}, class: "tndelivery", required: true
       .tnmain__contents__form__price
         %h3 販売価格(300〜9,999,999)
         =link_to 'http://google.co.jp', class: 'tnquestion' do
@@ -89,7 +90,7 @@
                 .tnhissu 必須
               .inputbox
                 ¥
-                = f.text_field :price, {class: "y-input-default", id: "y-sell-input-main", value:"", placeholder: "例）300"}
+                = f.text_field :price, {class: "y-input-default", id: "y-sell-input-main", value:"", placeholder: "例）300", required: true}
           .tnmain__contents__form__price__box__fee
             %span 販売手数料(10%)
             #y-sell-fee.tnmain__contents__form__price__box__fee--right -
