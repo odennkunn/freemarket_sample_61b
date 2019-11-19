@@ -1,28 +1,28 @@
 class CreditCardsController < ApplicationController
 
+  before_action :credit_cards_info, only: [:show]
+
   require "payjp"
   Payjp.api_key = Rails.application.credentials.aws[:payjp_private_key]
 
   def new
-    card = CreditCard.where(user_id: current_user.id)
+    card = CreditCard.where(user_id: current_user.id).first
     redirect_to action: 'show' if card.present?
   end
 
   def pay
     Payjp.api_key = Rails.application.credentials.aws[:payjp_private_key]
     if params['payjp-token'].blank?
-      redirect_to action: "new"
+      redirect_to new_credit_card_path
     else
       customer = Payjp::Customer.create(
-        description: '登録テスト',
-        card: params['payjp-token'],
-        metadata: {user_id: current_user.id}
+      card: params['payjp-token']
       )
       @card = CreditCard.new(user_id: current_user.id, customer_id: customer.id, card_id: customer.default_card)
       if @card.save
-        redirect_to action: "show"
+        redirect_to action: 'show'
       else
-        redirect_to action: "pay"
+        redirect_to new_credit_card_path
       end
     end
   end
@@ -35,17 +35,28 @@ class CreditCardsController < ApplicationController
       customer.delete
       card.delete
     end
-    redirect_to action: 'new'
+    redirect_to new_credit_card_path
   end
 
   def show
     card = CreditCard.where(user_id: current_user.id).first
     if card.blank?
-      redirect_to action: "show" 
+      redirect_to action: "new" 
     else
       customer = Payjp::Customer.retrieve(card.customer_id)
-      @default_card_information = customer.cards.retrieve(card.card_id)
+      @card = customer.cards.retrieve(card.card_id)
     end
   end
 
+
+  private 
+
+  def credit_cards_info
+    @card = current_user.credit_cards
+    Payjp.api_key = Rails.application.credentials.aws[:payjp_private_key]
+    card = @card[0]
+    customer = Payjp::Customer.retrieve(card.customer_id)
+    @card = customer.cards.retrieve(card.card_id)
+    return @card
+  end
 end
