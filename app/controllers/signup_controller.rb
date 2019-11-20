@@ -45,14 +45,13 @@ class SignupController < ApplicationController
     )
 
     render 'signup/step1' unless @user.valid?
-    unless verify_recaptcha(model: @user)
-      'signup/step1'
+    unless verify_recaptcha
+      render 'signup/step1'
     end
   end
 
   def step2
     @user = User.new
-
   end
 
   def save_step2
