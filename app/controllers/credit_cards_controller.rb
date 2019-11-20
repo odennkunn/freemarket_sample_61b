@@ -1,7 +1,7 @@
 class CreditCardsController < ApplicationController
 
   before_action :credit_cards_info, only: [:show]
-
+  before_action :set_residence, only: [:show, :new]
   require "payjp"
   Payjp.api_key = Rails.application.credentials.aws[:payjp_private_key]
 
@@ -58,5 +58,9 @@ class CreditCardsController < ApplicationController
     customer = Payjp::Customer.retrieve(card.customer_id)
     @card = customer.cards.retrieve(card.card_id)
     return @card
+  end
+
+  def set_residence
+    @residence = current_user.residence
   end
 end

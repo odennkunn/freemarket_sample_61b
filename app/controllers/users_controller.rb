@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :set_residence, only: [:show, :edit, :logout]
+  before_action :set_residence, only: [:show, :edit, :logout, :card]
   before_action :authenticate_user!
 
   def show
