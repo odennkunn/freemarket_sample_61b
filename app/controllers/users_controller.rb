@@ -1,8 +1,12 @@
 class UsersController < ApplicationController
   before_action :set_residence, only: [:show, :edit, :logout]
+  before_action :authenticate_user!
 
   def show
-    redirect_to root_path unless @residence
+    unless @residence
+      reset_session
+      redirect_to root_path, alert: "error: ユーザー情報が破損しています。新しいユーザーを再登録してください" 
+    end
   end
   
   def edit
