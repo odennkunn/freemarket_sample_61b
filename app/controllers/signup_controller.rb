@@ -44,8 +44,8 @@ class SignupController < ApplicationController
       birth_day: session[:birth_day]
     )
 
-    render 'signup/step1' unless @user.valid?
-    unless verify_recaptcha
+    
+    unless verify_recaptcha && @user.valid?
       render 'signup/step1'
     end
   end
