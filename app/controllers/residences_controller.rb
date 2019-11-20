@@ -6,12 +6,14 @@ class ResidencesController < ApplicationController
 
   def update
     residence = Residence.find(params[:id])
-    if residence.user_id == current_user.id
-      residence.update(residence_params)
-      redirect_to user_path
-    else
-      render :edit
-    end
+    residence.update(residence_params)
+    redirect_to "/users/#{current_user.id}"
+    # if residence.user_id == current_user.id
+    #   residence.update(residence_params)
+    #   redirect_to user_path
+    # else
+    #   render :edit
+    # end
   end
 
   private
