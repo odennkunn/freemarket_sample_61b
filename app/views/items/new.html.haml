@@ -41,7 +41,6 @@
           .listing-select-wrapper
             .listing-select-wrapper__box
               = f.select :category_id, @category_parent_array, {}, {class: 'tncategory', id: 'parent_category'}
-          -# = f.select :category_id, [["--"], ["レディース", "1"], ["メンズ", "2"], ["ベビー・キッズ", "3"], ["インテリア・住まい・小物", "4"], ["本・音楽・ゲーム", "5"], ["おもちゃ・ホビー・グッズ", "6"], ["コスメ・香水・美容", "7"], ["家電・スマホ・カメラ", "8"], ["スポーツ・レジャー", "9"], ["ハンドメイド", "10"], ["チケット", "11"], ["自転車・オートバイ", "12"], ["その他", "13"]], {}, class: "tncategory"
       .tnmain__contents__form__detail  
         .tnmain__contents__form__detail__state
           %span.tnguide 商品の状態
@@ -71,7 +70,7 @@
           %span.tnguide 配送方法
           .tnhissu 必須
         .tnmain__contents__form__detail__input-way
-          = f.select :delivery_way, [["---"], ["らくらくメルカリ便", "らくらくメルカリ便"], ["ゆうメール", "ゆうメール"], ["レターパック", "レターパック"], ["普通郵便", "普通郵便"]], {}, class: "tndelivery"
+          = f.select :delivery_way, [["---"], ["らくらくメルカリ便", "らくらくメルカリ便"], ["ゆうメール", "ゆうメール"], ["レターパック", "レターパック"], ["普通郵便", "普通郵便"], ["クロネコヤマト", "クロネコヤマト"], ["ゆうパック", "ゆうパック"], ["未定", "未定"]], {}, class: "tndelivery"
         .tnmain__contents__form__detail__area
           %span.tnguide 発送元の地域
           .tnhissu 必須

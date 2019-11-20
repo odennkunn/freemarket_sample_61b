@@ -81,7 +81,7 @@
   - if user_signed_in? && @item.user.id == current_user.id
     = link_to "商品の編集", edit_item_path, method: :get, class: 'red-btn'
     .kw_item_detail__or
-    or
+      or
     = link_to "この商品を削除する", item_path(@item), method: :delete, class: "delete-btn"
   - else
     - unless @item.buyer_id.present? 
