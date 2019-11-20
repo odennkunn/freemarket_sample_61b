@@ -10,4 +10,7 @@
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
     = analytics_init if Rails.env.production?
   %body
+    .km-error-container
+      - if flash.alert.present?
+        .alert.alert-success= flash.alert
     = yield
