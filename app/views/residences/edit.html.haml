@@ -39,28 +39,28 @@
       .tncontents__form__box
         %label 郵便番号
         .tncontents__form__box--note
-          任意
+          必須
         = f.text_field :address_number, placeholder: "例) 123-4567"
       .tncontents__form__box
         %label 都道府県
         .tncontents__form__box--note
-          任意
+          必須
         .tncontents__form__box--select
           = f.collection_select :prefecture_id, Prefecture.all, :id, :name, {prompt: '--'}, class: 'tnselect'
       .tncontents__form__box
         %label 市区町村
         .tncontents__form__box--note
-          任意
+          必須
         = f.text_field :municipal, placeholder: "例) 横浜市緑区"
       .tncontents__form__box
         %label 番地
         .tncontents__form__box--note
-          任意
+          必須
         = f.text_field :address, placeholder: "例) 青山1-1-1"
       .tncontents__form__box
         %label 建物名
         .tncontents__form__box--note
-          任意
+          必須
         = f.text_field :building, placeholder: "例) 柳ビル103"
       = f.submit '登録する', class: 'tnregister-btn tncontents__form__btn'
       .tncontents__form__info
